@@ -1,4 +1,5 @@
 import Head from "next/head";
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function Home() {
   return (
@@ -9,8 +10,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="bg-blue-200 dark:bg-blue-900">
         <h1>Resource Hub</h1>
+        <ThemeToggle />
       </main>
     </div>
   );
