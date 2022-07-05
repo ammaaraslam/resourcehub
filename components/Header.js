@@ -23,7 +23,7 @@ const Header = () => {
           </div>
           <div className="inline-flex font-medium text-xl font-sansSerif tracking-wider">
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
-              <Link href="/">Explore</Link>
+              <Link href="/explore">Explore</Link>
             </li>
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/">About</Link>
