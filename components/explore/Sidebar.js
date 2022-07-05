@@ -15,9 +15,11 @@ import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
+  const router = useRouter();
 
   return (
     <asi className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sansSerif">
@@ -27,7 +29,13 @@ const Sidebar = () => {
         </SideBarButton>
       </div>
       <div className="pb-4 flex flex-col px-2">
-        <SideBarButtonOutlined active={true}>
+        <SideBarButtonOutlined
+          handleOnClick={(e) => {
+            e.preventDefault();
+            router.push("/add");
+          }}
+          active={true}
+        >
           <MdLibraryAdd className="ml-4 mr-2" /> New Resource
         </SideBarButtonOutlined>
       </div>
