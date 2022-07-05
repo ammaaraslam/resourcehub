@@ -1,4 +1,5 @@
 import { OutlinedButton } from "../Buttons";
+import UserAuthButton from "../UserAuthButton";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       </div>
 
       <div className="mr-8">
-        <OutlinedButton>Sign In</OutlinedButton>
+        <UserAuthButton />
       </div>
     </header>
   );

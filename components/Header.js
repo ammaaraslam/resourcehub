@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { OutlinedButton } from "./Buttons";
+import UserAuthButton from "./UserAuthButton";
 
 const Header = () => {
   const [navActive, setNavActive] = useState(false);
@@ -33,7 +34,7 @@ const Header = () => {
             </li>
           </div>
           <div className="mr-8">
-            <OutlinedButton>Sign In</OutlinedButton>
+            <UserAuthButton />
           </div>
         </header>
       )}
@@ -54,9 +55,7 @@ const Header = () => {
             </li>
           </div>
           <div className="mr-8 inline-flex">
-            <OutlinedButton type="small" textColor="background">
-              Sign In
-            </OutlinedButton>
+            <UserAuthButton />
           </div>
         </header>
       )}
