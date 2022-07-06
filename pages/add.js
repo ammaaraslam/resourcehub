@@ -1,6 +1,50 @@
 import Head from "next/head";
+import {useState} from 'react'
+import { useRouter } from "next/router";
 
 export default function AddResource() {
+  const [resourceTitle, setResourceTitle] = useState("")
+  const [resourceCategory, setResourceCategory] = useState("")
+  const [resourceTag, setResourceTag] = useState("")
+
+  console.log(resourceTitle, resourceCategory, resourceTag)
+
+  const options = ['Article', 'Course', 'Hackathon', 'Developer Tool', 'Book', 'CheatSheet', 'Online Platform', 'Blog' ]
+  const router = useRouter();
+
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const body = {resourceTitle, resourceCategory, resourceTag}
+
+    try {
+      const response = await fetch("/api/resources", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body),
+    });
+    if (response.status !== 200){
+      console.log("something went wrong");
+      //set an error banner here
+    } else {
+      resetForm();
+      router.push("/explore");
+      console.log("form submitted successfully !!!")
+      //set a success banner here
+    }
+    //check response, if success is false, dont take them to success page
+    } catch (error) {
+      console.log("there was an error submitting", error);
+
+    }
+  }
+
+  const resetForm = () => {
+    setResourceTitle("");
+    setResourceCategory("");
+    setResourceTag("");
+}
+
   return (
     <div>
       <Head>
@@ -18,6 +62,7 @@ export default function AddResource() {
 
             <div class="relative">
               <input
+                onChange={(e) => setResourceTitle(e.target.value)}
                 type="resource-title"
                 class="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter resource-title"
@@ -47,34 +92,20 @@ export default function AddResource() {
               Category
             </label>
             <div class="relative">
-              <input
-                type="category"
-                class="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                placeholder="Enter category"
-              />
+            <select
+                onChange={(e) => setResourceCategory(e.target.value)}
+          className="py-2 pl-2 pr-5 ml-2 w-fit h-fit rounded-md text-left transition-all ease-in-out duration-150  bg-opacity-10 dark:bg-opacity-10 text-base opacity-90 outline outline-offset-0 outline-1 text-black"
+        >
+          {options.map((o) => (
+            <option
+              className="p-4 mt-2 rounded-md bg-background dark:bg-darkBackground bg-opacity-90  dark:bg-opacity-90 outline-none"
+              value={o}
+            >
+              {o}
+            </option>
+          ))}
+        </select>
 
-              <span class="absolute inset-y-0 inline-flex items-center right-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-              </span>
             </div>
           </div>
           <div>
@@ -83,6 +114,8 @@ export default function AddResource() {
             </label>
             <div class="relative">
               <input
+                              onChange={(e) => setResourceTag(e.target.value)}
+
                 type="tag"
                 class="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Enter tag"
@@ -115,6 +148,7 @@ export default function AddResource() {
 
           <div class="flex items-center justify-between">
             <button
+              onClick={handleSubmit}
               type="submit"
               class="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-blue-500 rounded-lg"
             >

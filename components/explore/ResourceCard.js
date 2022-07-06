@@ -2,7 +2,7 @@ import { TiArrowUpThick } from "react-icons/ti";
 import { FiExternalLink, FiBookmark } from "react-icons/fi";
 import CategoryBadge from "./CategoryBadge";
 
-const ResourceCard = () => {
+const ResourceCard = ({uploaderID, resourceTitle, resourceImage, resourceLink, resourceTime,}) => {
   return (
     <article className="m-5 w-72 h-[25rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sansSerif text-black dark:text-white relative transition-all duration-200">
       <div className="flex items-center">
@@ -22,7 +22,7 @@ const ResourceCard = () => {
         </span>
 
         <div className="inline-flex text-2xl font-bold">
-          Title of this resource from this place.
+          {resourceTitle}
         </div>
       </div>
       <div className="mt-1 pb-4 bg-black dark:bg-white w-full h-44 rounded-2xl"></div>
