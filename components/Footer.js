@@ -7,12 +7,12 @@ const Footer = () => {
       <footer className="bottom-0 py-6 px-3 w-full h-fit bg-white flex justify-between dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
         <div className="p-0 ml-8">
           <span className="text-2xl font-bold">ResourceHub</span>
-          <p className="font-sansSerif text-sm font-medium">
+          <p className="font-sf text-sm font-medium">
             Built with 💚 by Ammaar Aslam
           </p>
         </div>
         <div className="flex justify-between">
-          <div className="font-medium text-lg font-sansSerif tracking-wider mr-16">
+          <div className="font-medium text-lg font-sf tracking-wider mr-16">
             <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl">
               Explore
             </li>
@@ -32,7 +32,7 @@ const Footer = () => {
               <Link href="/">Cheatsheets</Link>
             </li>
           </div>
-          <div className="font-medium text-lg font-sansSerif tracking-wider mr-16">
+          <div className="font-medium text-lg font-sf tracking-wider mr-16">
             <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl">
               Community
             </li>

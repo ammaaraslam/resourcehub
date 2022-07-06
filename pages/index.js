@@ -19,13 +19,13 @@ export default function Home() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="py-48 flex">
           <div className="ml-auto mr-auto max-w-5xl text-center">
-            <h1 className="p-2 text-black dark:text-white font-extrabold text-7xl tracking-wider font-display uppercase">
+            <h1 className="p-2 text-black dark:text-white font-extrabold text-7xl tracking-wider font-clash uppercase">
               A place for all{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600">
                 developer resources
               </span>
             </h1>
-            <p className="font-medium text-3xl mt-2 max-w-3xl ml-auto mr-auto font-sansSerif opacity-80">
+            <p className="font-medium text-3xl mt-2 max-w-3xl ml-auto mr-auto font-sf opacity-80">
               Share, find and save resources you find useful.
             </p>
             <div className="mt-7 inline-flex">
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
         <div className="mt-24 w-full h-fit p-4">
           <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-display uppercase">
+            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
               <span className="font-extrabold opacity-80 dark:opacity-80">
                 Find the right resources{" "}
               </span>
@@ -68,14 +68,14 @@ export default function Home() {
               <button className="m-1">cheatsheets</button>
               <button className="m-1">roadmaps</button>
             </div>
-            <p className="font-sansSerif font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
+            <p className="font-sf font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
               Every type of resource you can imagine
             </p>
           </div>
         </div>
         <div className="mt-24 w-full h-fit p-4">
           <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-display uppercase">
+            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
               <span className="font-extrabold opacity-80 dark:opacity-80">
                 Share resources you find{" "}
               </span>
@@ -83,7 +83,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="p-8 border-2 border-black dark:border-white rounded-xl flex justify-between w-3/4 ml-auto mr-auto mt-5">
-            <p className="font-sansSerif font-bold text-4xl max-w-sm text-left mt-auto mb-auto">
+            <p className="font-sf font-bold text-4xl max-w-sm text-left mt-auto mb-auto">
               Find a resource on the web? Share it with others
             </p>
             <div className="flex flex-wrap justify-center overflow-auto whitespace-nowrap items-center w-2/5">
@@ -101,7 +101,7 @@ export default function Home() {
         </div>
         <div className="mt-24 w-full h-fit p-4">
           <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-display uppercase">
+            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
               <span className="font-extrabold opacity-80 dark:opacity-80">
                 Save your
                 <br />
@@ -121,12 +121,12 @@ export default function Home() {
               <button className="m-1">cheatsheets</button>
               <button className="m-1">roadmaps</button>
             </div>
-            <p className="font-sansSerif font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
+            <p className="font-sf font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
               Bookmark your favourite resources for later.
             </p>
           </div>
         </div>
-        <div className="mt-24 w-full h-fit py-3 px-5 font-sansSerif flex justify-center">
+        <div className="mt-24 w-full h-fit py-3 px-5 font-sf flex justify-center">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ml-auto mr-auto">
             <div className="mx-10 block text-center w-60">
               <FaFilter size={95} className="text-green-400 ml-auto mr-auto" />

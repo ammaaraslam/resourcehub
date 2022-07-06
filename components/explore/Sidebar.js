@@ -22,7 +22,7 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <asi className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sansSerif">
+    <asi className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
       <div className="mt-24 pb-3 flex flex-col px-2">
         <SideBarButton active={true}>
           <MdExplore className="ml-4 mr-2" /> Explore

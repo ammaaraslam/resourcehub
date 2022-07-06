@@ -2,9 +2,15 @@ import { TiArrowUpThick } from "react-icons/ti";
 import { FiExternalLink, FiBookmark } from "react-icons/fi";
 import CategoryBadge from "./CategoryBadge";
 
-const ResourceCard = ({uploaderID, resourceTitle, resourceImage, resourceLink, resourceTime,}) => {
+const ResourceCard = ({
+  uploaderID,
+  resourceTitle,
+  resourceImage,
+  resourceLink,
+  resourceTime,
+}) => {
   return (
-    <article className="m-5 w-72 h-[25rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sansSerif text-black dark:text-white relative transition-all duration-200">
+    <article className="m-5 w-72 h-[25rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sf text-black dark:text-white relative transition-all duration-200">
       <div className="flex items-center">
         <div className="rounded-full h-10 w-10 bg-black dark:bg-white"></div>
         <div className="flex flex-col ml-2">
@@ -21,9 +27,7 @@ const ResourceCard = ({uploaderID, resourceTitle, resourceImage, resourceLink, r
           10 minutes ago
         </span>
 
-        <div className="inline-flex text-2xl font-bold">
-          {resourceTitle}
-        </div>
+        <div className="inline-flex text-2xl font-bold">{resourceTitle}</div>
       </div>
       <div className="mt-1 pb-4 bg-black dark:bg-white w-full h-44 rounded-2xl"></div>
 

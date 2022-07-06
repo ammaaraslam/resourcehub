@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["SF UI Display", "sans-serif"],
-        sansSerif: ["SF UI Display", "sans-serif"],
+        clash: ["Clash Display", "sans-serif"],
+        sf: ["SF UI Display", "sans-serif"],
       },
     },
   },
