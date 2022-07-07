@@ -3,16 +3,25 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { OutlinedButton } from "../components/Buttons";
 import Link from "next/link";
-import { CgArrowLongLeft } from "react-icons/cg";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 export default function AddResource() {
   const [resourceTitle, setResourceTitle] = useState("");
   const [resourceCategory, setResourceCategory] = useState("");
+  const [resourceLink, setResourceLink] = useState("");
+  const [sourceTwitter, setSourceTwitter] = useState("");
+
   const [resourceTag, setResourceTag] = useState("");
   const [resourceImage, setResourceImage] = useState("");
   console.log(resourceImage);
 
-  console.log(resourceTitle, resourceCategory, resourceTag);
+  console.log(
+    resourceTitle,
+    resourceCategory,
+    resourceTag,
+    resourceLink,
+    sourceTwitter
+  );
 
   const options = [
     "Article",
@@ -28,8 +37,13 @@ export default function AddResource() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = { resourceTitle, resourceCategory, resourceTag };
-
+    const body = {
+      resourceTitle,
+      resourceCategory,
+      resourceTag,
+      resourceLink,
+      sourceTwitter,
+    };
     try {
       const response = await fetch("/api/resources", {
         method: "POST",
@@ -55,6 +69,8 @@ export default function AddResource() {
     setResourceTitle("");
     setResourceCategory("");
     setResourceTag("");
+    setResourceLink("");
+    setSourceTwitter("");
   };
 
   return (
@@ -78,16 +94,21 @@ export default function AddResource() {
               Add a new resource to our ever-growing database!!
             </h2>
             <div className="font-sf mt-5">
-              <form class="space-y-4 py-8 px-12 text-gray-800 dark:text-gray-100 w-4/6 ml-auto mr-auto text-left bg-purple-200 rounded-3xl">
+              <form
+                class="space-y-4 py-8 px-12 text-gray-800 dark:text-gray-100 w-4/6 ml-auto mr-auto text-left bg-purple-200 rounded-3xl"
+                onSubmit={handleSubmit}
+              >
                 <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0 text-xl">
                   <div class="w-full px-2 py-3 md:w-1/2">
                     <label class="block mb-1" for="formGridCode_name">
                       Name of the resource *
                     </label>
                     <input
+                      onChange={(e) => setResourceTitle(e.target.value)}
                       class="w-full h-10 px-3 text-lg  rounded-lg "
                       type="text"
-                      id="formGridCode_name"
+                      value={resourceTitle}
+                      required
                     />
                   </div>
                   <div class="w-full px-2 py-3 md:w-1/2">
@@ -96,13 +117,16 @@ export default function AddResource() {
                     </label>
                     <input
                       class="w-full h-10 px-3 text-lg   rounded-lg "
-                      type="text"
-                      id="formGridCode_last"
+                      type="url"
+                      onChange={(e) => setResourceLink(e.target.value)}
+                      value={resourceLink}
+                      required
                     />
                   </div>
                   <input
                     type="file"
                     onChange={(e) => setResourceImage(e.target.value)}
+                    value={resourceImage}
                     class="block w-full text-sm text-slate-500
                       file:mr-4 file:py-2 file:px-4
                       file:rounded-full file:border-0
@@ -111,24 +135,18 @@ export default function AddResource() {
                       hover:file:bg-violet-100
                       "
                   />
-
-                  <div class="w-full px-2 py-3">
-                    <label class="block mb-1" for="formGridCode_last">
-                      Tell us a bit about the resource *
-                    </label>
-                    <textarea
-                      class="w-full h-10 px-3 text-lg   rounded-lg "
-                      type="text"
-                      id="formGridCode_last"
-                    />
-                  </div>
                 </div>
                 <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0 text-lg">
                   <div class="w-full px-2 md:w-1/3 py-3">
                     <label class="block mb-1" for="formGridCode_month">
                       Select Category *
                     </label>
-                    <select class="w-full h-10 px-3 text-lg   rounded-lg ">
+                    <select
+                      class="w-full h-10 px-3 text-lg   rounded-lg"
+                      value={resourceCategory}
+                      onChange={(e) => setResourceCategory(e.target.value)}
+                      required
+                    >
                       {options.map((o) => (
                         <option
                           class="w-full h-10 px-3 text-lg   rounded-lg "
@@ -146,7 +164,9 @@ export default function AddResource() {
                     <input
                       class="w-full h-10 px-3 text-lg   rounded-lg "
                       type="text"
-                      id="formGridCode_year"
+                      onChange={(e) => setResourceTag(e.target.value)}
+                      value={resourceTag}
+                      required
                     />
                   </div>
                   <div class="w-full px-2 md:w-1/3 py-3">
@@ -156,21 +176,24 @@ export default function AddResource() {
                     <input
                       class="w-full h-10 px-3 text-lg   rounded-lg "
                       type="text"
-                      id="formGridCode_cvc"
+                      onChange={(e) => setSourceTwitter(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="text-center">
-                  <OutlinedButton>Add Resource</OutlinedButton>
+                  <OutlinedButton type="submit">Add Resource</OutlinedButton>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </main>
-      <div className="mb-2 ml-5">
+      <div className="absolute bottom-3 left-5">
         <Link href="/explore">
-          <a className="text-lg font-semibold font-sf">Go Back</a>
+          <a className="py-1 px-2 text-black dark:text-white font-medium text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start hover:bg-black dark:hover:bg-white hover:bg-opacity-10 dark:hover:bg-opacity-10 text-lg">
+            <MdOutlineKeyboardBackspace className="mr-1" size={27} />
+            Go Back
+          </a>
         </Link>
       </div>
     </div>

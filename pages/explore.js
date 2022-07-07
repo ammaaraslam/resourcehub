@@ -3,13 +3,12 @@ import Feed from "../components/explore/Feed";
 import Header from "../components/explore/Header";
 import Sidebar from "../components/explore/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
-import {useState} from 'react'
+import { useState } from "react";
 import { PrismaClient } from "@prisma/client";
-import { getSession } from 'next-auth/react';
-
-
+import { getSession } from "next-auth/react";
 
 export default function Explore({ resources }) {
+  console.log(resources);
   return (
     <div>
       <Head>
@@ -21,20 +20,22 @@ export default function Explore({ resources }) {
       <Sidebar />
 
       <main className="w-full h-full bg-white dark:bg-black">
-        <Feed props={resources} />
+        <Feed resources={resources} />
         <ThemeToggle />
       </main>
     </div>
   );
 }
 
-
 export async function getServerSideProps() {
   const prisma = new PrismaClient();
-  const response = await prisma.resource.findMany({      include: {
-    resourceTags: true,
-  },
-});
+  const response = await prisma.resource.findMany({
+    include: {
+      resourceTags: true,
+      uploader: true,
+    },
+  });
+
   // Pass the data to the Home page
   return {
     props: {

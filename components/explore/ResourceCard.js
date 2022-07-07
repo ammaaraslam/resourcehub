@@ -8,14 +8,22 @@ const ResourceCard = ({
   resourceImage,
   resourceLink,
   resourceTime,
+  uploaderImage,
+  uploaderName,
 }) => {
   return (
     <article className="m-5 w-72 h-[25rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sf text-black dark:text-white relative transition-all duration-200">
       <div className="flex items-center">
-        <div className="rounded-full h-10 w-10 bg-black dark:bg-white"></div>
+        <div className="rounded-full h-10 w-10 bg-black dark:bg-white">
+          <img
+            src={uploaderImage}
+            className="rounded-full h-full w-full"
+            alt="alt-text"
+          />
+        </div>
         <div className="flex flex-col ml-2">
           <div className="flex items-center font-bold text-base w-28 leading-5">
-            <span>Ammaar Aslam</span>
+            <span>{uploaderName}</span>
           </div>
         </div>
         <a className="ml-auto">
@@ -24,7 +32,7 @@ const ResourceCard = ({
       </div>
       <div className="mt-1">
         <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
-          10 minutes ago
+          {resourceTime}
         </span>
 
         <div className="inline-flex text-2xl font-bold">{resourceTitle}</div>
@@ -43,9 +51,11 @@ const ResourceCard = ({
           </ResourceCardBookmarkButton>
         </div>
         <div>
-          <ResourceCardExternalButton>
-            <FiExternalLink className="mt-auto mb-auto" size={30} />
-          </ResourceCardExternalButton>
+          <a href={resourceLink} target="_blank">
+            <ResourceCardExternalButton>
+              <FiExternalLink className="mt-auto mb-auto" size={30} />
+            </ResourceCardExternalButton>
+          </a>
         </div>
       </div>
     </article>

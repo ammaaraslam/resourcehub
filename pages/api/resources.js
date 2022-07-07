@@ -1,15 +1,15 @@
 import { PrismaClient } from "@prisma/client";
-import { getSession } from 'next-auth/react';
+import { getSession } from "next-auth/react";
 
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-    // Check if user is authenticated
+  // Check if user is authenticated
   const session = await getSession({ req });
   if (!session) {
-    return res.status(401).json({ message: 'Unauthorized.' });
+    return res.status(401).json({ message: "Unauthorized." });
   }
-  
+
   if (req.method === "POST") {
     return await addResource(req, res);
   } else if (req.method === "GET") {
@@ -26,6 +26,7 @@ async function allResources(req, res) {
     const allResources = await prisma.resource.findMany({
       include: {
         resourceTags: true,
+        uploader: true,
       },
     });
     return res.status(200).json(allResources, { success: true });
@@ -60,8 +61,8 @@ async function addResource(req, res) {
             },
           ],
         },
-        uploaderId: user.id,
-
+        resourceLink: body.resourceLink,
+        sourceTwitter: body.sourceTwitter,
       },
     });
     return res.status(200).json(newEntry, { success: true });
