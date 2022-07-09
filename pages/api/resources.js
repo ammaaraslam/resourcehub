@@ -63,6 +63,7 @@ async function addResource(req, res) {
         },
         resourceLink: body.resourceLink,
         sourceTwitter: body.sourceTwitter,
+        uploaderId: user.id,
       },
     });
     return res.status(200).json(newEntry, { success: true });
