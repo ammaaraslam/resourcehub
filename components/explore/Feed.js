@@ -17,6 +17,10 @@ const Feed = ({ resources }) => {
             resourceTime={resource.createdAt}
             resourceCategory={resource.resourceCategory}
             resourceTag={resource.resourceTags[0].name}
+            totalUpvotes={resource.totalUpvotes}
+            userUpvoted={resource.userUpvoted}
+            userBookmarked={resource.userBookmarked}
+            resourceID={resource.id}
           />
         ))}
       </div>

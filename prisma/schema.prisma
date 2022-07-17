@@ -64,9 +64,9 @@ model Resource {
   resourceLink     String
   sourceTwitter    String?
   resourceTags     Tag[]
-  totalUpvotes     Int
-  userUpvoted      Boolean
-  userBookmarked   Boolean
+  totalUpvotes     Int @default(0)
+  userUpvoted      Boolean @default(false)
+  userBookmarked   Boolean @default(false)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   uploader         User     @relation(fields: [uploaderId], references: [id])

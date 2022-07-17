@@ -2,6 +2,7 @@ import { TiArrowUpThick } from "react-icons/ti";
 import { FiExternalLink, FiBookmark } from "react-icons/fi";
 import CategoryBadge from "./CategoryBadge";
 import { format } from "date-fns";
+import { useState } from "react";
 
 const ResourceCard = ({
   uploaderID,
@@ -13,8 +14,112 @@ const ResourceCard = ({
   uploaderName,
   resourceCategory,
   resourceTag,
+  totalUpvotes,
+  userUpvoted,
+  userBookmarked,
+  resourceID,
 }) => {
   const newDateTime = new Date(resourceTime);
+
+  const [noVotes, setNoVotes] = useState(totalUpvotes);
+  const [upvoted, setUpvoted] = useState(userUpvoted);
+  const [isBookmarked, setIsBookmarked] = useState(userBookmarked);
+
+  const handleUpvote = async () => {
+    const body = [resourceID];
+    if (!upvoted) {
+      // Have to upvote resource
+      setUpvoted(true);
+      try {
+        const response = await fetch("/api/meta/upvote", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (response.status !== 200) {
+          console.log("something went wrong");
+          //set an error banner here
+        } else {
+          console.log("Successfully upvoted !!!");
+          //set a success banner here
+        }
+        //check response, if success is false, dont take them to success page
+      } catch (error) {
+        console.log("there was an error submitting", error);
+      }
+    } else {
+      // Have to unvote resource
+      setUpvoted(false);
+
+      try {
+        const response = await fetch("/api/meta/downvote", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (response.status !== 200) {
+          console.log("something went wrong");
+          //set an error banner here
+        } else {
+          console.log("Successfully upvoted !!!");
+          //set a success banner here
+        }
+        //check response, if success is false, dont take them to success page
+      } catch (error) {
+        console.log("there was an error submitting", error);
+      }
+    }
+  };
+
+  // const handleUpvote = async () => {
+  //   if (!upvoted) {
+  //     // Have to upvote resource
+  //     try {
+  //       const upvote = true;
+  //       const body = [upvote, resourceID];
+
+  //       const response = await fetch("/api/resources", {
+  //         method: "PUT",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(body),
+  //       });
+  //       if (response.status !== 200) {
+  //         console.log("something went wrong");
+  //         //set an error banner here
+  //       } else {
+  //         console.log("Successfully upvoted !!!");
+  //         setUpvoted(true);
+  //         //set a success banner here
+  //       }
+  //       //check response, if success is false, dont take them to success page
+  //     } catch (error) {
+  //       console.log("there was an error submitting", error);
+  //     }
+  //   } else {
+  //     // Have to unvote resource
+  //     try {
+  //       const upvote = false;
+  //       const body = [upvote, resourceID];
+
+  //       const response = await fetch("/api/resources", {
+  //         method: "PUT",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(body),
+  //       });
+  //       if (response.status !== 200) {
+  //         console.log("something went wrong");
+  //         //set an error banner here
+  //       } else {
+  //         console.log("Successfully unvoted !!!");
+  //         setUpvoted(false);
+  //         //set a success banner here
+  //       }
+  //       //check response, if success is false, dont take them to success page
+  //     } catch (error) {
+  //       console.log("there was an error submitting", error);
+  //     }
+  //   }
+  // };
 
   return (
     <article className="m-5 w-80 h-[27rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sf text-black dark:text-white relative transition-all duration-200">
@@ -53,9 +158,24 @@ const ResourceCard = ({
 
       <div className="absolute bottom-0 py-3 px-2 left-0 right-0 flex justify-center items-center ml-auto mr-auto">
         <div className="mr-16">
-          <ResourceCardUpvoteButton>
-            <TiArrowUpThick className="mt-auto mb-auto" size={35} />
-          </ResourceCardUpvoteButton>
+          {upvoted && (
+            <ResourceCardUpvoteButton
+              handleOnClick={() => handleUpvote()}
+              active={true}
+            >
+              <TiArrowUpThick className="mt-auto mb-auto" size={35} />
+              {totalUpvotes}
+            </ResourceCardUpvoteButton>
+          )}
+          {!upvoted && (
+            <ResourceCardUpvoteButton
+              handleOnClick={() => handleUpvote()}
+              active={false}
+            >
+              <TiArrowUpThick className="mt-auto mb-auto" size={35} />
+              {totalUpvotes}
+            </ResourceCardUpvoteButton>
+          )}
         </div>
         <div className="mr-16">
           <ResourceCardBookmarkButton>
@@ -76,7 +196,20 @@ const ResourceCard = ({
 
 export default ResourceCard;
 
-const ResourceCardUpvoteButton = ({ children, handleOnClick }) => {
+const ResourceCardUpvoteButton = ({ children, handleOnClick, active }) => {
+  if (active) {
+    return (
+      <>
+        <button
+          type="button"
+          onClick={handleOnClick}
+          className={`inline-flex p-1 rounded-md bg-green-200 text-green-600 dark:bg-green-100 dark:text-green-500`}
+        >
+          {children}
+        </button>
+      </>
+    );
+  }
   return (
     <>
       <button
