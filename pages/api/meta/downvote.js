@@ -5,10 +5,15 @@ const prisma = new PrismaClient();
 export default async (req, res) => {
   if (req.method === "PUT") {
     const body = req.body;
+    console.log(body);
+    console.log(typeof body.resourceID);
+
     try {
+      console.log(body);
+      console.log(typeof body.resourceID);
       const downvote = await prisma.resource.update({
         where: {
-          id: body.resourceID,
+          id: body[0],
         },
         data: {
           totalUpvotes: { decrement: 1 },
@@ -19,6 +24,8 @@ export default async (req, res) => {
     } catch (error) {
       console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
+      console.log(body);
+      console.log(typeof body.resourceID);
     }
   } else {
     return res

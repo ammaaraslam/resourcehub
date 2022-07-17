@@ -1,19 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import {prisma} from '../../../../lib/prisma'
 
-const prisma = new PrismaClient();
-
-export default async (req, res) => {
+export default async function handler(req, res) {
   if (req.method === "PUT") {
-    const body = req.body;
-    console.log(body);
-    console.log(typeof body.resourceID);
-
+    const { id } = req.query;
     try {
-      console.log(body);
-      console.log(typeof body.resourceID);
       const upvote = await prisma.resource.update({
         where: {
-          id: body[0],
+          id: { id },
         },
         data: {
           totalUpvotes: { increment: 1 },
@@ -24,12 +17,10 @@ export default async (req, res) => {
     } catch (error) {
       console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
-      console.log(body);
-      console.log(typeof body.resourceID);
     }
   } else {
     return res
       .status(405)
       .json({ message: "Method not allowed", success: false });
   }
-};
+}

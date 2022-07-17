@@ -8,6 +8,7 @@ const Feed = ({ resources }) => {
       <div className="py-16 px-0 grid grid-cols-2 ml-auto mr-auto">
         {resources.map((resource) => (
           <ResourceCard
+            key={resource.id}
             uploaderID={resource.uploaderId}
             resourceTitle={resource.resourceTitle}
             uploaderImage={resource.uploader.image}
@@ -20,7 +21,7 @@ const Feed = ({ resources }) => {
             totalUpvotes={resource.totalUpvotes}
             userUpvoted={resource.userUpvoted}
             userBookmarked={resource.userBookmarked}
-            resourceID={resource.id}
+            id={resource.id}
           />
         ))}
       </div>

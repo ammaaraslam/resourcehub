@@ -57,16 +57,16 @@ model VerificationToken {
 }
 
 model Resource {
-  id               String   @id @default(cuid())
+  id               String   @id @unique @default(cuid())
   resourceImage    String?
   resourceTitle    String
   resourceCategory String
   resourceLink     String
   sourceTwitter    String?
   resourceTags     Tag[]
-  totalUpvotes     Int @default(0)
-  userUpvoted      Boolean @default(false)
-  userBookmarked   Boolean @default(false)
+  totalUpvotes     Int      @default(0)
+  userUpvoted      Boolean  @default(false)
+  userBookmarked   Boolean  @default(false)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   uploader         User     @relation(fields: [uploaderId], references: [id])

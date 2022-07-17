@@ -17,7 +17,7 @@ const ResourceCard = ({
   totalUpvotes,
   userUpvoted,
   userBookmarked,
-  resourceID,
+  id,
 }) => {
   const newDateTime = new Date(resourceTime);
 
@@ -26,7 +26,12 @@ const ResourceCard = ({
   const [isBookmarked, setIsBookmarked] = useState(userBookmarked);
 
   const handleUpvote = async () => {
+    const resourceID = id;
+    console.log(resourceID);
     const body = [resourceID];
+    console.log(body);
+    console.log(typeof resourceID);
+
     if (!upvoted) {
       // Have to upvote resource
       setUpvoted(true);
