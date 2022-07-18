@@ -21,7 +21,7 @@ const ResourceCard = ({
 }) => {
   const newDateTime = new Date(resourceTime);
 
-  const [noVotes, setNoVotes] = useState(totalUpvotes);
+  const [numberOfUpvotes, setNumberOfUpvotes] = useState(totalUpvotes);
   const [upvoted, setUpvoted] = useState(userUpvoted);
   const [isBookmarked, setIsBookmarked] = useState(userBookmarked);
 
@@ -34,6 +34,7 @@ const ResourceCard = ({
 
     if (!upvoted) {
       // Have to upvote resource
+      setNumberOfUpvotes(totalUpvotes + 1);
       setUpvoted(true);
       try {
         const response = await fetch("/api/meta/upvote", {
@@ -54,6 +55,7 @@ const ResourceCard = ({
       }
     } else {
       // Have to unvote resource
+      setNumberOfUpvotes(totalUpvotes - 1);
       setUpvoted(false);
 
       try {
@@ -75,57 +77,6 @@ const ResourceCard = ({
       }
     }
   };
-
-  // const handleUpvote = async () => {
-  //   if (!upvoted) {
-  //     // Have to upvote resource
-  //     try {
-  //       const upvote = true;
-  //       const body = [upvote, resourceID];
-
-  //       const response = await fetch("/api/resources", {
-  //         method: "PUT",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(body),
-  //       });
-  //       if (response.status !== 200) {
-  //         console.log("something went wrong");
-  //         //set an error banner here
-  //       } else {
-  //         console.log("Successfully upvoted !!!");
-  //         setUpvoted(true);
-  //         //set a success banner here
-  //       }
-  //       //check response, if success is false, dont take them to success page
-  //     } catch (error) {
-  //       console.log("there was an error submitting", error);
-  //     }
-  //   } else {
-  //     // Have to unvote resource
-  //     try {
-  //       const upvote = false;
-  //       const body = [upvote, resourceID];
-
-  //       const response = await fetch("/api/resources", {
-  //         method: "PUT",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(body),
-  //       });
-  //       if (response.status !== 200) {
-  //         console.log("something went wrong");
-  //         //set an error banner here
-  //       } else {
-  //         console.log("Successfully unvoted !!!");
-  //         setUpvoted(false);
-  //         //set a success banner here
-  //       }
-  //       //check response, if success is false, dont take them to success page
-  //     } catch (error) {
-  //       console.log("there was an error submitting", error);
-  //     }
-  //   }
-  // };
-
   return (
     <article className="m-5 w-80 h-[27rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sf text-black dark:text-white relative transition-all duration-200">
       <div className="flex items-center">
@@ -178,7 +129,7 @@ const ResourceCard = ({
               active={false}
             >
               <TiArrowUpThick className="mt-auto mb-auto" size={35} />
-              {totalUpvotes}
+              {numberOfUpvotes}
             </ResourceCardUpvoteButton>
           )}
         </div>
