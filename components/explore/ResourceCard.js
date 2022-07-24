@@ -24,82 +24,91 @@ const ResourceCard = ({
   const newDateTime = new Date(resourceTime);
   const { data: session } = useSession();
 
-  const [numberOfUpvotes, setNumberOfUpvotes] = useState(totalUpvotes);
-  const [upvoted, setUpvoted] = useState(userUpvoted);
-  const [isBookmarked, setIsBookmarked] = useState(userBookmarked);
-  const isFound = upvoters.some((upvoter) => {
-    if (session) {
-      if (upvoter.upvoterId === session.user.email) {
-        return true;
-      }
+  // const [numberOfUpvotes, setNumberOfUpvotes] = useState(totalUpvotes);
+  // const [upvoted, setUpvoted] = useState(userUpvoted);
+  // const [bookmarked, setBookmarked] = useState(false);
+  // const [bookmarks, setBookmarks] = useState([]);
+  // const isFound = upvoters.some((upvoter) => {
+  //   if (session) {
+  //     if (upvoter.upvoterId === session.user.email) {
+  //       return true;
+  //     }
 
-      return false;
-    } else {
-      if (upvoter.upvoterId === "currentUserEmail") {
-        return true;
-      }
+  //     return false;
+  //   } else {
+  //     if (upvoter.upvoterId === "currentUserEmail") {
+  //       return true;
+  //     }
 
-      return false;
-    }
-  });
-  const [currentUserUpvoted, setCurrentUserUpvoted] = useState(isFound);
+  //     return false;
+  //   }
+  // });
+  // const [currentUserUpvoted, setCurrentUserUpvoted] = useState(isFound);
 
-  const handleUpvote = async () => {
-    const resourceID = id;
-    console.log(resourceID);
-    const body = [resourceID];
-    console.log(body);
-    console.log(typeof resourceID);
+  // const handleBookmark = async () => {
+  //   const resourceID = id;
+  //   const body = [resourceID];
+  //   if (!bookmarked) {
+  //     if (!bookmarks.includes(resourceID)) setBookmarks(bookmark.concat(resourceID));
+  //     console.log(id);
+  //   }
 
-    if (session) {
-      if (!upvoted) {
-        // Have to upvote resource
-        setNumberOfUpvotes(totalUpvotes + 1);
-        setUpvoted(true);
-        try {
-          const response = await fetch("/api/meta/upvote", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          });
-          if (response.status !== 200) {
-            console.log("something went wrong");
-            //set an error banner here
-          } else {
-            console.log("Successfully upvoted !!!");
-            //set a success banner here
-          }
-          //check response, if success is false, dont take them to success page
-        } catch (error) {
-          console.log("there was an error submitting", error);
-        }
-      } else {
-        // Have to unvote resource
-        setNumberOfUpvotes(totalUpvotes - 1);
-        setUpvoted(false);
+  // }
 
-        try {
-          const response = await fetch("/api/meta/downvote", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-          });
-          if (response.status !== 200) {
-            console.log("something went wrong");
-            //set an error banner here
-          } else {
-            console.log("Successfully upvoted !!!");
-            //set a success banner here
-          }
-          //check response, if success is false, dont take them to success page
-        } catch (error) {
-          console.log("there was an error submitting", error);
-        }
-      }
-    } else {
-      return false;
-    }
-  };
+  // const handleUpvote = async () => {
+  //   const resourceID = id;
+  //   const body = [resourceID];
+
+  //   if (session) {
+  //     if (!upvoted) {
+  //       // Have to upvote resource
+  //       setNumberOfUpvotes(totalUpvotes + 1);
+  //       setUpvoted(true);
+  //       try {
+  //         const response = await fetch("/api/meta/upvote", {
+  //           method: "PUT",
+  //           headers: { "Content-Type": "application/json" },
+  //           body: JSON.stringify(body),
+  //         });
+  //         if (response.status !== 200) {
+  //           console.log("something went wrong");
+  //           //set an error banner here
+  //         } else {
+  //           console.log("Successfully upvoted !!!");
+  //           //set a success banner here
+  //         }
+  //         //check response, if success is false, dont take them to success page
+  //       } catch (error) {
+  //         console.log("there was an error submitting", error);
+  //       }
+  //     } else {
+  //       // Have to unvote resource
+  //       setNumberOfUpvotes(totalUpvotes - 1);
+  //       setUpvoted(false);
+
+  //       try {
+  //         const response = await fetch("/api/meta/downvote", {
+  //           method: "PUT",
+  //           headers: { "Content-Type": "application/json" },
+  //           body: JSON.stringify(body),
+  //         });
+  //         if (response.status !== 200) {
+  //           console.log("something went wrong");
+  //           //set an error banner here
+  //         } else {
+  //           console.log("Successfully upvoted !!!");
+  //           //set a success banner here
+  //         }
+  //         //check response, if success is false, dont take them to success page
+  //       } catch (error) {
+  //         console.log("there was an error submitting", error);
+  //       }
+  //     }
+  //   } else {
+  //     return false;
+  //   }
+
+  // };
   return (
     <article className="m-5 w-80 h-[27rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl p-3 font-sf text-black dark:text-white relative transition-all duration-200">
       <div className="flex items-center">
@@ -136,31 +145,6 @@ const ResourceCard = ({
       </div>
 
       <div className="absolute bottom-0 py-3 px-2 left-0 right-0 flex justify-center items-center ml-auto mr-auto">
-        <div className="mr-16">
-          {session && currentUserUpvoted && upvoted && (
-            <ResourceCardUpvoteButton
-              handleOnClick={() => handleUpvote()}
-              active={true}
-            >
-              <TiArrowUpThick className="mt-auto mb-auto" size={35} />
-              {totalUpvotes}
-            </ResourceCardUpvoteButton>
-          )}
-          {(!session || !upvoted || !currentUserUpvoted) && (
-            <ResourceCardUpvoteButton
-              handleOnClick={() => handleUpvote()}
-              active={false}
-            >
-              <TiArrowUpThick className="mt-auto mb-auto" size={35} />
-              {numberOfUpvotes}
-            </ResourceCardUpvoteButton>
-          )}
-        </div>
-        <div className="mr-16">
-          <ResourceCardBookmarkButton>
-            <FiBookmark className="mt-auto mb-auto" size={33} />
-          </ResourceCardBookmarkButton>
-        </div>
         <div>
           <a href={resourceLink} target="_blank">
             <ResourceCardExternalButton>
