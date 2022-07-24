@@ -213,7 +213,7 @@ const ResourceCard = ({
       )}
       <div className="mt-1 pb-2 mr-0 absolute right-3">
         <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
-          author -{" "}
+          Author -{" "}
           <a href={`https://twitter.com/${sourceTwitter}`} target="_blank">
             {sourceTwitter}
           </a>

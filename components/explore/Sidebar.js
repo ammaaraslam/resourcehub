@@ -6,7 +6,6 @@ import {
   MdOndemandVideo,
 } from "react-icons/md";
 import { FaPencilAlt, FaTrophy, FaTools } from "react-icons/fa";
-import { VscTools } from "react-icons/vsc";
 import { AiTwotoneFire } from "react-icons/ai";
 import { TiArrowUpThick } from "react-icons/ti";
 import { TbBooks, TbWorld } from "react-icons/tb";

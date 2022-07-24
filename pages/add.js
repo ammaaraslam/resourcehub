@@ -7,7 +7,7 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 export default function AddResource() {
   const [resourceTitle, setResourceTitle] = useState("");
-  const [resourceCategory, setResourceCategory] = useState("");
+  const [resourceCategory, setResourceCategory] = useState("Article");
   const [resourceLink, setResourceLink] = useState("");
   const [sourceTwitter, setSourceTwitter] = useState("");
 
@@ -30,6 +30,7 @@ export default function AddResource() {
     "Developer Tool",
     "Book",
     "CheatSheet",
+    "Roadmap",
     "Online Platform",
     "Blog",
   ];
