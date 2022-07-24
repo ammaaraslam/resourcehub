@@ -3,6 +3,7 @@ import { FiExternalLink, FiBookmark } from "react-icons/fi";
 import CategoryBadge from "./CategoryBadge";
 import { format } from "date-fns";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const ResourceCard = ({
   uploaderID,
@@ -17,13 +18,31 @@ const ResourceCard = ({
   totalUpvotes,
   userUpvoted,
   userBookmarked,
+  upvoters,
   id,
 }) => {
   const newDateTime = new Date(resourceTime);
+  const { data: session } = useSession();
 
   const [numberOfUpvotes, setNumberOfUpvotes] = useState(totalUpvotes);
   const [upvoted, setUpvoted] = useState(userUpvoted);
   const [isBookmarked, setIsBookmarked] = useState(userBookmarked);
+  const isFound = upvoters.some((upvoter) => {
+    if (session) {
+      if (upvoter.upvoterId === session.user.email) {
+        return true;
+      }
+
+      return false;
+    } else {
+      if (upvoter.upvoterId === "currentUserEmail") {
+        return true;
+      }
+
+      return false;
+    }
+  });
+  const [currentUserUpvoted, setCurrentUserUpvoted] = useState(isFound);
 
   const handleUpvote = async () => {
     const resourceID = id;
@@ -32,49 +51,53 @@ const ResourceCard = ({
     console.log(body);
     console.log(typeof resourceID);
 
-    if (!upvoted) {
-      // Have to upvote resource
-      setNumberOfUpvotes(totalUpvotes + 1);
-      setUpvoted(true);
-      try {
-        const response = await fetch("/api/meta/upvote", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-        if (response.status !== 200) {
-          console.log("something went wrong");
-          //set an error banner here
-        } else {
-          console.log("Successfully upvoted !!!");
-          //set a success banner here
+    if (session) {
+      if (!upvoted) {
+        // Have to upvote resource
+        setNumberOfUpvotes(totalUpvotes + 1);
+        setUpvoted(true);
+        try {
+          const response = await fetch("/api/meta/upvote", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          if (response.status !== 200) {
+            console.log("something went wrong");
+            //set an error banner here
+          } else {
+            console.log("Successfully upvoted !!!");
+            //set a success banner here
+          }
+          //check response, if success is false, dont take them to success page
+        } catch (error) {
+          console.log("there was an error submitting", error);
         }
-        //check response, if success is false, dont take them to success page
-      } catch (error) {
-        console.log("there was an error submitting", error);
+      } else {
+        // Have to unvote resource
+        setNumberOfUpvotes(totalUpvotes - 1);
+        setUpvoted(false);
+
+        try {
+          const response = await fetch("/api/meta/downvote", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          if (response.status !== 200) {
+            console.log("something went wrong");
+            //set an error banner here
+          } else {
+            console.log("Successfully upvoted !!!");
+            //set a success banner here
+          }
+          //check response, if success is false, dont take them to success page
+        } catch (error) {
+          console.log("there was an error submitting", error);
+        }
       }
     } else {
-      // Have to unvote resource
-      setNumberOfUpvotes(totalUpvotes - 1);
-      setUpvoted(false);
-
-      try {
-        const response = await fetch("/api/meta/downvote", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-        if (response.status !== 200) {
-          console.log("something went wrong");
-          //set an error banner here
-        } else {
-          console.log("Successfully upvoted !!!");
-          //set a success banner here
-        }
-        //check response, if success is false, dont take them to success page
-      } catch (error) {
-        console.log("there was an error submitting", error);
-      }
+      return false;
     }
   };
   return (
@@ -114,7 +137,7 @@ const ResourceCard = ({
 
       <div className="absolute bottom-0 py-3 px-2 left-0 right-0 flex justify-center items-center ml-auto mr-auto">
         <div className="mr-16">
-          {upvoted && (
+          {session && currentUserUpvoted && upvoted && (
             <ResourceCardUpvoteButton
               handleOnClick={() => handleUpvote()}
               active={true}
@@ -123,7 +146,7 @@ const ResourceCard = ({
               {totalUpvotes}
             </ResourceCardUpvoteButton>
           )}
-          {!upvoted && (
+          {(!session || !upvoted || !currentUserUpvoted) && (
             <ResourceCardUpvoteButton
               handleOnClick={() => handleUpvote()}
               active={false}

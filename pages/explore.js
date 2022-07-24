@@ -33,6 +33,7 @@ export async function getServerSideProps() {
     include: {
       resourceTags: true,
       uploader: true,
+      upvoters: true,
     },
   });
 

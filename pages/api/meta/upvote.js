@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/react";
 
 const prisma = new PrismaClient();
 
@@ -7,6 +8,11 @@ export default async (req, res) => {
     const body = req.body;
     console.log(body);
     console.log(typeof body.resourceID);
+    const session = await getSession({ req });
+
+    const user = await prisma.user.findUnique({
+      where: { email: session.user.email },
+    });
 
     try {
       console.log(body);
@@ -18,6 +24,16 @@ export default async (req, res) => {
         data: {
           totalUpvotes: { increment: 1 },
           userUpvoted: true,
+          upvoters: {
+            connectOrCreate: [
+              {
+                create: { upvoterId: user.email },
+                where: {
+                  upvoterId: user.email,
+                },
+              },
+            ],
+          },
         },
       });
       return res.status(200).json(upvote, { success: true });

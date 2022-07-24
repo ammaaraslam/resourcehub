@@ -14,8 +14,6 @@ export default async function handler(req, res) {
     return await addResource(req, res);
   } else if (req.method === "GET") {
     return await allResources(req, res);
-  } else if (req.method === "PUT") {
-    return await updateMeta(req, res), await getMeta(req, res);
   } else {
     return res
       .status(405)
@@ -29,6 +27,7 @@ async function allResources(req, res) {
       include: {
         resourceTags: true,
         uploader: true,
+        upvoters: true,
       },
     });
     return res.status(200).json(allResources, { success: true });
@@ -72,60 +71,5 @@ async function addResource(req, res) {
   } catch (error) {
     console.error("Request error", error);
     res.status(500).json({ error: "Error adding resource", success: false });
-  }
-}
-
-async function updateMeta(req, res) {
-  const body = req.body;
-  if (body.upvote === true) {
-    try {
-      const newEntry = await prisma.resource.update({
-        where: {
-          id: body.resourceID,
-        },
-        data: {
-          totalUpvotes: { increment: 1 },
-          userUpvoted: true,
-        },
-      });
-      return res.status(200).json(newEntry, { success: true });
-    } catch (error) {
-      console.error("Request error", error);
-      res.status(500).json({ error: "Error adding resource", success: false });
-    }
-  } else {
-    try {
-      const newEntry = await prisma.resource.update({
-        where: {
-          id: body.resourceID,
-        },
-        data: {
-          totalUpvotes: { decrement: 1 },
-          userUpvoted: false,
-        },
-      });
-      return res.status(200).json(newEntry, { success: true });
-    } catch (error) {
-      console.error("Request error", error);
-      res.status(500).json({ error: "Error adding resource", success: false });
-    }
-  }
-}
-
-async function getMeta(req, res) {
-  const body = req.body;
-
-  try {
-    const getUniqueMeta = await prisma.resource.findMany({
-      where: {
-        id: body.resourceID,
-      },
-    });
-    return res.status(200).json(getUniqueMeta, { success: true });
-  } catch (error) {
-    console.error("Request error", error);
-    res
-      .status(500)
-      .json({ error: "Error reading from database", success: false });
   }
 }

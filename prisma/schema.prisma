@@ -57,24 +57,32 @@ model VerificationToken {
 }
 
 model Resource {
-  id               String   @id @unique @default(cuid())
-  resourceImage    String?
-  resourceTitle    String
-  resourceCategory String
-  resourceLink     String
-  sourceTwitter    String?
-  resourceTags     Tag[]
-  totalUpvotes     Int      @default(0)
-  userUpvoted      Boolean  @default(false)
-  userBookmarked   Boolean  @default(false)
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-  uploader         User     @relation(fields: [uploaderId], references: [id])
-  uploaderId       String
+  id                 String              @id @unique @default(cuid())
+  resourceImage      String?
+  resourceTitle      String
+  resourceCategory   String
+  resourceLink       String
+  sourceTwitter      String?
+  resourceTags       Tag[]
+  totalUpvotes       Int                 @default(0)
+  userUpvoted        Boolean             @default(false)
+  upvoters           UpvotesOnResource[]
+  currentUserUpvoted Boolean             @default(false)
+  userBookmarked     Boolean             @default(false)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  uploader           User                @relation(fields: [uploaderId], references: [id])
+  uploaderId         String
 }
 
 model Tag {
   id        Int        @id @default(autoincrement())
   name      String     @unique
   resources Resource[]
+}
+
+model UpvotesOnResource {
+  id         Int        @id @default(autoincrement())
+  upvoterId  String?    @unique
+  resourceId Resource[]
 }
