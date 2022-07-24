@@ -18,6 +18,7 @@ const ResourceCard = ({
   resourceTag,
   totalUpvotes,
   userUpvoted,
+  sourceTwitter,
   userBookmarked,
   upvoters,
   id,
@@ -136,7 +137,7 @@ const ResourceCard = ({
   //   }
 
   // };
-  console.log(meta.ogImage);
+  console.log(meta);
   useEffect(() => {
     // normal state
     setMeta([]);
@@ -194,7 +195,7 @@ const ResourceCard = ({
           <CategoryBadge category={resourceCategory} />
         </a>
       </div>
-      <div className="mt-1">
+      <div className="mt-3">
         <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
           {newDateTime && format(newDateTime, "LLL d, yyyy ")}
         </span>
@@ -208,16 +209,14 @@ const ResourceCard = ({
       )}
 
       {!loading && (
-        <img
-          src={image()}
-          alt=""
-          width="270"
-          className="rounded-md w-full h-[150px] scale-on-hover duration-500"
-        />
+        <img src={image()} alt="" className="rounded-xl w-full h-44" />
       )}
       <div className="mt-1 pb-2 mr-0 absolute right-3">
         <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
-          #{resourceTag}
+          author -{" "}
+          <a href={`https://twitter.com/${sourceTwitter}`} target="_blank">
+            {sourceTwitter}
+          </a>
         </span>
       </div>
     </article>

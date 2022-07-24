@@ -5,7 +5,7 @@ const Feed = ({ resources }) => {
   console.log("uploader: ", resources);
   return (
     <div className="pl-52 pt-20">
-      <div className="py-16 px-0 grid grid-cols-2 ml-auto mr-auto">
+      <div className="py-16 px-14 grid grid-cols-2 gap-10 ml-auto mr-auto">
         {resources.map(
           (resource) => (
             console.log(typeof resource.resourceTags),
