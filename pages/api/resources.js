@@ -25,9 +25,7 @@ async function allResources(req, res) {
   try {
     const allResources = await prisma.resource.findMany({
       include: {
-        resourceTags: true,
         uploader: true,
-        upvoters: true,
       },
     });
     return res.status(200).json(allResources, { success: true });
@@ -52,16 +50,6 @@ async function addResource(req, res) {
         resourceImage: body.resourceImage,
         resourceTitle: body.resourceTitle,
         resourceCategory: body.resourceCategory,
-        resourceTags: {
-          connectOrCreate: [
-            {
-              create: { name: body.resourceTag },
-              where: {
-                name: body.resourceTag,
-              },
-            },
-          ],
-        },
         resourceLink: body.resourceLink,
         sourceTwitter: body.sourceTwitter,
         uploaderId: user.id,

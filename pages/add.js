@@ -11,17 +11,10 @@ export default function AddResource() {
   const [resourceLink, setResourceLink] = useState("");
   const [sourceTwitter, setSourceTwitter] = useState("");
 
-  const [resourceTag, setResourceTag] = useState("");
   const [resourceImage, setResourceImage] = useState("");
   console.log(resourceImage);
 
-  console.log(
-    resourceTitle,
-    resourceCategory,
-    resourceTag,
-    resourceLink,
-    sourceTwitter
-  );
+  console.log(resourceTitle, resourceCategory, resourceLink, sourceTwitter);
 
   const options = [
     "Article",
@@ -41,7 +34,6 @@ export default function AddResource() {
     const body = {
       resourceTitle,
       resourceCategory,
-      resourceTag,
       resourceLink,
       sourceTwitter,
     };
@@ -69,7 +61,6 @@ export default function AddResource() {
   const resetForm = () => {
     setResourceTitle("");
     setResourceCategory("");
-    setResourceTag("");
     setResourceLink("");
     setSourceTwitter("");
   };
@@ -159,20 +150,8 @@ export default function AddResource() {
                     </select>
                   </div>
                   <div class="w-full px-2 md:w-1/3 py-3">
-                    <label class="block mb-1" for="formGridCode_year">
-                      Add a Tag *
-                    </label>
-                    <input
-                      class="w-full h-10 px-3 text-lg   rounded-lg "
-                      type="text"
-                      onChange={(e) => setResourceTag(e.target.value)}
-                      value={resourceTag}
-                      required
-                    />
-                  </div>
-                  <div class="w-full px-2 md:w-1/3 py-3">
                     <label class="block mb-1" for="formGridCode_cvc">
-                      Source's Twitter Handle
+                      Author's Twitter Handle
                     </label>
                     <input
                       class="w-full h-10 px-3 text-lg   rounded-lg "

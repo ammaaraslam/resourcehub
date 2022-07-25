@@ -20,14 +20,7 @@ const Feed = ({ resources }) => {
                 sourceTwitter={resource.sourceTwitter}
                 resourceTime={resource.createdAt}
                 resourceCategory={resource.resourceCategory}
-                resourceTag={resource.resourceTags[0].name}
-                totalUpvotes={resource.totalUpvotes}
-                userUpvoted={resource.userUpvoted}
-                userBookmarked={resource.userBookmarked}
                 id={resource.id}
-                upvoterId={resource.upvoterId}
-                currentUserUpvoted={resource.currentUserUpvoted}
-                upvoters={resource.upvoters}
               />
             )
           )

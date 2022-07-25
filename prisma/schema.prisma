@@ -38,15 +38,14 @@ model Session {
 }
 
 model User {
-  id                  String     @id @default(cuid())
-  name                String?
-  email               String?    @unique
-  emailVerified       DateTime?
-  image               String?
-  accounts            Account[]
-  sessions            Session[]
-  listedResources     Resource[] @relation("ListedResources")
-  bookmarkedResources Resource?  @relation("BookmarkedResources")
+  id              String     @id @default(cuid())
+  name            String?
+  email           String?    @unique
+  emailVerified   DateTime?
+  image           String?
+  accounts        Account[]
+  sessions        Session[]
+  listedResources Resource[] @relation("ListedResources")
 }
 
 model VerificationToken {
@@ -58,34 +57,13 @@ model VerificationToken {
 }
 
 model Resource {
-  id                 String              @id @unique @default(cuid())
-  resourceImage      String?
-  resourceTitle      String
-  resourceCategory   String
-  resourceLink       String
-  sourceTwitter      String?
-  resourceTags       Tag[]
-  totalUpvotes       Int                 @default(0)
-  userUpvoted        Boolean             @default(false)
-  upvoters           UpvotesOnResource[]
-  currentUserUpvoted Boolean             @default(false)
-  userBookmarked     Boolean             @default(false)
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
-  uploader           User                @relation(name: "ListedResources", fields: [uploaderId], references: [id])
-  uploaderId         String              @unique
-  bookmarkedBy       User?               @relation(name: "BookmarkedResources", fields: [bookmarkedById], references: [id])
-  bookmarkedById     String?             @unique
-}
-
-model Tag {
-  id        Int        @id @default(autoincrement())
-  name      String     @unique
-  resources Resource[]
-}
-
-model UpvotesOnResource {
-  id         Int        @id @default(autoincrement())
-  upvoterId  String?    @unique
-  resourceId Resource[]
+  id               String   @id @unique @default(cuid())
+  resourceTitle    String
+  resourceCategory String
+  resourceLink     String
+  sourceTwitter    String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  uploader         User     @relation(name: "ListedResources", fields: [uploaderId], references: [id])
+  uploaderId       String   @unique
 }

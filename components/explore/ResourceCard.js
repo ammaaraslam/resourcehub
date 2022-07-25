@@ -15,49 +15,13 @@ const ResourceCard = ({
   uploaderImage,
   uploaderName,
   resourceCategory,
-  resourceTag,
-  totalUpvotes,
-  userUpvoted,
   sourceTwitter,
-  userBookmarked,
-  upvoters,
   id,
 }) => {
   const newDateTime = new Date(resourceTime);
   const { data: session } = useSession();
   const [meta, setMeta] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // const [numberOfUpvotes, setNumberOfUpvotes] = useState(totalUpvotes);
-  // const [upvoted, setUpvoted] = useState(userUpvoted);
-  // const [bookmarked, setBookmarked] = useState(false);
-  // const [bookmarks, setBookmarks] = useState([]);
-  // const isFound = upvoters.some((upvoter) => {
-  //   if (session) {
-  //     if (upvoter.upvoterId === session.user.email) {
-  //       return true;
-  //     }
-
-  //     return false;
-  //   } else {
-  //     if (upvoter.upvoterId === "currentUserEmail") {
-  //       return true;
-  //     }
-
-  //     return false;
-  //   }
-  // });
-  // const [currentUserUpvoted, setCurrentUserUpvoted] = useState(isFound);
-
-  // const handleBookmark = async () => {
-  //   const resourceID = id;
-  //   const body = [resourceID];
-  //   if (!bookmarked) {
-  //     if (!bookmarks.includes(resourceID)) setBookmarks(bookmark.concat(resourceID));
-  //     console.log(id);
-  //   }
-
-  // }
 
   const getMeta = async () => {
     body = [resourceLink];
@@ -83,60 +47,6 @@ const ResourceCard = ({
       console.log("there was an error submitting", error);
     }
   };
-  // const handleUpvote = async () => {
-  //   const resourceID = id;
-  //   const body = [resourceID];
-
-  //   if (session) {
-  //     if (!upvoted) {
-  //       // Have to upvote resource
-  //       setNumberOfUpvotes(totalUpvotes + 1);
-  //       setUpvoted(true);
-  //       try {
-  //         const response = await fetch("/api/meta/upvote", {
-  //           method: "PUT",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify(body),
-  //         });
-  //         if (response.status !== 200) {
-  //           console.log("something went wrong");
-  //           //set an error banner here
-  //         } else {
-  //           console.log("Successfully upvoted !!!");
-  //           //set a success banner here
-  //         }
-  //         //check response, if success is false, dont take them to success page
-  //       } catch (error) {
-  //         console.log("there was an error submitting", error);
-  //       }
-  //     } else {
-  //       // Have to unvote resource
-  //       setNumberOfUpvotes(totalUpvotes - 1);
-  //       setUpvoted(false);
-
-  //       try {
-  //         const response = await fetch("/api/meta/downvote", {
-  //           method: "PUT",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify(body),
-  //         });
-  //         if (response.status !== 200) {
-  //           console.log("something went wrong");
-  //           //set an error banner here
-  //         } else {
-  //           console.log("Successfully upvoted !!!");
-  //           //set a success banner here
-  //         }
-  //         //check response, if success is false, dont take them to success page
-  //       } catch (error) {
-  //         console.log("there was an error submitting", error);
-  //       }
-  //     }
-  //   } else {
-  //     return false;
-  //   }
-
-  // };
   console.log(meta);
   useEffect(() => {
     // normal state

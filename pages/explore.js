@@ -31,9 +31,7 @@ export async function getServerSideProps() {
   const prisma = new PrismaClient();
   const response = await prisma.resource.findMany({
     include: {
-      resourceTags: true,
       uploader: true,
-      upvoters: true,
     },
   });
 
