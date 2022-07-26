@@ -81,7 +81,13 @@ const Sidebar = () => {
               <SideBarButton active={false}>
                 <TbWorld className="ml-4 mr-2" /> Online Platforms
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={false}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=blogs");
+                }}
+              >
                 <ImRss className="ml-4 mr-2" /> Blogs
               </SideBarButton>
 
@@ -121,16 +127,6 @@ const Sidebar = () => {
           )}
         </div>
         <hr></hr>
-        <div className="py-3 flex flex-col px-1">
-          <p>Tags</p>
-          <div className="grid grid-cols-3 ml-auto mr-auto">
-            <SideBarTagsButton>#react</SideBarTagsButton>
-            <SideBarTagsButton>#react</SideBarTagsButton>
-            <SideBarTagsButton>#react</SideBarTagsButton>
-            <SideBarTagsButton>#react</SideBarTagsButton>
-            <SideBarTagsButton>#react</SideBarTagsButton>
-          </div>
-        </div>
       </div>
 
       <div className="absolute bottom-5 flex flex-col"></div>

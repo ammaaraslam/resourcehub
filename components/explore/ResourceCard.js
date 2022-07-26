@@ -65,6 +65,7 @@ const ResourceCard = ({
         }
       })
       .catch((error) => {
+        res.json(error).end();
         setLoading(true);
       });
   }, []);
@@ -109,7 +110,6 @@ const ResourceCard = ({
         <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
           {newDateTime && format(newDateTime, "LLL d, yyyy ")}
         </span>
-
         <div className="inline-flex text-2xl font-bold w-72 h-fit">
           <p className="line-clamp-2">{resourceTitle}</p>
         </div>

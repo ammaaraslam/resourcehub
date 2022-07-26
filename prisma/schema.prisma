@@ -45,7 +45,7 @@ model User {
   image           String?
   accounts        Account[]
   sessions        Session[]
-  listedResources Resource[] @relation("ListedResources")
+  listedResources Resource[]
 }
 
 model VerificationToken {
@@ -64,6 +64,6 @@ model Resource {
   sourceTwitter    String?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  uploader         User     @relation(name: "ListedResources", fields: [uploaderId], references: [id])
-  uploaderId       String   @unique
+  uploader         User     @relation(fields: [uploaderId], references: [id])
+  uploaderId       String
 }

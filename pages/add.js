@@ -7,14 +7,9 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 export default function AddResource() {
   const [resourceTitle, setResourceTitle] = useState("");
-  const [resourceCategory, setResourceCategory] = useState("Article");
+  const [resourceCategory, setResourceCategory] = useState("");
   const [resourceLink, setResourceLink] = useState("");
   const [sourceTwitter, setSourceTwitter] = useState("");
-
-  const [resourceImage, setResourceImage] = useState("");
-  console.log(resourceImage);
-
-  console.log(resourceTitle, resourceCategory, resourceLink, sourceTwitter);
 
   const options = [
     "Article",
@@ -115,18 +110,6 @@ export default function AddResource() {
                       required
                     />
                   </div>
-                  <input
-                    type="file"
-                    onChange={(e) => setResourceImage(e.target.value)}
-                    value={resourceImage}
-                    class="block w-full text-sm text-slate-500
-                      file:mr-4 file:py-2 file:px-4
-                      file:rounded-full file:border-0
-                      file:text-sm file:font-semibold
-                      file:bg-violet-50 file:text-violet-700
-                      hover:file:bg-violet-100
-                      "
-                  />
                 </div>
                 <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0 text-lg">
                   <div class="w-full px-2 md:w-1/3 py-3">

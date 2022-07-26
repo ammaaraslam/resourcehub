@@ -27,18 +27,41 @@ export default function Explore({ resources }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const prisma = new PrismaClient();
-  const response = await prisma.resource.findMany({
-    include: {
-      uploader: true,
-    },
-  });
+  if (!context.query.category) {
+    const response = await prisma.resource.findMany({
+      include: {
+        uploader: true,
+      },
+    });
 
-  // Pass the data to the Home page
-  return {
-    props: {
-      resources: JSON.parse(JSON.stringify(response)),
-    },
-  };
+    // Pass the data to the Home page
+    return {
+      props: {
+        resources: JSON.parse(JSON.stringify(response)),
+      },
+    };
+  } else {
+    const category = context.query.category;
+    if (category == "blogs") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Blog",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+  }
 }

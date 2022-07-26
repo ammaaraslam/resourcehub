@@ -47,7 +47,6 @@ async function addResource(req, res) {
     });
     const newEntry = await prisma.resource.create({
       data: {
-        resourceImage: body.resourceImage,
         resourceTitle: body.resourceTitle,
         resourceCategory: body.resourceCategory,
         resourceLink: body.resourceLink,
