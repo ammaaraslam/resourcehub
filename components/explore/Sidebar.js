@@ -20,6 +20,26 @@ const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
   const router = useRouter();
 
+  const [articles, setArticles] = useState(false);
+  const [courses, setCourses] = useState(false);
+  const [hackathons, setHackathons] = useState(false);
+  const [devTools, setDevTools] = useState(false);
+  const [books, setBooks] = useState(false);
+  const [cheatsheets, setCheatsheets] = useState(false);
+  const [roadmaps, setRoadmaps] = useState(false);
+  const [onlinePlatforms, setOnlinePlatforms] = useState(false);
+  const [blogs, setBlogs] = useState(false);
+
+  const togglingArticles = () => setArticles(!articles);
+  const togglingCourses = () => setCourses(!courses);
+  const togglingHackathons = () => setHackathons(!hackathons);
+  const togglingDevTools = () => setDevTools(!devTools);
+  const togglingBooks = () => setBooks(!books);
+  const togglingCheatsheets = () => setCheatsheets(!cheatsheets);
+  const togglingRoadmaps = () => setRoadmaps(!roadmaps);
+  const togglingOnlinePlatforms = () => setOnlinePlatforms(!onlinePlatforms);
+  const togglingBlogs = () => setBlogs(!blogs);
+
   return (
     <asi className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
       <div className="mt-24 pb-3 flex flex-col px-2">
@@ -56,36 +76,93 @@ const Sidebar = () => {
 
           {showMore && (
             <>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={articles}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=articles");
+                  togglingArticles();
+                }}
+              >
                 <FaPencilAlt className="ml-4 mr-2" /> Articles
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={courses}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=courses");
+                  togglingCourses();
+                }}
+              >
                 <MdOndemandVideo className="ml-4 mr-2" /> Courses
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={hackathons}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=hackathons");
+                  togglingHackathons();
+                }}
+              >
                 <FaTrophy className="ml-4 mr-2" /> Hackathons
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={devTools}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=developer_tools");
+                  togglingDevTools();
+                }}
+              >
                 <FaTools className="ml-4 mr-2" /> Developer Tools
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={books}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=books");
+                  togglingBooks();
+                }}
+              >
                 <IoLibrarySharp className="ml-4 mr-2" /> Books
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={cheatsheets}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=cheatsheets");
+                  togglingCheatsheets();
+                }}
+              >
                 <BsFillFileEarmarkSpreadsheetFill className="ml-4 mr-2" /> Cheat
                 Sheets
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={roadmaps}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=roadmaps");
+                  togglingRoadmaps();
+                }}
+              >
                 <RiRoadMapFill className="ml-4 mr-2" /> Roadmaps
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={onlinePlatforms}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=online_platforms");
+                  togglingOnlinePlatforms();
+                }}
+              >
                 <TbWorld className="ml-4 mr-2" /> Online Platforms
               </SideBarButton>
               <SideBarButton
-                active={false}
+                active={blogs}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=blogs");
+                  togglingBlogs();
                 }}
               >
                 <ImRss className="ml-4 mr-2" /> Blogs

@@ -44,6 +44,158 @@ export async function getServerSideProps(context) {
     };
   } else {
     const category = context.query.category;
+    if (category == "articles") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Article",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "courses") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Course",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "hackathons") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Hackathon",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "developer_tools") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Developer Tools",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "books") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Book",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "cheatsheets") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "CheatSheet",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "roadmaps") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Roadmap",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "online_platforms") {
+      const response = await prisma.resource.findMany({
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Online Platform",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
     if (category == "blogs") {
       const response = await prisma.resource.findMany({
         include: {
