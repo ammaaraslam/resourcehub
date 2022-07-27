@@ -13,12 +13,13 @@ import { RiRoadMapFill } from "react-icons/ri";
 import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
   const router = useRouter();
+  const ref = useRef();
 
   const [articles, setArticles] = useState(false);
   const [courses, setCourses] = useState(false);
@@ -29,7 +30,7 @@ const Sidebar = () => {
   const [roadmaps, setRoadmaps] = useState(false);
   const [onlinePlatforms, setOnlinePlatforms] = useState(false);
   const [blogs, setBlogs] = useState(false);
-  const [explore, SetExplore] = useState(false);
+  const [explore, SetExplore] = useState(true);
 
   const togglingArticles = () => setArticles(!articles);
   const togglingExplore = () => SetExplore(!explore);
@@ -43,11 +44,59 @@ const Sidebar = () => {
   const togglingOnlinePlatforms = () => setOnlinePlatforms(!onlinePlatforms);
   const togglingBlogs = () => setBlogs(!blogs);
 
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (
+        [
+          articles,
+          courses,
+          hackathons,
+          devTools,
+          books,
+          cheatsheets,
+          roadmaps,
+          onlinePlatforms,
+          blogs,
+          explore,
+        ] &&
+        ref.current &&
+        !ref.current.contains(e.target)
+      ) {
+        setArticles(false);
+        setCourses(false);
+        setHackathons(false);
+        setDevTools(false);
+        setBooks(false);
+        setCheatsheets(false);
+        setRoadmaps(false);
+        setOnlinePlatforms(false);
+        setBlogs(false);
+        SetExplore(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [
+    articles,
+    courses,
+    hackathons,
+    devTools,
+    books,
+    cheatsheets,
+    roadmaps,
+    onlinePlatforms,
+    blogs,
+    explore,
+  ]);
+
   return (
     <aside className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
       <div className="mt-24 pb-3 flex flex-col px-2">
         <SideBarButton
-          active={true}
+          useRef={ref}
+          active={explore}
           handleOnClick={(e) => {
             e.preventDefault();
             router.push("/explore");
@@ -63,7 +112,6 @@ const Sidebar = () => {
             e.preventDefault();
             router.push("/add");
           }}
-          active={true}
         >
           <MdLibraryAdd className="ml-4 mr-2" /> New Resource
         </SideBarButtonOutlined>
@@ -88,6 +136,7 @@ const Sidebar = () => {
             <>
               <SideBarButton
                 active={articles}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=articles");
@@ -98,6 +147,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={courses}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=courses");
@@ -108,6 +158,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={hackathons}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=hackathons");
@@ -118,6 +169,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={devTools}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=developer_tools");
@@ -128,6 +180,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={books}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=books");
@@ -138,6 +191,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={cheatsheets}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=cheatsheets");
@@ -149,6 +203,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={roadmaps}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=roadmaps");
@@ -159,6 +214,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={onlinePlatforms}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=online_platforms");
@@ -169,6 +225,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={blogs}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=blogs");
@@ -191,6 +248,7 @@ const Sidebar = () => {
             <>
               <SideBarButton
                 active={articles}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=articles");
@@ -201,6 +259,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={courses}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=courses");
@@ -211,6 +270,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={hackathons}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=hackathons");
@@ -221,6 +281,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={devTools}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=developer_tools");
@@ -231,6 +292,7 @@ const Sidebar = () => {
               </SideBarButton>
               <SideBarButton
                 active={books}
+                useRef={ref}
                 handleOnClick={(e) => {
                   e.preventDefault();
                   router.push("/explore?category=books");
@@ -258,11 +320,12 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-const SideBarButton = ({ children, handleOnClick, active }) => {
+const SideBarButton = ({ children, handleOnClick, active, useRef }) => {
   if (active) {
     return (
       <>
         <button
+          ref={useRef}
           type="button"
           onClick={handleOnClick}
           className="py-1 text-black dark:text-white text-base text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start bg-black dark:bg-white bg-opacity-20 dark:bg-opacity-20 hover:bg-opacity-30 dark:hover:bg-opacity-30"
@@ -276,6 +339,7 @@ const SideBarButton = ({ children, handleOnClick, active }) => {
     <>
       <button
         type="button"
+        ref={useRef}
         onClick={handleOnClick}
         className="py-1 text-black dark:text-white text-base text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start hover:bg-black dark:hover:bg-white hover:bg-opacity-10 dark:hover:bg-opacity-10"
       >

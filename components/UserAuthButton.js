@@ -23,8 +23,6 @@ const UserAuthButton = () => {
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if ([dropdown] && ref.current && !ref.current.contains(e.target)) {
-        // setBgOpen(false);
-        // setCBgOpen(false);
         setDropdown(false);
       }
     };
