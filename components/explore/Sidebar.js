@@ -29,8 +29,11 @@ const Sidebar = () => {
   const [roadmaps, setRoadmaps] = useState(false);
   const [onlinePlatforms, setOnlinePlatforms] = useState(false);
   const [blogs, setBlogs] = useState(false);
+  const [explore, SetExplore] = useState(false);
 
   const togglingArticles = () => setArticles(!articles);
+  const togglingExplore = () => SetExplore(!explore);
+
   const togglingCourses = () => setCourses(!courses);
   const togglingHackathons = () => setHackathons(!hackathons);
   const togglingDevTools = () => setDevTools(!devTools);
@@ -41,9 +44,16 @@ const Sidebar = () => {
   const togglingBlogs = () => setBlogs(!blogs);
 
   return (
-    <asi className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
+    <aside className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
       <div className="mt-24 pb-3 flex flex-col px-2">
-        <SideBarButton active={true}>
+        <SideBarButton
+          active={true}
+          handleOnClick={(e) => {
+            e.preventDefault();
+            router.push("/explore");
+            togglingExplore();
+          }}
+        >
           <MdExplore className="ml-4 mr-2" /> Explore
         </SideBarButton>
       </div>
@@ -179,19 +189,54 @@ const Sidebar = () => {
 
           {!showMore && (
             <>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={articles}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=articles");
+                  togglingArticles();
+                }}
+              >
                 <FaPencilAlt className="ml-4 mr-2" /> Articles
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={courses}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=courses");
+                  togglingCourses();
+                }}
+              >
                 <MdOndemandVideo className="ml-4 mr-2" /> Courses
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={hackathons}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=hackathons");
+                  togglingHackathons();
+                }}
+              >
                 <FaTrophy className="ml-4 mr-2" /> Hackathons
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={devTools}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=developer_tools");
+                  togglingDevTools();
+                }}
+              >
                 <FaTools className="ml-4 mr-2" /> Developer Tools
               </SideBarButton>
-              <SideBarButton active={false}>
+              <SideBarButton
+                active={books}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=books");
+                  togglingBooks();
+                }}
+              >
                 <IoLibrarySharp className="ml-4 mr-2" /> Books
               </SideBarButton>
               <SideBarButton
@@ -207,7 +252,7 @@ const Sidebar = () => {
       </div>
 
       <div className="absolute bottom-5 flex flex-col"></div>
-    </asi>
+    </aside>
   );
 };
 
@@ -247,20 +292,6 @@ const SideBarButtonOutlined = ({ children, handleOnClick }) => {
         type="button"
         onClick={handleOnClick}
         className="py-1 text-purple-500 text-base text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start border-2 border-purple-500 hover:bg-purple-500 hover:text-white dark:hover:text-black"
-      >
-        {children}
-      </button>
-    </>
-  );
-};
-
-const SideBarTagsButton = ({ children, handleOnClick }) => {
-  return (
-    <>
-      <button
-        type="button"
-        onClick={handleOnClick}
-        className="py-1 px-2 m-1 text-white dark:text-black font-normal text-xs text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start bg-black dark:bg-white bg-opacity-80 dark:bg-opacity-80 hover:bg-opacity-90 dark:hover:bg-opacity-90"
       >
         {children}
       </button>

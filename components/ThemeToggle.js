@@ -10,7 +10,7 @@ function ThemeToggle() {
       <button
         type="button"
         onClick={() => setTheme("light")}
-        className="p-2 text-2xl rounded-xl text-primary border-2 border-primary hover:text-dark hover:bg-primary transition-all duration-300 ease-in-out"
+        className="p-2 text-xl rounded-xl text-white  hover:text-gray-800 hover:bg-white transition-all duration-200"
       >
         <IoSunny />
       </button>
@@ -20,7 +20,7 @@ function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme("dark")}
-      className="p-2 text-2xl rounded-xl text-primary border-2 border-primary hover:text-light hover:bg-primary transition-all duration-300 ease-in-out"
+      className="p-2 text-xl rounded-xl text-black hover:text-gray-200 hover:bg-black transition-all duration-200"
     >
       <IoMoon />
     </button>

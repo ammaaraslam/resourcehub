@@ -108,7 +108,7 @@ export async function getServerSideProps(context) {
         },
         where: {
           resourceCategory: {
-            equals: "Developer Tools",
+            equals: "Developer Tool",
           },
         },
       });
