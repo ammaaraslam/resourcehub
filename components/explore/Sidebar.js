@@ -20,7 +20,6 @@ const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
   const router = useRouter();
   const ref = useRef();
-
   const [articles, setArticles] = useState(false);
   const [courses, setCourses] = useState(false);
   const [hackathons, setHackathons] = useState(false);
