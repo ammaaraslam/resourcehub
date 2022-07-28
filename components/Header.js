@@ -22,15 +22,12 @@ const Header = () => {
           <div className="p-0 ml-8 text-center inline-flex items-center justify-center">
             <span className="text-2xl font-bold">ResourceHub</span>
           </div>
-          <div className="inline-flex font-medium text-xl font-sf tracking-wider">
+          <div className="inline-flex font-semibold text-xl font-sf tracking-wider">
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/about">About</Link>
-            </li>
-            <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
-              <Link href="/contribute">Contribute</Link>
             </li>
           </div>
           <div className="mr-8">
@@ -43,15 +40,12 @@ const Header = () => {
           <div className="p-0 ml-8 text-center inline-flex items-center justify-center">
             <span className="text-2xl font-bold">ResourceHub</span>
           </div>
-          <div className="inline-flex font-medium text-xl font-sf tracking-wider">
+          <div className="inline-flex font-semibold text-xl font-sf tracking-wider">
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/about">About</Link>
-            </li>
-            <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
-              <Link href="/contribute">Contribute</Link>
             </li>
           </div>
           <div className="mr-8 inline-flex">
