@@ -8,70 +8,6 @@ import { PrismaClient } from "@prisma/client";
 import { getSession } from "next-auth/react";
 
 export default function Explore({ resources }) {
-  const [articles, setArticles] = useState(false);
-  const [courses, setCourses] = useState(false);
-  const [hackathons, setHackathons] = useState(false);
-  const [devTools, setDevTools] = useState(false);
-  const [books, setBooks] = useState(false);
-  const [cheatsheets, setCheatsheets] = useState(false);
-  const [roadmaps, setRoadmaps] = useState(false);
-  const [onlinePlatforms, setOnlinePlatforms] = useState(false);
-  const [blogs, setBlogs] = useState(false);
-  const [explore, SetExplore] = useState(true);
-
-  const [articleRoute, setArticlesRoute] = useState(false);
-  const [coursesRoute, setCoursesRoute] = useState(false);
-  const [hackathonsRoute, setHackathonsRoute] = useState(false);
-  const [devToolsRoute, setDevToolsRoute] = useState(false);
-  const [booksRoute, setBooksRoute] = useState(false);
-  const [cheatsheetsRoute, setCheatsheetsRoute] = useState(false);
-  const [roadmapsRoute, setRoadmapsRoute] = useState(false);
-  const [onlinePlatformsRoute, setOnlinePlatformsRoute] = useState(false);
-  const [blogsRoute, setBlogsRoute] = useState(false);
-  const [exploreRoute, SetExploreRoute] = useState(true);
-
-  const propsForFeed = {
-    articles,
-    articleRoute,
-    setArticlesRoute,
-    coursesRoute,
-    setCoursesRoute,
-    hackathonsRoute,
-    setHackathonsRoute,
-    devToolsRoute,
-    setDevToolsRoute,
-    booksRoute,
-    setBooksRoute,
-    cheatsheetsRoute,
-    setCheatsheetsRoute,
-    roadmapsRoute,
-    setRoadmapsRoute,
-    onlinePlatformsRoute,
-    setOnlinePlatformsRoute,
-    blogsRoute,
-    setBlogsRoute,
-    exploreRoute,
-    SetExploreRoute,
-    setArticles,
-    courses,
-    setCourses,
-    hackathons,
-    setHackathons,
-    devTools,
-    setDevTools,
-    books,
-    setBooks,
-    cheatsheets,
-    setCheatsheets,
-    roadmaps,
-    setRoadmaps,
-    onlinePlatforms,
-    setOnlinePlatforms,
-    blogs,
-    setBlogs,
-    explore,
-    SetExplore,
-  };
   return (
     <div>
       <Head>
@@ -80,11 +16,10 @@ export default function Explore({ resources }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Sidebar props={propsForFeed} />
+      <Sidebar />
 
       <main className="w-full h-full bg-white dark:bg-black">
-        <Feed resources={resources} props={propsForFeed} />
-        <ThemeToggle />
+        <Feed resources={resources} />
       </main>
     </div>
   );
@@ -94,6 +29,10 @@ export async function getServerSideProps(context) {
   const prisma = new PrismaClient();
   if (!context.query.category) {
     const response = await prisma.resource.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+
       include: {
         uploader: true,
       },
@@ -107,8 +46,13 @@ export async function getServerSideProps(context) {
     };
   } else {
     const category = context.query.category;
-    if (category == "articles") {
+    const sort = context.query.sort;
+    if (category == "articles" && sort == "latest") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -128,6 +72,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "courses") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -147,6 +95,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "hackathons") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -166,6 +118,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "developer_tools") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -185,6 +141,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "books") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -204,6 +164,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "cheatsheets") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -223,6 +187,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "roadmaps") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -242,6 +210,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "online_platforms") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },
@@ -261,6 +233,10 @@ export async function getServerSideProps(context) {
     }
     if (category == "blogs") {
       const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
         include: {
           uploader: true,
         },

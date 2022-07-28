@@ -119,16 +119,6 @@ const Sidebar = () => {
 
       <div className="h-full pb-14">
         <div className="py-4 flex flex-col px-2">
-          <p>Discover</p>
-          <SideBarButton active={false}>
-            <AiTwotoneFire className="ml-4 mr-2" /> By Popularity
-          </SideBarButton>
-          <SideBarButton active={false}>
-            <TiArrowUpThick className="ml-4 mr-2" /> By Upvotes
-          </SideBarButton>
-        </div>
-        <hr></hr>
-        <div className="py-4 flex flex-col px-2">
           <p>Categories</p>
 
           {showMore && (

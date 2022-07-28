@@ -6,7 +6,9 @@ const FeedComponent = ({ category, resources }) => {
   return (
     <div className="pl-52 pt-20">
       <div className="py-10">
-        <span className="ml-8 text-2xl font-sf font-bold">{category}</span>
+        <span className="ml-8 text-2xl font-sf font-bold capitalize">
+          {category}
+        </span>
 
         <div className="py-4 px-14 grid grid-cols-2 gap-10 ml-auto mr-auto">
           {resources.map(
@@ -35,10 +37,6 @@ const FeedComponent = ({ category, resources }) => {
 };
 
 const Feed = ({ resources }) => {
-  console.log("uploader: ", resources);
-  const [ascending, setAscending] = useState(false);
-  const [articles, setArticles] = useState(false);
-
   const router = useRouter();
   const category = router.query.category;
 
@@ -46,22 +44,22 @@ const Feed = ({ resources }) => {
     return <FeedComponent category="articles" resources={resources} />;
   }
   if (category == "courses") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="courses" resources={resources} />;
   }
   if (category == "hackathons") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="hackathons" resources={resources} />;
   }
   if (category == "developer_tools") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="developer tools" resources={resources} />;
   }
   if (category == "books") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="books" resources={resources} />;
   }
   if (category == "cheatsheets") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="cheatsheets" resources={resources} />;
   }
   if (category == "roadmaps") {
-    return <FeedComponent category="articles" resources={resources} />;
+    return <FeedComponent category="roadmaps" resources={resources} />;
   }
   if (category == "online_platforms") {
     return <FeedComponent category="Online Platform" resources={resources} />;
