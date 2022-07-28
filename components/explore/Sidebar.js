@@ -316,9 +316,44 @@ const Sidebar = () => {
           )}
         </div>
         <hr></hr>
-      </div>
+        <div className="flex flex-col">
+          <div className="px-2 py-5 text-center text-lg font-bold">
+            <span>Total Resources: {totalResources}</span>
+          </div>
+          <hr></hr>
 
-      <div className="absolute bottom-5 flex flex-col">{totalResources}</div>
+          <div className="grid grid-cols-2 gap-x-7 justify-between px-2 py-5">
+            <a
+              href="/"
+              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
+            >
+              Home
+            </a>
+            <a
+              href="/about"
+              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
+            >
+              About
+            </a>
+            <a
+              href="/contribute"
+              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
+            >
+              Contribute
+            </a>
+            <a
+              href="http://github.com/ammaaraslam/resourcehub"
+              target="_blank"
+              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
+            >
+              Source
+            </a>
+          </div>
+        </div>
+        <div className="px-2 absolute bottom-1 text-center text-base font-medium">
+          <span>Built with 💙 by Ammaar Aslam</span>
+        </div>
+      </div>
     </aside>
   );
 };
