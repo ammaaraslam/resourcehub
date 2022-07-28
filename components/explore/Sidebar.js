@@ -15,6 +15,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const Sidebar = () => {
   const [showMore, setShowMore] = useState(false);
@@ -30,6 +31,7 @@ const Sidebar = () => {
   const [onlinePlatforms, setOnlinePlatforms] = useState(false);
   const [blogs, setBlogs] = useState(false);
   const [explore, SetExplore] = useState(true);
+  const [totalResources, setTotalResources] = useState(0);
 
   const togglingArticles = () => setArticles(!articles);
   const togglingExplore = () => SetExplore(!explore);
@@ -44,6 +46,20 @@ const Sidebar = () => {
   const togglingBlogs = () => setBlogs(!blogs);
 
   useEffect(() => {
+    // fetching state
+    axios
+      .get(`/api/meta/totalResources`)
+      .then(async (response) => {
+        if (response.request.status === 400) {
+          console.log("false");
+        } else {
+          await setTotalResources(response.data);
+        }
+      })
+      .catch((error) => {
+        res.json(error).end();
+      });
+
     const checkIfClickedOutside = (e) => {
       if (
         [
@@ -302,7 +318,7 @@ const Sidebar = () => {
         <hr></hr>
       </div>
 
-      <div className="absolute bottom-5 flex flex-col"></div>
+      <div className="absolute bottom-5 flex flex-col">{totalResources}</div>
     </aside>
   );
 };
