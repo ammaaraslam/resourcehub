@@ -78,12 +78,12 @@ const ResourceCard = ({
   };
 
   return (
-    <article className="group m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 hover:border-opacity-20 dark:hover:border-opacity-20 hover:scale-105 rounded-2xl py-7 px-4 font-sf text-black dark:text-white relative transition-all duration-200">
+    <article className="group m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 hover:scale-[1.03] rounded-2xl py-7 px-4 font-sf text-black dark:text-white relative transition-all duration-200">
       <div className="hidden group-hover:block absolute -top-4 p-0 -right-4 transition-all duration-300">
         <div>
           <a href={resourceLink} target="_blank">
             <ResourceCardExternalButton>
-              <FiExternalLink className="mt-auto mb-auto" size={30} />
+              <FiExternalLink className="mt-auto mb-auto" size={27} />
             </ResourceCardExternalButton>
           </a>
         </div>
@@ -107,11 +107,16 @@ const ResourceCard = ({
         </a>
       </div>
       <div className="mt-3">
-        <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
+        <span className="inline-flex font-semibold text-gray-600 text-sm">
           {newDateTime && format(newDateTime, "LLL d, yyyy ")}
         </span>
         <div className="inline-flex text-2xl font-bold w-72 h-fit">
-          <p className="line-clamp-2">{resourceTitle}</p>
+          <a
+            href={resourceLink}
+            className="line-clamp-3 underline decoration-gray-600 hover:decoration-black dark:hover:decoration-white"
+          >
+            {resourceTitle}
+          </a>
         </div>
       </div>
       {loading && (
@@ -121,27 +126,32 @@ const ResourceCard = ({
       {!loading && (
         <img src={image()} alt="" className="rounded-xl w-full h-44" />
       )}
-      <div className="mt-1 pb-2 mr-0 absolute right-3">
-        <span className="inline-flex opacity-60 dark:opacity-60 text-sm">
-          Author -{" "}
-          <a href={`https://twitter.com/${sourceTwitter}`} target="_blank">
-            {sourceTwitter}
-          </a>
-        </span>
-      </div>
+      {sourceTwitter && (
+        <div className="mt-1 pb-2 mr-0 absolute right-3">
+          <span className="inline-flex font-semibold text-gray-600 text-sm">
+            Author -{" "}
+            <a
+              href={`https://twitter.com/${sourceTwitter}`}
+              className="hover:text-green-500"
+              target="_blank"
+            >
+              @{sourceTwitter}
+            </a>
+          </span>
+        </div>
+      )}
     </article>
   );
 };
 
 export default ResourceCard;
 
-const ResourceCardExternalButton = ({ children, handleOnClick }) => {
+const ResourceCardExternalButton = ({ children }) => {
   return (
     <>
       <button
         type="button"
-        onClick={handleOnClick}
-        className={`inline-flex p-2 rounded-md bg-blue-200 text-blue-600 dark:bg-blue-100 dark:text-blue-500`}
+        className={`inline-flex p-[0.4rem] rounded-md bg-gray-400 text-black dark:bg-gray-400 dark:text-white hover:translate-x-[0.1rem] hover:-translate-y-[0.1rem] transition-all duration-200`}
       >
         {children}
       </button>
