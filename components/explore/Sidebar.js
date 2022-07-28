@@ -95,7 +95,7 @@ const Sidebar = () => {
       <div className="mt-24 pb-3 flex flex-col px-2">
         <SideBarButton
           useRef={ref}
-          active={explore}
+          active={true}
           handleOnClick={(e) => {
             e.preventDefault();
             router.push("/explore");

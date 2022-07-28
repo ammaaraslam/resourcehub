@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
   } else {
     const category = context.query.category;
     const sort = context.query.sort;
-    if (category == "articles" && sort == "latest") {
+    if (category == "articles") {
       const response = await prisma.resource.findMany({
         orderBy: {
           createdAt: "desc",

@@ -78,7 +78,7 @@ const ResourceCard = ({
   };
 
   return (
-    <article className="group m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 hover:scale-[1.03] rounded-2xl py-7 px-4 font-sf text-black dark:text-white relative transition-all duration-200">
+    <article className="group m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 hover:scale-[1.018] rounded-2xl py-7 px-4 font-sf text-black dark:text-white relative transition-all duration-300">
       <div className="hidden group-hover:block absolute -top-4 p-0 -right-4 transition-all duration-300">
         <div>
           <a href={resourceLink} target="_blank">
@@ -124,7 +124,9 @@ const ResourceCard = ({
       )}
 
       {!loading && (
-        <img src={image()} alt="" className="rounded-xl w-full h-44" />
+        <a href={resourceLink}>
+          <img src={image()} alt="" className="rounded-xl w-full h-44" />
+        </a>
       )}
       {sourceTwitter && (
         <div className="mt-1 pb-2 mr-0 absolute right-3">

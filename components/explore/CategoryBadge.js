@@ -5,76 +5,133 @@ import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { MdOndemandVideo } from "react-icons/md";
+import { useRouter } from "next/router";
 
 const CategoryBadge = ({ category }) => {
+  const router = useRouter();
+
   if (category === "Article") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=articles");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> Article
-      </div>
+      </button>
     );
   }
   if (category === "Course") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=courses");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <MdOndemandVideo className="mt-auto mb-auto mr-1" /> Course
-      </div>
+      </button>
     );
   }
   if (category === "Hackathon") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=hackathons");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <FaTrophy className="mt-auto mb-auto mr-1" /> Hackathon
-      </div>
+      </button>
     );
   }
   if (category === "Developer Tool") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=developer_tools");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <FaTools className="mt-auto mb-auto mr-1" /> Developer Tool
-      </div>
+      </button>
     );
   }
   if (category === "Book") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=books");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <IoLibrarySharp className="mt-auto mb-auto mr-1" /> Book
-      </div>
+      </button>
     );
   }
   if (category === "Roadmap") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=roadmaps");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <RiRoadMapFill className="mt-auto mb-auto mr-1" /> Book
-      </div>
+      </button>
     );
   }
   if (category === "CheatSheet") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=cheatsheets");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <BsFillFileEarmarkSpreadsheetFill className="mt-auto mb-auto mr-1" />{" "}
         CheatSheet
-      </div>
+      </button>
     );
   }
   if (category === "Online Platform") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=online_platforms");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <TbWorld className="mt-auto mb-auto mr-1" /> Online Platform
-      </div>
+      </button>
     );
   }
   if (category === "Blog") {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=blogs");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+      >
         <ImRss className="mt-auto mb-auto mr-1" /> Blog
-      </div>
+      </button>
     );
   } else {
     return (
-      <div className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> none
-      </div>
+      </button>
     );
   }
 };
