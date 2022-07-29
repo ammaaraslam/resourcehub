@@ -254,5 +254,51 @@ export async function getServerSideProps(context) {
         },
       };
     }
+    if (category == "apis") {
+      const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "API",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
+    if (category == "open_source") {
+      const response = await prisma.resource.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
+
+        include: {
+          uploader: true,
+        },
+        where: {
+          resourceCategory: {
+            equals: "Open Source",
+          },
+        },
+      });
+
+      // Pass the data to the Home page
+      return {
+        props: {
+          resources: JSON.parse(JSON.stringify(response)),
+        },
+      };
+    }
   }
 }

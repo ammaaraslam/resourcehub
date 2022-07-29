@@ -9,11 +9,13 @@ import { FaPencilAlt, FaTrophy, FaTools } from "react-icons/fa";
 import { AiTwotoneFire } from "react-icons/ai";
 import { TiArrowUpThick } from "react-icons/ti";
 import { TbBooks, TbWorld } from "react-icons/tb";
-import { RiRoadMapFill } from "react-icons/ri";
+import { RiRoadMapFill, RiOpenSourceFill } from "react-icons/ri";
 import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { useEffect, useRef, useState } from "react";
+import { AiFillApi } from "react-icons/ai";
+
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -31,6 +33,9 @@ const Sidebar = () => {
   const [onlinePlatforms, setOnlinePlatforms] = useState(false);
   const [blogs, setBlogs] = useState(false);
   const [explore, SetExplore] = useState(true);
+  const [apis, setApis] = useState(true);
+  const [opensource, setOpensource] = useState(true);
+
   const [totalResources, setTotalResources] = useState(0);
 
   const togglingArticles = () => setArticles(!articles);
@@ -44,6 +49,8 @@ const Sidebar = () => {
   const togglingRoadmaps = () => setRoadmaps(!roadmaps);
   const togglingOnlinePlatforms = () => setOnlinePlatforms(!onlinePlatforms);
   const togglingBlogs = () => setBlogs(!blogs);
+  const togglingApis = () => setApis(!apis);
+  const togglingOpensource = () => setOpensource(!opensource);
 
   useEffect(() => {
     // fetching state
@@ -73,6 +80,8 @@ const Sidebar = () => {
           onlinePlatforms,
           blogs,
           explore,
+          apis,
+          opensource,
         ] &&
         ref.current &&
         !ref.current.contains(e.target)
@@ -87,6 +96,8 @@ const Sidebar = () => {
         setOnlinePlatforms(false);
         setBlogs(false);
         SetExplore(false);
+        setApis(false);
+        setOpensource(false);
       }
     };
     document.addEventListener("mousedown", checkIfClickedOutside);
@@ -104,6 +115,8 @@ const Sidebar = () => {
     onlinePlatforms,
     blogs,
     explore,
+    apis,
+    opensource,
   ]);
 
   return (
@@ -238,6 +251,28 @@ const Sidebar = () => {
                 }}
               >
                 <ImRss className="ml-4 mr-2" /> Blogs
+              </SideBarButton>
+              <SideBarButton
+                active={apis}
+                useRef={ref}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=apis");
+                  togglingApis();
+                }}
+              >
+                <AiFillApi className="ml-4 mr-2" /> APIs
+              </SideBarButton>
+              <SideBarButton
+                active={opensource}
+                useRef={ref}
+                handleOnClick={(e) => {
+                  e.preventDefault();
+                  router.push("/explore?category=open_source");
+                  togglingOpensource();
+                }}
+              >
+                <RiOpenSourceFill className="ml-4 mr-2" /> Open Source
               </SideBarButton>
 
               <SideBarButton

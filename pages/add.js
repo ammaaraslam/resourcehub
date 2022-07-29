@@ -21,6 +21,8 @@ export default function AddResource() {
     "Roadmap",
     "Online Platform",
     "Blog",
+    "API",
+    "Open Source",
   ];
   const router = useRouter();
 

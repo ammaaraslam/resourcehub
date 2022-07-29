@@ -98,13 +98,13 @@ const ResourceCard = ({
           />
         </div>
         <div className="flex flex-col ml-2">
-          <div className="flex items-center font-bold text-base w-28 leading-5">
+          <div className="flex items-center font-bold text-base w-24 leading-5">
             <span>{uploaderName}</span>
           </div>
         </div>
-        <a className="ml-auto">
+        <div className="ml-auto">
           <CategoryBadge category={resourceCategory} />
-        </a>
+        </div>
       </div>
       <div className="mt-3">
         <span className="inline-flex font-semibold text-gray-600 text-sm">

@@ -1,10 +1,11 @@
 import { FaPencilAlt, FaTrophy, FaTools } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
-import { RiRoadMapFill } from "react-icons/ri";
+import { RiRoadMapFill, RiOpenSourceFill } from "react-icons/ri";
 import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { MdOndemandVideo } from "react-icons/md";
+import { AiFillApi } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 const CategoryBadge = ({ category }) => {
@@ -17,7 +18,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=articles");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> Article
       </button>
@@ -30,7 +31,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=courses");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <MdOndemandVideo className="mt-auto mb-auto mr-1" /> Course
       </button>
@@ -43,7 +44,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=hackathons");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <FaTrophy className="mt-auto mb-auto mr-1" /> Hackathon
       </button>
@@ -56,7 +57,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=developer_tools");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <FaTools className="mt-auto mb-auto mr-1" /> Developer Tool
       </button>
@@ -69,7 +70,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=books");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <IoLibrarySharp className="mt-auto mb-auto mr-1" /> Book
       </button>
@@ -82,7 +83,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=roadmaps");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <RiRoadMapFill className="mt-auto mb-auto mr-1" /> Book
       </button>
@@ -95,7 +96,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=cheatsheets");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <BsFillFileEarmarkSpreadsheetFill className="mt-auto mb-auto mr-1" />{" "}
         CheatSheet
@@ -109,7 +110,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=online_platforms");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <TbWorld className="mt-auto mb-auto mr-1" /> Online Platform
       </button>
@@ -122,14 +123,40 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=blogs");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex"
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
       >
         <ImRss className="mt-auto mb-auto mr-1" /> Blog
       </button>
     );
+  }
+  if (category === "API") {
+    return (
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=apis");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
+      >
+        <AiFillApi className="mt-auto mb-auto mr-1" /> API
+      </button>
+    );
+  }
+  if (category === "Open Source") {
+    return (
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          router.push("/explore?category=open_source");
+        }}
+        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg"
+      >
+        <RiOpenSourceFill className="mt-auto mb-auto mr-1" /> Open Source
+      </button>
+    );
   } else {
     return (
-      <button className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black inline-flex">
+      <button className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex text-lg">
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> none
       </button>
     );
