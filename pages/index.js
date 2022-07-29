@@ -5,8 +5,23 @@ import ThemeToggle from "../components/ThemeToggle";
 import { FaFilter, FaUserFriends, FaGithub } from "react-icons/fa";
 import { MdExplore } from "react-icons/md";
 import Footer from "../components/Footer";
+import CategoryBadge from "../components/explore/CategoryBadge";
+import { PrismaClient } from "@prisma/client";
+import ResourceCard from "../components/explore/ResourceCard";
 
-export default function Home() {
+export default function Home({ resources }) {
+  const categories = [
+    "Article",
+    "Course",
+    "Hackathon",
+    "Developer Tool",
+    "Book",
+    "CheatSheet",
+    "Roadmap",
+    "Online Platform",
+    "Blog",
+  ];
+
   return (
     <div>
       <Head>
@@ -17,7 +32,7 @@ export default function Home() {
       <Header />
 
       <main className="w-full h-full bg-white dark:bg-black">
-        <div className="py-48 flex">
+        <div className="pt-56 flex">
           <div className="ml-auto mr-auto max-w-5xl text-center">
             <h1 className="p-2 text-black dark:text-white font-extrabold text-7xl tracking-wider font-clash uppercase">
               A place for all{" "}
@@ -25,8 +40,8 @@ export default function Home() {
                 developer resources
               </span>
             </h1>
-            <p className="font-medium text-3xl mt-2 max-w-3xl ml-auto mr-auto font-sf opacity-80">
-              Share, find and save resources you find useful.
+            <p className="font-medium text-3xl mt-2 max-w-4xl ml-auto mr-auto font-sf opacity-80">
+              Discover the best resources. Share your favourite resources.
             </p>
             <div className="mt-7 inline-flex">
               <PrimaryButton>Get Started</PrimaryButton>
@@ -36,137 +51,130 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center">
-          <div className="w-4/5 h-fit bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600 p-1 rounded-2xl">
-            <iframe
-              className="rounded-2xl w-full h-[550px]"
-              src={`https://www.youtube.com/embed/LnFAgce0Zpk?autoplay=0&loop=1&showinfo=0&controls=1`}
-              frameBorder="0"
-              allowFullScreen
-              title="Embedded youtube"
-            />
-          </div>
-        </div>
-        <div className="mt-24 w-full h-fit p-4">
-          <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
-              <span className="font-extrabold opacity-80 dark:opacity-80">
-                Find the right resources{" "}
-              </span>
-              for yourself
-            </h1>
-          </div>
-          <div className="p-8 border-2 border-black dark:border-white rounded-xl flex justify-between w-3/4 ml-auto mr-auto mt-5">
-            <div className="flex flex-wrap justify-center overflow-auto whitespace-nowrap items-center w-2/5">
-              <button className="m-1">articles</button>
-              <button className="m-1">courses</button>
-              <button className="m-1">hackathons</button>
-              <button className="m-1">apis</button>
-              <button className="m-1">developer tools</button>
-              <button className="m-1">video tutorials</button>
-              <button className="m-1">books</button>
-              <button className="m-1">cheatsheets</button>
-              <button className="m-1">roadmaps</button>
+        <div className="py-14 mt-56 px-3  w-11/12 ml-auto mr-auto rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
+          <div className=" w-full h-fit p-4">
+            <div className="w-3/4 ml-auto mr-auto">
+              <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
+                <span className="font-extrabold opacity-80 dark:opacity-80">
+                  Find the right resources{" "}
+                </span>
+                for yourself
+              </h1>
             </div>
-            <p className="font-sf font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
-              Every type of resource you can imagine
-            </p>
-          </div>
-        </div>
-        <div className="mt-24 w-full h-fit p-4">
-          <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
-              <span className="font-extrabold opacity-80 dark:opacity-80">
-                Share resources you find{" "}
-              </span>
-              interesting
-            </h1>
-          </div>
-          <div className="p-8 border-2 border-black dark:border-white rounded-xl flex justify-between w-3/4 ml-auto mr-auto mt-5">
-            <p className="font-sf font-bold text-4xl max-w-sm text-left mt-auto mb-auto">
-              Find a resource on the web? Share it with others
-            </p>
-            <div className="flex flex-wrap justify-center overflow-auto whitespace-nowrap items-center w-2/5">
-              <button className="m-1">articles</button>
-              <button className="m-1">courses</button>
-              <button className="m-1">hackathons</button>
-              <button className="m-1">apis</button>
-              <button className="m-1">developer tools</button>
-              <button className="m-1">video tutorials</button>
-              <button className="m-1">books</button>
-              <button className="m-1">cheatsheets</button>
-              <button className="m-1">roadmaps</button>
-            </div>
-          </div>
-        </div>
-        <div className="mt-24 w-full h-fit p-4">
-          <div className="w-8/12 ml-auto mr-auto">
-            <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
-              <span className="font-extrabold opacity-80 dark:opacity-80">
-                Save your
-                <br />
-              </span>
-              favourite resources
-            </h1>
-          </div>
-          <div className="p-8 border-2 border-black dark:border-white rounded-xl flex justify-between w-3/4 ml-auto mr-auto mt-5">
-            <div className="flex flex-wrap justify-center overflow-auto whitespace-nowrap items-center w-2/5">
-              <button className="m-1">articles</button>
-              <button className="m-1">courses</button>
-              <button className="m-1">hackathons</button>
-              <button className="m-1">apis</button>
-              <button className="m-1">developer tools</button>
-              <button className="m-1">video tutorials</button>
-              <button className="m-1">books</button>
-              <button className="m-1">cheatsheets</button>
-              <button className="m-1">roadmaps</button>
-            </div>
-            <p className="font-sf font-bold text-4xl max-w-sm text-right mt-auto mb-auto">
-              Bookmark your favourite resources for later.
-            </p>
-          </div>
-        </div>
-        <div className="mt-24 w-full h-fit py-3 px-5 font-sf flex justify-center">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ml-auto mr-auto">
-            <div className="mx-10 block text-center w-60">
-              <FaFilter size={95} className="text-green-400 ml-auto mr-auto" />
-              <h2 className="text-2xl font-bold mt-3">
-                Filter through resources
-              </h2>
-              <p className="mt-2 text-md text-gray-400 dark:text-gray-200">
-                Easily find relevant resources by using the built-in filter
-                feature that allows you to filter through resource categories,
-                tags, newness and popularity.
+            <div className="p-8 bg-black dark:bg-white text-white dark:text-black rounded-xl flex justify-between w-4/5 ml-auto mr-auto mt-5">
+              <div className="grid grid-cols-2 w-1/2">
+                {categories.map((category) => (
+                  <div className="m-1">
+                    <CategoryBadge category={category} />
+                  </div>
+                ))}
+              </div>
+              <p className="font-sf font-bold text-4xl max-w-xs text-right mt-auto mb-auto">
+                Every type of resource you can imagine
               </p>
             </div>
-            <div className="mx-10 block text-center w-60">
-              <FaUserFriends
-                size={95}
-                className="text-green-400 ml-auto mr-auto"
-              />
-              <h2 className="text-2xl font-bold mt-3">
-                Be part of a community
-              </h2>
-              <p className="mt-2 text-md text-gray-400 dark:text-gray-200">
-                By joining ResourceHub, you become one of us. You have the
-                opportunity to connect with other devs by sharing each other's
-                favourte resources.
-              </p>
+          </div>
+          <div className="mt-24 w-full h-fit p-4">
+            <div className="w-8/12 ml-auto mr-auto">
+              <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
+                <span className="font-extrabold opacity-80 dark:opacity-80">
+                  Share resources you find{" "}
+                </span>
+                interesting
+              </h1>
             </div>
-            <div className="mx-10 block text-center w-60">
-              <FaGithub size={95} className="text-green-400 ml-auto mr-auto" />
-              <h2 className="text-2xl font-bold mt-3">Open Source Forever</h2>
-              <p className="mt-2 text-md text-gray-400 dark:text-gray-200">
-                The source code of this project is available on GitHub. Suggest
-                a feature, report a bug and contribute. Everyone is welcome!
+            <div className="p-8 bg-black dark:bg-white text-white dark:text-black rounded-xl flex justify-between w-4/5 ml-auto mr-auto mt-5">
+              <p className="font-sf font-bold text-4xl max-w-xs text-left mt-auto mb-auto">
+                Find a resource on the web? Share it with others
+              </p>
+              <div className="font-sf font-medium text-xl w-2/5">
+                <p>
+                  Easily and quickly fill a simple form with just 4 fields and
+                  you have successfully added your resource to our database.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-24 w-full h-fit p-4">
+            <div className="w-8/12 ml-auto mr-auto">
+              <h1 className="p-2 text-center text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
+                Get Started
+              </h1>
+            </div>
+            <div className="p-8 bg-black dark:bg-white text-white dark:text-black rounded-xl flex justify-between w-4/5 ml-auto mr-auto mt-5">
+              <div className="font-sf font-medium text-xl w-2/5">
+                <ul>
+                  <li>1️⃣ Sign Up with a GitHub/Google account.</li>
+                  <li className="mt-2">
+                    2️⃣ Discover resources through the explore page.
+                  </li>
+                  <li className="mt-2">
+                    3️⃣ Add a resource to our database by filling a simple, short
+                    form.
+                  </li>
+                </ul>
+              </div>
+              <p className="font-sf font-bold text-4xl max-w-xs text-left mt-auto mb-auto">
+                Quickly start using this app in 2 simple steps
               </p>
             </div>
           </div>
         </div>
-
+        <div className="mt-24 w-full h-fit p-4">
+          <h1 className="p-2 text-black dark:text-white font-black text-5xl tracking-wider font-clash uppercase">
+            Latest Resources
+          </h1>
+          <div className="py-4 grid grid-cols-3  ml-auto mr-auto">
+            {resources.map(
+              (resource) => (
+                console.log(typeof resource.resourceTags),
+                (
+                  <ResourceCard
+                    key={resource.id}
+                    uploaderID={resource.uploaderId}
+                    resourceTitle={resource.resourceTitle}
+                    uploaderImage={resource.uploader.image}
+                    uploaderName={resource.uploader.name}
+                    resourceLink={resource.resourceLink}
+                    sourceTwitter={resource.sourceTwitter}
+                    resourceTime={resource.createdAt}
+                    resourceCategory={resource.resourceCategory}
+                    id={resource.id}
+                  />
+                )
+              )
+            )}
+          </div>
+          <div className="flex justify-center items-center ml-auto mr-auto">
+            <OutlinedButton type="big">
+              More <MdExplore className="ml-2" />
+            </OutlinedButton>
+          </div>
+        </div>
         <ThemeToggle />
       </main>
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const prisma = new PrismaClient();
+  const response = await prisma.resource.findMany({
+    take: 3,
+    orderBy: {
+      createdAt: "desc",
+    },
+
+    include: {
+      uploader: true,
+    },
+  });
+
+  // Pass the data to the Home page
+  return {
+    props: {
+      resources: JSON.parse(JSON.stringify(response)),
+    },
+  };
 }
