@@ -164,3 +164,5 @@ export default function AddResource() {
     </div>
   );
 }
+
+AddResource.auth = true;

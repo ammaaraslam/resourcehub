@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { OutlinedButton } from "../components/Buttons";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 export default function MyResources() {
   const [resources, setResources] = useState([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);
   let skeletonCards = Array(4).fill(0);
   const router = useRouter();
+  const { data: session } = useSession();
 
   useEffect(() => {
     axios
@@ -66,3 +68,5 @@ export default function MyResources() {
     </div>
   );
 }
+
+MyResources.auth = true;
