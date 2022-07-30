@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     return await addResource(req, res);
   } else if (req.method === "GET") {
-    return await allResources(req, res);
+    return await resources(req, res);
   } else {
     return res
       .status(405)
@@ -21,9 +21,14 @@ export default async function handler(req, res) {
   }
 }
 
-async function allResources(req, res) {
+async function resources(req, res) {
   try {
     const allResources = await prisma.resource.findMany({
+      take: 3,
+      orderBy: {
+        createdAt: "desc",
+      },
+
       include: {
         uploader: true,
       },

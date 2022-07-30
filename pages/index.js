@@ -10,8 +10,9 @@ import { ResourceCard } from "../components/explore/ResourceCard";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import axios from "axios";
 
-export default function Home({ resources }) {
+export default function Home() {
   const categories = [
     "Article",
     "Course",
@@ -30,6 +31,24 @@ export default function Home({ resources }) {
     e.preventDefault();
     signIn();
   };
+  const [resources, setResources] = useState([]);
+  const [resourcesLoading, setResourcesLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`/api/resources`)
+      .then(async (response) => {
+        if (response.request.status === 400) {
+          console.log("false");
+        } else {
+          await setResources(response.data);
+          setResourcesLoading(false);
+        }
+      })
+      .catch((error) => {
+        res.json(error).end();
+      });
+  }, []);
 
   return (
     <div>
@@ -173,24 +192,4 @@ export default function Home({ resources }) {
       <Footer />
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  const prisma = new PrismaClient();
-  const response = await prisma.resource.findMany({
-    take: 3,
-    orderBy: {
-      createdAt: "desc",
-    },
-
-    include: {
-      uploader: true,
-    },
-  });
-
-  return {
-    props: {
-      resources: JSON.parse(JSON.stringify(response)),
-    },
-  };
 }
