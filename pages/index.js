@@ -74,16 +74,17 @@ export default function Home({ resources }) {
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between w-11/12 ml-auto mr-auto mt-5">
-              <div className="grid grid-cols-2 md:w-1/2 w-full">
+              <p className="font-sf font-bold md:text-4xl text-3xl md:max-w-xs md:text-right text-left mt-auto mb-auto">
+                Every type of resource you can imagine
+              </p>
+
+              <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full">
                 {categories.map((category) => (
                   <div className="m-1">
                     <CategoryBadge category={category} />
                   </div>
                 ))}
               </div>
-              <p className="font-sf font-bold md:text-4xl text-3xl md:max-w-xs md:text-right text-left mt-auto mb-auto">
-                Every type of resource you can imagine
-              </p>
             </div>
           </div>
           <div className="mt-24 w-full h-fit p-4">
