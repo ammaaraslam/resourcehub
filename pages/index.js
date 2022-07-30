@@ -84,8 +84,8 @@ export default function Home({ resources }) {
 
               <div className="grid md:grid-cols-2 grid-cols-1 md:w-1/2 w-full">
                 {categories.map((category) => (
-                  <div className="m-1">
-                    <CategoryBadge key={key} category={category} />
+                  <div key={key} className="m-1">
+                    <CategoryBadge category={category} />
                   </div>
                 ))}
               </div>

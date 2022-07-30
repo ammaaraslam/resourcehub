@@ -123,6 +123,7 @@ export default function AddResource() {
                     >
                       {options.map((o) => (
                         <option
+                          key={key}
                           className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                           value={o}
                         >
@@ -133,7 +134,7 @@ export default function AddResource() {
                   </div>
                   <div className="w-full px-2 md:w-1/2 py-3">
                     <label className="block mb-1" htmlFor="formGridCode_cvc">
-                      Author's Twitter Handle
+                      Author&apos;s Twitter Handle
                     </label>
                     <div className="inline-flex w-full">
                       <span className="mt-auto mb-auto ml-2 text-lg">@</span>
