@@ -20,6 +20,8 @@ export default function Home({ resources }) {
     "Roadmap",
     "Online Platform",
     "Blog",
+    "API",
+    "Open Source",
   ];
 
   return (

@@ -17,19 +17,27 @@ const Footer = () => {
               Explore
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Articles</Link>
+              <Link href="/explore?category=articles">Articles</Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Courses</Link>
+              <Link href="/explore?category=courses">Courses</Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Hackathons</Link>
+              <Link href="/explore?category=hackathons">Hackathons</Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Developer Tools</Link>
+              <Link href="/explore?category=developer_tools">
+                Developer Tools
+              </Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Cheatsheets</Link>
+              <Link href="/explore?category=cheatsheets">Cheatsheets</Link>
+            </li>
+            <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
+              <Link href="/explore?category=books">Books</Link>
+            </li>
+            <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
+              <Link href="/explore">Many More</Link>
             </li>
           </div>
           <div className="font-medium text-lg font-sf tracking-wider mr-16">
@@ -48,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="bottom-0 py-6 px-3 w-full h-fit bg-white flex justify-center dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
+      <div className="bottom-0 py-4 px-3 w-full h-fit bg-white flex justify-center dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 font-sf">
         Built as a submission to the PlanetScale X Hashnode Hackathon
       </div>
     </>

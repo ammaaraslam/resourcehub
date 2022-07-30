@@ -385,6 +385,8 @@ const Sidebar = () => {
             </a>
           </div>
         </div>
+        <hr></hr>
+
         <div className="px-2 absolute bottom-1 text-center text-base font-medium">
           <span>Built with 💙 by Ammaar Aslam</span>
         </div>
