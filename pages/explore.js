@@ -1,13 +1,24 @@
 import Head from "next/head";
-import Feed from "../components/explore/Feed";
+import Feed, { SkeletonFeed } from "../components/explore/Feed";
 import Header from "../components/explore/Header";
 import Sidebar from "../components/explore/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PrismaClient } from "@prisma/client";
 import { getSession } from "next-auth/react";
 
 export default function Explore({ resources }) {
+  const [resourceLoading, setResourceLoading] = useState(true);
+  let skeletonCards = Array(4).fill(0);
+
+  useEffect(() => {
+    if (resources) {
+      setTimeout(() => {
+        setResourceLoading(false);
+      }, 4000);
+    }
+  }, [resources]);
+
   return (
     <div>
       <Head>
@@ -19,7 +30,14 @@ export default function Explore({ resources }) {
       <Sidebar />
 
       <main className="w-full h-full bg-white dark:bg-black">
-        <Feed resources={resources} />
+        {resourceLoading ? (
+          <SkeletonFeed
+            resourceLoading={resourceLoading}
+            skeletonCards={skeletonCards}
+          />
+        ) : (
+          <Feed resources={resources} />
+        )}
       </main>
     </div>
   );

@@ -6,48 +6,49 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 
-const ResourceCard = ({
-  uploaderID,
+export const ResourceCardSkeleton = () => {
+  return (
+    <article className="m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 rounded-2xl py-7 px-4 relative transition-all duration-300">
+      <div className="animate-pulse">
+        <div className="flex items-center">
+          <div className="rounded-full h-10 w-10 bg-gray-600"></div>
+          <div className="flex flex-col ml-2">
+            <div className="flex items-center w-24 h-3"></div>
+          </div>
+          <div className="ml-auto">
+            <div className="w-28 h-5"></div>
+          </div>
+        </div>
+        <div className="mt-3">
+          <span className="inline-flex w-24 bg-gray-600 h-4"></span>
+          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
+          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
+          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
+        </div>
+        <div className="mt-4 pb-4 bg-gray-600 w-full h-44 rounded-2xl"></div>
+
+        <div className="mt-1 pb-2 mr-0 absolute right-3">
+          <span className="inline-flex w-24 h-4 bg-gray-600 "></span>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export const ResourceCard = ({
   resourceTitle,
-  resourceImage,
   resourceLink,
   resourceTime,
   uploaderImage,
   uploaderName,
   resourceCategory,
   sourceTwitter,
-  id,
+  resourceLoading,
 }) => {
   const newDateTime = new Date(resourceTime);
-  const { data: session } = useSession();
   const [meta, setMeta] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
 
-  const getMeta = async () => {
-    body = [resourceLink];
-    try {
-      setLoading(false);
-      const response = await fetch(`/api/meta/resourceMeta`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      if (response.status !== 200) {
-        console.log("something went wrong");
-        //set an error banner here
-      } else {
-        console.log("Successfully upvoted !!!");
-        setMeta(response.data);
-        setLoading(false);
-        //set a success banner here
-      }
-      //check response, if success is false, dont take them to success page
-    } catch (error) {
-      console.log("there was an error submitting", error);
-    }
-  };
-  console.log(meta);
   useEffect(() => {
     // normal state
     setMeta([]);
@@ -57,23 +58,22 @@ const ResourceCard = ({
       .get(`/api/meta/resourceMeta?url=${resourceLink}`)
       .then(async (response) => {
         if (response.request.status === 400) {
-          setLoading(true);
-          console.log("false");
+          setImageLoading(true);
         } else {
-          setLoading(false);
+          setImageLoading(false);
           await setMeta(response.data);
         }
       })
       .catch((error) => {
         res.json(error).end();
-        setLoading(true);
+        setImageLoading(true);
       });
   }, []);
   const image = () => {
     if (meta.ogImage) {
       return meta.ogImage.url;
     } else {
-      return "/public/vercel.svg";
+      return "https://";
     }
   };
 
@@ -119,11 +119,11 @@ const ResourceCard = ({
           </a>
         </div>
       </div>
-      {loading && (
+      {imageLoading && (
         <div className="mt-4 pb-4 bg-black dark:bg-white w-full h-44 rounded-2xl"></div>
       )}
 
-      {!loading && (
+      {!imageLoading && (
         <a href={resourceLink}>
           <img src={image()} alt="" className="rounded-xl w-full h-44" />
         </a>
@@ -145,8 +145,6 @@ const ResourceCard = ({
     </article>
   );
 };
-
-export default ResourceCard;
 
 const ResourceCardExternalButton = ({ children }) => {
   return (
