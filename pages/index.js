@@ -6,8 +6,10 @@ import { MdExplore } from "react-icons/md";
 import Footer from "../components/Footer";
 import CategoryBadge from "../components/explore/CategoryBadge";
 import { PrismaClient } from "@prisma/client";
-import Feed, { SkeletonFeed } from "../components/explore/Feed";
+import { ResourceCard } from "../components/explore/ResourceCard";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 export default function Home({ resources }) {
   const categories = [
@@ -23,16 +25,11 @@ export default function Home({ resources }) {
     "API",
     "Open Source",
   ];
-  const [resourceLoading, setResourceLoading] = useState(true);
-  let skeletonCards = Array(4).fill(0);
-
-  useEffect(() => {
-    if (resources) {
-      setTimeout(() => {
-        setResourceLoading(false);
-      }, 4000);
-    }
-  }, [resources]);
+  const router = useRouter();
+  const handleSignin = (e) => {
+    e.preventDefault();
+    signIn();
+  };
 
   return (
     <div>
@@ -56,8 +53,15 @@ export default function Home({ resources }) {
               Discover the best resources. Share your favourite resources.
             </p>
             <div className="mt-7 inline-flex">
-              <PrimaryButton>Get Started</PrimaryButton>
-              <OutlinedButton type="big">
+              <PrimaryButton handleOnClick={handleSignin}>
+                Get Started
+              </PrimaryButton>
+              <OutlinedButton
+                handleOnClick={() => {
+                  router.push("/explore");
+                }}
+                type="big"
+              >
                 Explore <MdExplore className="ml-2" />
               </OutlinedButton>
             </div>
@@ -138,21 +142,33 @@ export default function Home({ resources }) {
           <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-clash uppercase">
             Latest Resources
           </h1>
-          {resourceLoading ? (
-            <SkeletonFeed
-              resourceLoading={resourceLoading}
-              skeletonCards={skeletonCards}
-            />
-          ) : (
-            <Feed resources={resources} />
-          )}
+          <div className="py-4 md:px-14 px-3 grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 ml-auto mr-auto">
+            {resources.map((resource) => (
+              <ResourceCard
+                key={resource.id}
+                uploaderID={resource.uploaderId}
+                resourceTitle={resource.resourceTitle}
+                uploaderImage={resource.uploader.image}
+                uploaderName={resource.uploader.name}
+                resourceLink={resource.resourceLink}
+                sourceTwitter={resource.sourceTwitter}
+                resourceTime={resource.createdAt}
+                resourceCategory={resource.resourceCategory}
+                id={resource.id}
+              />
+            ))}
+          </div>
           <div className="flex justify-center items-center ml-auto mr-auto">
-            <OutlinedButton type="big">
+            <OutlinedButton
+              handleOnClick={() => {
+                router.push("/explore");
+              }}
+              type="big"
+            >
               More <MdExplore className="ml-2" />
             </OutlinedButton>
           </div>
         </div>
-        <ThemeToggle />
       </main>
       <Footer />
     </div>
