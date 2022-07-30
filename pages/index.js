@@ -6,7 +6,7 @@ import { MdExplore } from "react-icons/md";
 import Footer from "../components/Footer";
 import CategoryBadge from "../components/explore/CategoryBadge";
 import { PrismaClient } from "@prisma/client";
-import { ResourceCard } from "../components/explore/ResourceCard";
+import Feed, { SkeletonFeed } from "../components/explore/Feed";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
@@ -33,6 +33,7 @@ export default function Home() {
   };
   const [resources, setResources] = useState([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);
+  let skeletonCards = Array(4).fill(0);
 
   useEffect(() => {
     axios
@@ -161,22 +162,14 @@ export default function Home() {
           <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-clash uppercase">
             Latest Resources
           </h1>
-          <div className="py-4 grid md:grid-cols-3 grid-cols-1 ml-auto mr-auto">
-            {resources.map((resource) => (
-              <ResourceCard
-                key={key}
-                uploaderID={resource.uploaderId}
-                resourceTitle={resource.resourceTitle}
-                uploaderImage={resource.uploader.image}
-                uploaderName={resource.uploader.name}
-                resourceLink={resource.resourceLink}
-                sourceTwitter={resource.sourceTwitter}
-                resourceTime={resource.createdAt}
-                resourceCategory={resource.resourceCategory}
-                id={resource.id}
-              />
-            ))}
-          </div>
+          {resourcesLoading ? (
+            <SkeletonFeed
+              resourceLoading={resourcesLoading}
+              skeletonCards={skeletonCards}
+            />
+          ) : (
+            <Feed resources={resources} />
+          )}
           <div className="flex justify-center items-center ml-auto mr-auto pb-6">
             <OutlinedButton
               handleOnClick={() => {
