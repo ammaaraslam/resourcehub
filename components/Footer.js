@@ -8,7 +8,14 @@ const Footer = () => {
         <div className="p-0 md:ml-8 md:mr-0 ml-auto mr-auto md:text-left text-center">
           <span className="text-2xl font-bold">ResourceHub</span>
           <p className="font-sf text-sm font-medium">
-            Built with 💚 by Ammaar Aslam
+            Built with 💚 by{" "}
+            <a
+              href="https://twitter.com/itsammaar_7"
+              target="_blank"
+              className="hover:text-purple-600 hover:underline"
+            >
+              Ammaar Aslam
+            </a>
           </p>
         </div>
         <div className="flex justify-between md:mt-0 mt-3">
@@ -45,19 +52,32 @@ const Footer = () => {
               Community
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Request Features</Link>
+              <Link href="https://github.com/ammaaraslam/resourcehub">
+                Request Features
+              </Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Report a bug</Link>
+              <Link href="https://github.com/ammaaraslam/resourcehub">
+                Report a bug
+              </Link>
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
-              <Link href="/">Contribute</Link>
+              <Link href="https://github.com/ammaaraslam/resourcehub">
+                Contribute
+              </Link>
             </li>
           </div>
         </div>
       </footer>
       <div className="bottom-0 py-4 px-3 w-full h-fit bg-white flex justify-center dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 font-sf text-center">
-        Built as a submission to the PlanetScale X Hashnode Hackathon
+        Built as a submission to the{" "}
+        <a
+          href="https://townhall.hashnode.com/planetscale-hackathon"
+          target="_blank"
+          className="hover:text-green-500 hover:underline"
+        >
+          PlanetScale X Hashnode Hackathon
+        </a>
       </div>
     </>
   );

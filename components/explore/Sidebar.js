@@ -460,12 +460,30 @@ const Sidebar = ({ props }) => {
         <hr></hr>
         {showMore && (
           <div className="px-2 mt-0 text-center text-base font-medium">
-            <span>Built with 💙 by Ammaar Aslam</span>
+            <p>
+              Built with 💚 by{" "}
+              <a
+                href="https://twitter.com/itsammaar_7"
+                target="_blank"
+                className="hover:text-purple-600 hover:underline"
+              >
+                Ammaar Aslam
+              </a>
+            </p>
           </div>
         )}
         {!showMore && (
           <div className="px-2 mt-[60%] text-center text-base font-medium">
-            <span>Built with 💙 by Ammaar Aslam</span>
+            <p>
+              Built with 💚 by{" "}
+              <a
+                href="https://twitter.com/itsammaar_7"
+                target="_blank"
+                className="hover:text-purple-600 hover:underline"
+              >
+                Ammaar Aslam
+              </a>
+            </p>
           </div>
         )}
       </div>
