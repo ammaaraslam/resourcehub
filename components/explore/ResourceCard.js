@@ -81,7 +81,7 @@ export const ResourceCard = ({
     <article className="group m-5 md:w-[22rem] md:h-[27rem] w-[19rem] h-[23rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 md:hover:scale-[1.018] rounded-2xl md:py-7 md:px-4 py-4 px-2 font-sf text-black dark:text-white relative transition-all duration-300">
       <div className="hidden group-hover:block absolute -top-4 p-0 -right-4 transition-all duration-300">
         <div>
-          <a href={resourceLink} target="_blank">
+          <a href={resourceLink} target="_blank" rel="noreferrer">
             <ResourceCardExternalButton>
               <FiExternalLink className="mt-auto mb-auto" size={27} />
             </ResourceCardExternalButton>
@@ -140,6 +140,7 @@ export const ResourceCard = ({
               href={`https://twitter.com/${sourceTwitter}`}
               className="hover:text-green-500"
               target="_blank"
+              rel="noreferrer"
             >
               @{sourceTwitter}
             </a>

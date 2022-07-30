@@ -15,6 +15,7 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { ImRss } from "react-icons/im";
 import { useEffect, useRef, useState } from "react";
 import { AiFillApi } from "react-icons/ai";
+import Link from "next/link";
 
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -430,20 +431,22 @@ const Sidebar = ({ props }) => {
           <hr></hr>
 
           <div className="grid grid-cols-2 gap-x-7 justify-between px-2 py-5">
-            <a
+            <Link
               href="/"
               className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="/about"
               className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
             >
               About
-            </a>
+            </Link>
             <a
-              href="/contribute"
+              href="https://github.com/ammaaraslam/resourcehub"
+              target="_blank"
+              rel="noreferrer"
               className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
             >
               Contribute
@@ -451,6 +454,7 @@ const Sidebar = ({ props }) => {
             <a
               href="http://github.com/ammaaraslam/resourcehub"
               target="_blank"
+              rel="noreferrer"
               className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
             >
               Source
@@ -465,6 +469,7 @@ const Sidebar = ({ props }) => {
               <a
                 href="https://twitter.com/itsammaar_7"
                 target="_blank"
+                rel="noreferrer"
                 className="hover:text-purple-600 hover:underline"
               >
                 Ammaar Aslam
@@ -479,6 +484,7 @@ const Sidebar = ({ props }) => {
               <a
                 href="https://twitter.com/itsammaar_7"
                 target="_blank"
+                rel="noreferrer"
                 className="hover:text-purple-600 hover:underline"
               >
                 Ammaar Aslam

@@ -110,6 +110,7 @@ export default function About() {
                 <a
                   href="https://github.com/ammaaraslam/resourcehub"
                   target="_blank"
+                  rel="noreferrer"
                   className="underline decoration-green-400"
                 >
                   star the repository on GitHub
@@ -121,6 +122,7 @@ export default function About() {
                 <a
                   href="https://github.com/ammaaraslam/resourcehub"
                   target="_blank"
+                  rel="noreferrer"
                   className="underline decoration-green-400"
                 >
                   Report it on GitHub
@@ -132,6 +134,7 @@ export default function About() {
                 <a
                   href="https://github.com/ammaaraslam/resourcehub"
                   target="_blank"
+                  rel="noreferrer"
                   className="underline decoration-green-400"
                 >
                   Create a request on GitHub

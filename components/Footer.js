@@ -12,6 +12,7 @@ const Footer = () => {
             <a
               href="https://twitter.com/itsammaar_7"
               target="_blank"
+              rel="noreferrer"
               className="hover:text-purple-600 hover:underline"
             >
               Ammaar Aslam
@@ -74,6 +75,7 @@ const Footer = () => {
         <a
           href="https://townhall.hashnode.com/planetscale-hackathon"
           target="_blank"
+          rel="noreferrer"
           className="hover:text-green-500 hover:underline"
         >
           PlanetScale X Hashnode Hackathon
