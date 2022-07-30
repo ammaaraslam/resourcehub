@@ -83,47 +83,47 @@ export default function AddResource() {
             </h2>
             <div className="font-sf mt-5">
               <form
-                class="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10"
+                className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10"
                 onSubmit={handleSubmit}
               >
-                <div class="w-full px-2 py-3 text-lg">
-                  <label class="block mb-1" for="formGridCode_name">
+                <div className="w-full px-2 py-3 text-lg">
+                  <label className="block mb-1" htmlFor="formGridCode_name">
                     Name of the resource *
                   </label>
                   <input
                     onChange={(e) => setResourceTitle(e.target.value)}
-                    class="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
+                    className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                     type="text"
                     value={resourceTitle}
                     required
                   />
                 </div>
-                <div class="w-full  px-2 py-2 text-lg">
-                  <label class="block mb-1" for="formGridCode_last">
+                <div className="w-full  px-2 py-2 text-lg">
+                  <label className="block mb-1" htmlFor="formGridCode_last">
                     Link to the resource *
                   </label>
                   <input
-                    class="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
+                    className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                     type="url"
                     onChange={(e) => setResourceLink(e.target.value)}
                     value={resourceLink}
                     required
                   />
                 </div>
-                <div class="flex flex-wrap  justify-between space-y-4 md:space-y-0 text-lg">
-                  <div class="w-full px-2 md:w-1/2 py-3">
-                    <label class="block mb-1" for="formGridCode_month">
+                <div className="flex flex-wrap  justify-between space-y-4 md:space-y-0 text-lg">
+                  <div className="w-full px-2 md:w-1/2 py-3">
+                    <label className="block mb-1" htmlFor="formGridCode_month">
                       Select Category *
                     </label>
                     <select
-                      class="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg"
+                      className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg"
                       value={resourceCategory}
                       onChange={(e) => setResourceCategory(e.target.value)}
                       required
                     >
                       {options.map((o) => (
                         <option
-                          class="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
+                          className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                           value={o}
                         >
                           {o}
@@ -131,14 +131,14 @@ export default function AddResource() {
                       ))}
                     </select>
                   </div>
-                  <div class="w-full px-2 md:w-1/2 py-3">
-                    <label class="block mb-1" for="formGridCode_cvc">
+                  <div className="w-full px-2 md:w-1/2 py-3">
+                    <label className="block mb-1" htmlFor="formGridCode_cvc">
                       Author's Twitter Handle
                     </label>
                     <div className="inline-flex w-full">
                       <span className="mt-auto mb-auto ml-2 text-lg">@</span>
                       <input
-                        class="w-full ml-1 h-10 text-lg border-2 border-gray-400 rounded-lg "
+                        className="w-full ml-1 h-10 text-lg border-2 border-gray-400 rounded-lg "
                         type="text"
                         onChange={(e) => setSourceTwitter(e.target.value)}
                       />

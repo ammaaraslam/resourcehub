@@ -142,7 +142,7 @@ export default function Home({ resources }) {
           <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-clash uppercase">
             Latest Resources
           </h1>
-          <div className="py-4 grid grid-cols-3  ml-auto mr-auto">
+          <div className="py-4 grid md:grid-cols-3 grid-cols-1 ml-auto mr-auto">
             {resources.map((resource) => (
               <ResourceCard
                 key={resource.id}
