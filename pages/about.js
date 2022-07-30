@@ -4,9 +4,11 @@ import Header from "../components/Header";
 import { SiNextdotjs, SiTailwindcss, SiPrisma, SiVercel } from "react-icons/si";
 import Image from "next/image";
 import planetscale from "../public/planetscale.png";
-import { MdExplore } from "react-icons/md";
+import { useTheme } from "next-themes";
 
 export default function About() {
+  const { systemTheme, theme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   return (
     <div>
       <Head>
@@ -67,12 +69,27 @@ export default function About() {
             >
               <SiPrisma size={70} />
             </a>
-            <a
-              href="https://planetscale.com"
-              className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
-            >
-              <Image src={planetscale} width={70} height={70} />
-            </a>
+            {currentTheme === "dark" ? (
+              <a
+                href="https://planetscale.com"
+                className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
+              >
+                <Image
+                  src={planetscale}
+                  width={70}
+                  height={70}
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </a>
+            ) : (
+              <a
+                href="https://planetscale.com"
+                className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
+              >
+                <Image src={planetscale} width={70} height={70} />
+              </a>
+            )}
+
             <a
               href="https://vercel.com"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
