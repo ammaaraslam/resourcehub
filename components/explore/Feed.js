@@ -9,7 +9,7 @@ const FeedComponent = ({
   skeletonCards,
 }) => {
   return (
-    <div className="md:pl-52 p-0 pt-20">
+    <div>
       <div className="py-10">
         <span className="ml-8 text-2xl font-sf font-bold">{category}</span>
 
@@ -54,6 +54,8 @@ export const SkeletonFeed = ({ resourceLoading, skeletonCards }) => {
 const Feed = ({ resources }) => {
   const router = useRouter();
   const category = router.query.category;
+  const route = router.asPath;
+  console.log(route);
 
   if (category == "articles") {
     return <FeedComponent category="Articles" resources={resources} />;
@@ -87,6 +89,9 @@ const Feed = ({ resources }) => {
   }
   if (category == "open_source") {
     return <FeedComponent category="Open Source" resources={resources} />;
+  }
+  if (route == "/my-resources") {
+    return <FeedComponent category="My Resources" resources={resources} />;
   } else {
     return <FeedComponent category="Explore" resources={resources} />;
   }

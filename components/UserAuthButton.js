@@ -55,6 +55,17 @@ const UserAuthButton = () => {
                 <span className="mr-2">Add New Resource</span>
               </button>
             </li>
+            <li>
+              <button
+                className="inline-flex items-center w-full py-1 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 justify-between"
+                onClick={() => {
+                  router.push("/my-resources");
+                }}
+              >
+                <span className="mr-2">My Resources</span>
+              </button>
+            </li>
+
             <li className="inline-flex items-center py-1 px-3 hover:bg-gray-200 dark:hover:bg-gray-800 ">
               <span className="mr-2">Toggle Theme: </span>
               <ThemeToggle />

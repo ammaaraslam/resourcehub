@@ -34,14 +34,16 @@ export default function Explore({ resources }) {
       <Sidebar props={sidebarProps} />
 
       <main className="w-full h-fit min-h-screen bg-white dark:bg-black">
-        {resourceLoading ? (
-          <SkeletonFeed
-            resourceLoading={resourceLoading}
-            skeletonCards={skeletonCards}
-          />
-        ) : (
-          <Feed resources={resources} />
-        )}
+        <div className="md:pl-52 p-0 pt-20">
+          {resourceLoading ? (
+            <SkeletonFeed
+              resourceLoading={resourceLoading}
+              skeletonCards={skeletonCards}
+            />
+          ) : (
+            <Feed resources={resources} />
+          )}
+        </div>
       </main>
     </div>
   );
