@@ -164,7 +164,7 @@ export default function Home() {
           <div className="py-4 grid md:grid-cols-3 grid-cols-1 ml-auto mr-auto">
             {resources.map((resource) => (
               <ResourceCard
-                key={resource.id}
+                key={key}
                 uploaderID={resource.uploaderId}
                 resourceTitle={resource.resourceTitle}
                 uploaderImage={resource.uploader.image}
