@@ -4,15 +4,15 @@ import { OutlinedButton } from "./Buttons";
 const Footer = () => {
   return (
     <>
-      <footer className="bottom-0 py-6 px-3 w-full h-fit bg-white flex justify-between dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
-        <div className="p-0 ml-8">
+      <footer className="bottom-0 py-6 px-3 w-full h-fit bg-white md:flex block justify-between dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
+        <div className="p-0 md:ml-8 md:mr-0 ml-auto mr-auto md:text-left text-center">
           <span className="text-2xl font-bold">ResourceHub</span>
           <p className="font-sf text-sm font-medium">
             Built with 💚 by Ammaar Aslam
           </p>
         </div>
-        <div className="flex justify-between">
-          <div className="font-medium text-lg font-sf tracking-wider mr-16">
+        <div className="flex justify-between md:mt-0 mt-3">
+          <div className="font-medium text-lg font-sf tracking-wider md:mr-16 mr-4 md:ml-0 ml-8">
             <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl">
               Explore
             </li>
@@ -40,8 +40,8 @@ const Footer = () => {
               <Link href="/explore">Many More</Link>
             </li>
           </div>
-          <div className="font-medium text-lg font-sf tracking-wider mr-16">
-            <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl">
+          <div className="font-medium text-lg font-sf tracking-wider md:mr-16 mr-8">
+            <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl ">
               Community
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="bottom-0 py-4 px-3 w-full h-fit bg-white flex justify-center dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 font-sf">
+      <div className="bottom-0 py-4 px-3 w-full h-fit bg-white flex justify-center dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10 font-sf text-center">
         Built as a submission to the PlanetScale X Hashnode Hackathon
       </div>
     </>
