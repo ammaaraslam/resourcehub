@@ -16,12 +16,12 @@ export default function About() {
       </Head>
       <Header />
       <main className="w-full h-full bg-white dark:bg-black">
-        <div className="py-40 flex">
+        <div className="md:py-40 pt-40 pb-20 flex">
           <div className="ml-auto mr-auto max-w-5xl text-center">
-            <h2 className="font-clash font-semibold tracking-wider text-green-400 text-2xl underline">
+            <h2 className="font-clash font-semibold tracking-wider text-green-400 md:text-2xl text-xl underline">
               About ResourceHub
             </h2>
-            <p className="text-5xl font-sf font-semibold mt-3 max-w-5xl tracking-wide leading-[1.15]">
+            <p className="md:text-5xl text-4xl font-sf font-semibold mt-3 max-w-5xl tracking-wide leading-[1.15]">
               ResourceHub is platform for developers to{" "}
               <span className="underline decoration-purple-400 italic">
                 discover the best resources
@@ -32,12 +32,12 @@ export default function About() {
               </span>
               .
             </p>
-            <p className="text-3xl font-sf font-semibold ml-auto mr-auto mt-8 max-w-3xl tracking-wide">
+            <p className="md:text-3xl text-2xl font-sf font-semibold ml-auto mr-auto mt-8 max-w-3xl tracking-wide">
               ✨<span className="text-purple-400 font-bold">Discover</span>{" "}
               resources without searching the entire internet and wasting your
               time.
             </p>
-            <p className="text-3xl font-sf font-semibold ml-auto mr-auto mt-3 max-w-3xl tracking-wide">
+            <p className="md:text-3xl text-2xl font-sf font-semibold ml-auto mr-auto mt-3 max-w-3xl tracking-wide">
               ✨<span className="text-purple-400 font-bold">Share</span>{" "}
               resources that you find to be useful or share your own resources
               that you created.
@@ -48,7 +48,7 @@ export default function About() {
           <h1 className="font-clash font-semibold text-3xl underline tracking-wider capitalize">
             proudly built with 🌟
           </h1>
-          <div className="flex justify-center items-center p-5">
+          <div className="md:flex grid grid-cols-2 justify-center items-center md:p-5">
             <a
               href="https://nextjs.org"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
