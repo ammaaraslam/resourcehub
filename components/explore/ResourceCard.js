@@ -8,24 +8,24 @@ import axios from "axios";
 
 export const ResourceCardSkeleton = () => {
   return (
-    <article className="m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 rounded-2xl py-7 px-4 relative transition-all duration-300">
+    <article className="m-5 md:w-[22rem] md:h-[27rem] w-[19rem] h-[23rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 rounded-2xl md:py-7 md:px-4 py-4 px-2 relative transition-all duration-300">
       <div className="animate-pulse">
         <div className="flex items-center">
           <div className="rounded-full h-10 w-10 bg-gray-600"></div>
           <div className="flex flex-col ml-2">
-            <div className="flex items-center w-24 h-3"></div>
+            <div className="flex items-center md:w-24 w24 h-3"></div>
           </div>
           <div className="ml-auto">
             <div className="w-28 h-5"></div>
           </div>
         </div>
         <div className="mt-3">
-          <span className="inline-flex w-24 bg-gray-600 h-4"></span>
-          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
-          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
-          <div className="w-72 bg-gray-600 h-6 mt-1"></div>
+          <span className="inline-flex w-24 bg-gray-600 md:h-4 h-3"></span>
+          <div className="md:w-72 w-60 bg-gray-600 md:h-6 h-4 mt-1"></div>
+          <div className="md:w-72 w-60 bg-gray-600 md:h-6 h-4 mt-1"></div>
+          <div className="md:w-72 w-60 bg-gray-600 md:h-6 h-4 mt-1"></div>
         </div>
-        <div className="mt-4 pb-4 bg-gray-600 w-full h-44 rounded-2xl"></div>
+        <div className="mt-4 pb-4 bg-gray-600 w-full md:h-44 h-40 rounded-2xl"></div>
 
         <div className="mt-1 pb-2 mr-0 absolute right-3">
           <span className="inline-flex w-24 h-4 bg-gray-600 "></span>
@@ -78,7 +78,7 @@ export const ResourceCard = ({
   };
 
   return (
-    <article className="group m-5 w-[22rem] h-[27rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 hover:scale-[1.018] rounded-2xl py-7 px-4 font-sf text-black dark:text-white relative transition-all duration-300">
+    <article className="group m-5 md:w-[22rem] md:h-[27rem] w-[19rem] h-[23rem] bg-white dark:bg-black border-2 border-gray-300 dark:border-gray-400 hover:border-gray-400 dark:hover:border-gray-300 md:hover:scale-[1.018] rounded-2xl md:py-7 md:px-4 py-4 px-2 font-sf text-black dark:text-white relative transition-all duration-300">
       <div className="hidden group-hover:block absolute -top-4 p-0 -right-4 transition-all duration-300">
         <div>
           <a href={resourceLink} target="_blank">
@@ -98,7 +98,7 @@ export const ResourceCard = ({
           />
         </div>
         <div className="flex flex-col ml-2">
-          <div className="flex items-center font-bold text-base w-24 leading-5">
+          <div className="flex items-center font-bold text-base md:w-24 w-20 leading-5">
             <span>{uploaderName}</span>
           </div>
         </div>
@@ -110,22 +110,26 @@ export const ResourceCard = ({
         <span className="inline-flex font-semibold text-gray-600 text-sm">
           {newDateTime && format(newDateTime, "LLL d, yyyy ")}
         </span>
-        <div className="inline-flex text-2xl font-bold w-72 h-fit">
+        <div className="inline-flex md:text-2xl text-xl font-bold md:w-72 w-full h-fit">
           <a
             href={resourceLink}
-            className="line-clamp-3 underline decoration-gray-600 hover:decoration-black dark:hover:decoration-white"
+            className="md:line-clamp-3 line-clamp-2 underline decoration-gray-600 hover:decoration-black dark:hover:decoration-white"
           >
             {resourceTitle}
           </a>
         </div>
       </div>
       {imageLoading && (
-        <div className="mt-4 pb-4 bg-black dark:bg-white w-full h-44 rounded-2xl"></div>
+        <div className="mt-3 pb-4 bg-black dark:bg-white w-full md:h-44 h-40 rounded-xl"></div>
       )}
 
       {!imageLoading && (
         <a href={resourceLink}>
-          <img src={image()} alt="" className="rounded-xl w-full h-44" />
+          <img
+            src={image()}
+            alt=""
+            className="rounded-xl pb-4 w-full md:h-44 mt-3 h-40"
+          />
         </a>
       )}
       {sourceTwitter && (

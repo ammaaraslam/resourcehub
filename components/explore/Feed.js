@@ -9,18 +9,18 @@ const FeedComponent = ({
   skeletonCards,
 }) => {
   return (
-    <div className="pl-52 pt-20">
+    <div className="md:pl-52 p-0 pt-20">
       <div className="py-10">
         <span className="ml-8 text-2xl font-sf font-bold">{category}</span>
 
         {resourceLoading ? (
-          <div className="py-4 px-14 grid grid-cols-2 gap-10 ml-auto mr-auto">
+          <div className="py-4 md:px-14 px-3 grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 ml-auto mr-auto">
             {skeletonCards.map((index) => (
               <ResourceCardSkeleton key={index} />
             ))}
           </div>
         ) : (
-          <div className="py-4 px-14 grid grid-cols-2 gap-10 ml-auto mr-auto">
+          <div className="py-4 md:px-14 px-3 grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 ml-auto mr-auto">
             {resources.map((resource) => (
               <ResourceCard
                 key={resource.id}

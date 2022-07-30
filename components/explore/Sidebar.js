@@ -19,7 +19,7 @@ import { AiFillApi } from "react-icons/ai";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-const Sidebar = () => {
+const Sidebar = ({ props }) => {
   const [showMore, setShowMore] = useState(false);
   const router = useRouter();
   const ref = useRef();
@@ -38,19 +38,81 @@ const Sidebar = () => {
 
   const [totalResources, setTotalResources] = useState(0);
 
-  const togglingArticles = () => setArticles(!articles);
-  const togglingExplore = () => SetExplore(!explore);
+  const togglingArticles = () => {
+    setArticles(!articles);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingExplore = () => {
+    SetExplore(!explore);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
 
-  const togglingCourses = () => setCourses(!courses);
-  const togglingHackathons = () => setHackathons(!hackathons);
-  const togglingDevTools = () => setDevTools(!devTools);
-  const togglingBooks = () => setBooks(!books);
-  const togglingCheatsheets = () => setCheatsheets(!cheatsheets);
-  const togglingRoadmaps = () => setRoadmaps(!roadmaps);
-  const togglingOnlinePlatforms = () => setOnlinePlatforms(!onlinePlatforms);
-  const togglingBlogs = () => setBlogs(!blogs);
-  const togglingApis = () => setApis(!apis);
-  const togglingOpensource = () => setOpensource(!opensource);
+  const togglingCourses = () => {
+    setCourses(!courses);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingHackathons = () => {
+    setHackathons(!hackathons);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingDevTools = () => {
+    setDevTools(!devTools);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingBooks = () => {
+    setBooks(!books);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingCheatsheets = () => {
+    setCheatsheets(!cheatsheets);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingRoadmaps = () => {
+    setRoadmaps(!roadmaps);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingOnlinePlatforms = () => {
+    setOnlinePlatforms(!onlinePlatforms);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingBlogs = () => {
+    setBlogs(!blogs);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingApis = () => {
+    setApis(!apis);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+  const togglingOpensource = () => {
+    setOpensource(!opensource);
+    {
+      props.openSidebar ? props.setOpenSidebar(false) : null;
+    }
+  };
+
+  const mobileSidebar = props.openSidebar ? "block" : "hidden";
 
   useEffect(() => {
     // fetching state
@@ -120,7 +182,9 @@ const Sidebar = () => {
   ]);
 
   return (
-    <aside className="fixed w-48 bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf">
+    <aside
+      className={`fixed w-48 md:block  ${mobileSidebar} bg-white dark:bg-black border-r border-black dark:border-white border-opacity-10 dark:border-opacity-10 top-0 z-40 h-screen dark:bg-darkBackground shadow-md items-center justify-between font-sf`}
+    >
       <div className="mt-24 pb-3 flex flex-col px-2">
         <SideBarButton
           useRef={ref}
@@ -395,12 +459,12 @@ const Sidebar = () => {
         </div>
         <hr></hr>
         {showMore && (
-          <div className="px-2 text-center text-base font-medium">
+          <div className="px-2 mt-0 text-center text-base font-medium">
             <span>Built with 💙 by Ammaar Aslam</span>
           </div>
         )}
         {!showMore && (
-          <div className="px-2 mt-44 text-center text-base font-medium">
+          <div className="px-2 mt-[60%] text-center text-base font-medium">
             <span>Built with 💙 by Ammaar Aslam</span>
           </div>
         )}
