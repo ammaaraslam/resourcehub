@@ -142,7 +142,7 @@ export default function Home({ resources }) {
           <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-clash uppercase">
             Latest Resources
           </h1>
-          <div className="py-4 md:px-14 px-3 grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 ml-auto mr-auto">
+          <div className="py-4 grid grid-cols-3  ml-auto mr-auto">
             {resources.map((resource) => (
               <ResourceCard
                 key={resource.id}
@@ -158,7 +158,7 @@ export default function Home({ resources }) {
               />
             ))}
           </div>
-          <div className="flex justify-center items-center ml-auto mr-auto">
+          <div className="flex justify-center items-center ml-auto mr-auto pb-6">
             <OutlinedButton
               handleOnClick={() => {
                 router.push("/explore");
