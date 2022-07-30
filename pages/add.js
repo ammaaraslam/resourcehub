@@ -121,9 +121,9 @@ export default function AddResource() {
                       onChange={(e) => setResourceCategory(e.target.value)}
                       required
                     >
-                      {options.map((o) => (
+                      {options.map((o, index) => (
                         <option
-                          key={key}
+                          key={index}
                           className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                           value={o}
                         >
