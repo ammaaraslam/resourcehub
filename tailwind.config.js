@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      vollkorn: ["Lalezar", "cursive"],
+      lalezar: ["Lalezar", "cursive"],
       montserrat: ["Montserrat", "sans-serif"],
     },
   },

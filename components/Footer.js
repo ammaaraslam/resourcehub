@@ -1,21 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/ResourceHubLogo.png";
+import ThemeToggle from "./ThemeToggle";
 
 const Footer = () => {
   return (
     <>
       <footer className="bottom-0 py-6 px-3 w-full h-fit bg-white md:flex block justify-between dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
         <div className="p-0 md:ml-3 md:mr-0 ml-auto mr-auto md:text-left text-center">
-          <Link href="/">
-            <div className="cursor-pointer text-center inline-flex items-center justify-center">
-              <Image src={logo} alt="ResourceHub Logo" width={45} height={45} />
-              <span className="text-2xl font-semibold ml-2 font-lalezar tracking-wider leading-loose">
-                ResourceHub
-              </span>
+          <div className="inline-flex justify-center items-center">
+            <Link href="/">
+              <div className="cursor-pointer text-center inline-flex items-center justify-center">
+                <Image
+                  src={logo}
+                  alt="ResourceHub Logo"
+                  width={45}
+                  height={45}
+                />
+                <span className="text-2xl font-semibold ml-2 font-lalezar tracking-wider leading-loose">
+                  ResourceHub
+                </span>
+              </div>
+            </Link>
+            <div className="ml-1 mt-auto mb-auto">
+              <ThemeToggle />
             </div>
-          </Link>
-          <p className="font-montserrat ml-4 text-sm font-semibold">
+          </div>
+
+          <p className="font-montserrat ml-4 mt-2 text-sm font-semibold">
             Built with 💚 by{" "}
             <a
               href="https://twitter.com/itsammaar_7"

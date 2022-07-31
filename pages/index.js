@@ -59,7 +59,7 @@ export default function Home() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="pt-56 flex">
           <div className="ml-auto mr-auto md:max-w-6xl max-w-4xl text-center">
-            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-7xl text-5xl tracking-wider font-lalezar uppercase">
+            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-8xl text-5xl tracking-wider font-lalezar uppercase">
               A place for all{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600">
                 developer resources

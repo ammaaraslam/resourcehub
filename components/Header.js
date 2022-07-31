@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <>
       {navActive && (
-        <header className="fixed z-50 py-3 px-0  w-full h-fit flex items-center justify-between bg-background dark:bg-darkBackground bg-opacity-80 dark:bg-opacity-100 backdrop-blur-lg backdrop-saturate-150 text-darkText dark:text-text border-b-2 border-black dark:border-white border-opacity-5 dark:border-opacity-5">
+        <header className="fixed z-50 py-3 px-0 w-full h-fit flex items-center justify-between bg-white dark:bg-black bg-opacity-70 dark:bg-opacity-80 backdrop-blur-lg backdrop-saturate-150 text-black dark:text-white border-b-2 border-black dark:border-white border-opacity-5 dark:border-opacity-5">
           <div className="p-0 ml-8 text-center inline-flex items-center justify-center">
             <Link href="/">
               <div className=" cursor-pointer text-center inline-flex items-center justify-center">
@@ -35,10 +35,10 @@ const Header = () => {
             </Link>
           </div>
           <div className="md:inline-flex hidden font-semibold text-xl font-montserrat tracking-wider">
-            <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
+            <li className="list-none mr-8 text-black dark:text-white opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>
-            <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
+            <li className="list-none mr-8 text-black dark:text-white opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/about">About</Link>
             </li>
           </div>
@@ -48,7 +48,7 @@ const Header = () => {
         </header>
       )}
       {!navActive && (
-        <header className="fixed py-3 px-0 w-full h-fit flex items-center justify-between bg-background dark:bg-darkBackground  text-darkText dark:text-text">
+        <header className="fixed py-3 px-0 w-full h-fit flex items-center justify-between bg-white dark:bg-black  text-black dark:text-white">
           <div className="p-0 ml-8 text-center inline-flex items-center justify-center">
             <Link href="/">
               <div className=" cursor-pointer text-center inline-flex items-center justify-center">
@@ -65,10 +65,10 @@ const Header = () => {
             </Link>
           </div>
           <div className="md:inline-flex hidden font-semibold text-xl font-montserrat tracking-wider">
-            <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
+            <li className="list-none mr-8 text-black dark:text-white opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>
-            <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
+            <li className="list-none mr-8 text-black dark:text-white opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/about">About</Link>
             </li>
           </div>
