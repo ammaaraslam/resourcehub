@@ -18,7 +18,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=articles");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> Article
       </button>
@@ -31,7 +31,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=courses");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <MdOndemandVideo className="mt-auto mb-auto mr-1" /> Course
       </button>
@@ -44,7 +44,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=hackathons");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <FaTrophy className="mt-auto mb-auto mr-1" /> Hackathon
       </button>
@@ -57,7 +57,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=developer_tools");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex "
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex "
       >
         <FaTools className="mt-auto mb-auto mr-1" /> Developer Tool
       </button>
@@ -70,7 +70,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=books");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <IoLibrarySharp className="mt-auto mb-auto mr-1" /> Book
       </button>
@@ -83,7 +83,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=roadmaps");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <RiRoadMapFill className="mt-auto mb-auto mr-1" /> Book
       </button>
@@ -96,7 +96,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=cheatsheets");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <BsFillFileEarmarkSpreadsheetFill className="mt-auto mb-auto mr-1" />{" "}
         CheatSheet
@@ -110,7 +110,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=online_platforms");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <TbWorld className="mt-auto mb-auto mr-1" /> Online Platform
       </button>
@@ -123,7 +123,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=blogs");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <ImRss className="mt-auto mb-auto mr-1" /> Blog
       </button>
@@ -136,7 +136,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=apis");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <AiFillApi className="mt-auto mb-auto mr-1" /> API
       </button>
@@ -149,14 +149,14 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=open_source");
         }}
-        className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base"
       >
         <RiOpenSourceFill className="mt-auto mb-auto mr-1" /> Open Source
       </button>
     );
   } else {
     return (
-      <button className="py-1 px-3 rounded-md bg-purple-500 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base">
+      <button className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-sf font-semibold inline-flex md:text-lg text-base">
         <FaPencilAlt className="mt-auto mb-auto mr-1" /> none
       </button>
     );

@@ -405,18 +405,12 @@ const Sidebar = ({ props }) => {
           <hr></hr>
 
           <div className="grid grid-cols-2 gap-x-7 justify-between px-2 py-5">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"
-            >
-              About
-            </Link>
+            <a className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline">
+              <Link href="/">Home</Link>
+            </a>
+            <a className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline">
+              <Link href="/about">About</Link>
+            </a>
             <a
               href="https://github.com/ammaaraslam/resourcehub"
               target="_blank"
