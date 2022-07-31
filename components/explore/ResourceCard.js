@@ -41,7 +41,6 @@ export const ResourceCard = ({
   uploaderName,
   resourceCategory,
   sourceTwitter,
-  resourceLoading,
   key,
 }) => {
   const newDateTime = new Date(resourceTime);
@@ -63,7 +62,7 @@ export const ResourceCard = ({
           await setMeta(response.data);
         }
       })
-      .catch((error) => {
+      .catch(() => {
         setImageLoading(true);
       });
   }, []);
