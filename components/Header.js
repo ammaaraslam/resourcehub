@@ -28,7 +28,7 @@ const Header = () => {
                   width={45}
                   height={45}
                 />
-                <span className="text-2xl font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
+                <span className="text-2xl md:block hidden font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
                   ResourceHub
                 </span>
               </div>
@@ -58,7 +58,7 @@ const Header = () => {
                   width={45}
                   height={45}
                 />
-                <span className="text-2xl font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
+                <span className="text-2xl md:block hidden font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
                   ResourceHub
                 </span>
               </div>
