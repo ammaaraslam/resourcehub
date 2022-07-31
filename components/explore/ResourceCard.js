@@ -66,7 +66,6 @@ export const ResourceCard = ({
         }
       })
       .catch((error) => {
-        res.json(error).end();
         setImageLoading(true);
       });
   }, []);

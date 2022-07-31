@@ -4,7 +4,7 @@ import Header from "../components/explore/Header";
 import Sidebar from "../components/explore/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
 import { useState, useEffect } from "react";
-import { PrismaClient } from "@prisma/client";
+import prisma from "lib/prisma";
 import { getSession } from "next-auth/react";
 
 export default function Explore({ resources }) {
@@ -50,7 +50,6 @@ export default function Explore({ resources }) {
 }
 
 export async function getServerSideProps(context) {
-  const prisma = new PrismaClient();
   if (!context.query.category) {
     const response = await prisma.resource.findMany({
       orderBy: {
@@ -70,7 +69,6 @@ export async function getServerSideProps(context) {
     };
   } else {
     const category = context.query.category;
-    const sort = context.query.sort;
     if (category == "articles") {
       const response = await prisma.resource.findMany({
         orderBy: {
