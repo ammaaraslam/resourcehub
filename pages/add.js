@@ -70,14 +70,14 @@ export default function AddResource() {
 
       <main className="w-full md:h-screen h-fit bg-white dark:bg-black">
         <div className="pt-28 md:px-16 md:pb-0 pb-4 px-8 text-center">
-          <h1 className="font-sf md:text-6xl text-4xl font-extrabold capitalize md:max-w-4xl ml-auto mr-auto leading-none tracking-wider">
+          <h1 className="font-montserrat md:text-6xl text-4xl font-extrabold capitalize md:max-w-4xl ml-auto mr-auto leading-none tracking-wider">
             Share a valuable resource you came across
           </h1>
           <div>
-            <h2 className="md:text-2xl text-xl mt-5 font-semibold font-sf">
+            <h2 className="md:text-2xl text-xl mt-5 font-semibold font-montserrat">
               Add a new resource to our ever-growing database!!
             </h2>
-            <div className="font-sf mt-5">
+            <div className="font-montserrat mt-5">
               <form
                 className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10"
                 onSubmit={handleSubmit}

@@ -59,13 +59,13 @@ export default function Home() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="pt-56 flex">
           <div className="ml-auto mr-auto md:max-w-5xl max-w-4xl text-center">
-            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-7xl text-5xl tracking-wider font-clash uppercase">
+            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-7xl text-5xl tracking-wider font-vollkorn uppercase">
               A place for all{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600">
                 developer resources
               </span>
             </h1>
-            <p className="font-medium md:text-3xl text-2xl mt-2 max-w-4xl ml-auto mr-auto font-sf opacity-80">
+            <p className="font-medium md:text-3xl text-2xl mt-2 max-w-4xl ml-auto mr-auto font-montserrat opacity-80">
               Discover the best resources. Share your favourite resources.
             </p>
             <div className="mt-7 inline-flex">
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="md:py-14 py-11 md:mt-56 mt-40 px-3  w-11/12 ml-auto mr-auto rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
           <div className=" w-full h-fit p-4">
             <div className="w-3/4 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-clash uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Find the right resources{" "}
                 </span>
@@ -94,7 +94,7 @@ export default function Home() {
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between w-11/12 ml-auto mr-auto mt-5">
-              <p className="font-sf font-bold md:text-4xl text-3xl md:max-w-xs md:text-right text-left mt-auto mb-auto">
+              <p className="font-montserrat font-bold md:text-4xl text-3xl md:max-w-xs md:text-right text-left mt-auto mb-auto">
                 Every type of resource you can imagine
               </p>
 
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           <div className="mt-24 w-full h-fit p-4">
             <div className="w-8/12 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-clash uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Share resources you find{" "}
                 </span>
@@ -117,10 +117,10 @@ export default function Home() {
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between md:w-4/5 w-11/12 ml-auto mr-auto mt-5">
-              <p className="font-sf font-bold md:text-4xl text-3xl md:max-w-xs text-left mt-auto mb-auto">
+              <p className="font-montserrat font-bold md:text-4xl text-3xl md:max-w-xs text-left mt-auto mb-auto">
                 Find a resource on the web? Share it with others
               </p>
-              <div className="font-sf font-medium text-xl md:w-2/5 w-full md:mt-0 mt-2">
+              <div className="font-montserrat font-medium text-xl md:w-2/5 w-full md:mt-0 mt-2">
                 <p>
                   Easily and quickly fill a simple form with just 4 fields and
                   you have successfully added your resource to our database.
@@ -130,16 +130,16 @@ export default function Home() {
           </div>
           <div className="mt-24 w-full h-fit p-4">
             <div className="w-8/12 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-clash uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
                 Get Started
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between md:w-4/5 w-11/12 ml-auto mr-auto mt-5">
-              <p className="font-sf font-bold md:text-4xl text-3xl md:max-w-xs text-left mt-auto mb-auto">
+              <p className="font-montserrat font-bold md:text-4xl text-3xl md:max-w-xs text-left mt-auto mb-auto">
                 Quickly start using this app in 2 simple steps
               </p>
 
-              <div className="font-sf font-medium text-xl md:w-2/5 w-full md:mt-0 mt-2">
+              <div className="font-montserrat font-medium text-xl md:w-2/5 w-full md:mt-0 mt-2">
                 <ul>
                   <li>1️⃣ Sign Up with a GitHub/Google account.</li>
                   <li className="mt-2">
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </div>
         <div className="md:mt-24 mt-20 w-full h-fit p-4">
-          <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-clash uppercase">
+          <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-vollkorn uppercase">
             Latest Resources
           </h1>
           {resourcesLoading ? (

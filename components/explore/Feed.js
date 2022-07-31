@@ -10,7 +10,9 @@ const FeedComponent = ({
   return (
     <div>
       <div className="py-10">
-        <span className="ml-8 text-2xl font-sf font-bold">{category}</span>
+        <span className="ml-8 text-2xl font-montserrat font-bold">
+          {category}
+        </span>
 
         {resourceLoading ? (
           <div className="py-4 md:px-14 px-3 grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-5 ml-auto mr-auto">

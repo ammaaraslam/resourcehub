@@ -15,7 +15,7 @@ const Header = ({ props }) => {
         <Link href="/">
           <div className=" cursor-pointer text-center inline-flex items-center justify-center">
             <Image src={logo} alt="ResourceHub Logo" width={45} height={45} />
-            <span className="text-2xl font-semibold ml-2 font-clash tracking-wider leading-loose">
+            <span className="text-2xl font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
               ResourceHub
             </span>
           </div>

@@ -7,8 +7,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      clash: ["Clash Display", "sans-serif"],
-      sf: ["SF UI Display", "sans-serif"],
+      vollkorn: ["Vollkorn SC", "serif"],
+      montserrat: ["Montserrat", "sans-serif"],
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

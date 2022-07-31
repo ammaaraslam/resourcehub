@@ -28,13 +28,13 @@ const Header = () => {
                   width={45}
                   height={45}
                 />
-                <span className="text-2xl font-semibold ml-2 font-clash tracking-wider leading-loose">
+                <span className="text-2xl font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
                   ResourceHub
                 </span>
               </div>
             </Link>
           </div>
-          <div className="md:inline-flex hidden font-semibold text-xl font-sf tracking-wider">
+          <div className="md:inline-flex hidden font-semibold text-xl font-montserrat tracking-wider">
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>
@@ -58,13 +58,13 @@ const Header = () => {
                   width={45}
                   height={45}
                 />
-                <span className="text-2xl font-semibold ml-2 font-clash tracking-wider leading-loose">
+                <span className="text-2xl font-semibold ml-2 font-vollkorn tracking-wider leading-loose">
                   ResourceHub
                 </span>
               </div>
             </Link>
           </div>
-          <div className="md:inline-flex hidden font-semibold text-xl font-sf tracking-wider">
+          <div className="md:inline-flex hidden font-semibold text-xl font-montserrat tracking-wider">
             <li className="list-none mr-8 text-darkBackground dark:text-background opacity-80 hover:opacity-100 transition-all duration-200">
               <Link href="/explore">Explore</Link>
             </li>

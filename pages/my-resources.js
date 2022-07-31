@@ -45,7 +45,7 @@ export default function MyResources() {
             />
           ) : resources.length === 0 ? (
             <div className="py-40 px-10 text-center">
-              <h1 className="font-sf font-semibold text-2xl">
+              <h1 className="font-montserrat font-semibold text-2xl">
                 You have not added any resources
               </h1>
               <OutlinedButton

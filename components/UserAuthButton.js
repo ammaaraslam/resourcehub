@@ -47,7 +47,7 @@ const UserAuthButton = () => {
       {session && dropdown && (
         <div
           ref={ref}
-          className="absolute  right-4 py-3 px-0 bg-white dark:bg-black border border-black dark:border-white border-opacity-10 dark:border-opacity-10 rounded-xl font-sf"
+          className="absolute  right-4 py-3 px-0 bg-white dark:bg-black border border-black dark:border-white border-opacity-10 dark:border-opacity-10 rounded-xl font-montserrat"
         >
           <ul className="grid col-span-1">
             <li>
