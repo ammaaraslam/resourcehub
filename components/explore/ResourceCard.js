@@ -95,7 +95,7 @@ export const ResourceCard = ({
         <div className="rounded-full h-10 w-10 bg-black dark:bg-white">
           <Image
             src={uploaderImage}
-            className="rounded-full h-full w-full"
+            layout="fill"
             alt={`${uploaderName}'s Avatar`}
           />
         </div>

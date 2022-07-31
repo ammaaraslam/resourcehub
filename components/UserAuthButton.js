@@ -40,8 +40,7 @@ const UserAuthButton = () => {
           <Image
             src={session.user.image}
             alt={`${session.user.name}'s avatar`}
-            height={10}
-            width={10}
+            layout="fill"
             style={{ borderRadius: "100%" }}
           />
         </button>
