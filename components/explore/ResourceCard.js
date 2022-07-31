@@ -48,28 +48,25 @@ export const ResourceCard = ({
   const [meta, setMeta] = useState([]);
   const [imageLoading, setImageLoading] = useState(true);
 
-  useEffect(
-    (resourceLink) => {
-      // normal state
-      setMeta([]);
+  useEffect(() => {
+    // normal state
+    setMeta([]);
 
-      // fetching state
-      axios
-        .get(`/api/meta/resourceMeta?url=${resourceLink}`)
-        .then(async (response) => {
-          if (response.request.status === 400) {
-            setImageLoading(true);
-          } else {
-            setImageLoading(false);
-            await setMeta(response.data);
-          }
-        })
-        .catch((error) => {
+    // fetching state
+    axios
+      .get(`/api/meta/resourceMeta?url=${resourceLink}`)
+      .then(async (response) => {
+        if (response.request.status === 400) {
           setImageLoading(true);
-        });
-    },
-    [resourceLink]
-  );
+        } else {
+          setImageLoading(false);
+          await setMeta(response.data);
+        }
+      })
+      .catch((error) => {
+        setImageLoading(true);
+      });
+  }, []);
   const image = () => {
     if (meta.ogImage) {
       return meta.ogImage.url;
