@@ -59,7 +59,7 @@ export default function Home() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="pt-56 flex">
           <div className="ml-auto mr-auto md:max-w-6xl max-w-4xl text-center">
-            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-8xl text-5xl tracking-wider font-vollkorn uppercase">
+            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-8xl text-5xl tracking-wider font-lalezar uppercase">
               A place for all{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600">
                 developer resources
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="md:py-14 py-11 md:mt-56 mt-40 px-3  w-11/12 ml-auto mr-auto rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
           <div className=" w-full h-fit p-4">
             <div className="w-3/4 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-lalezar uppercase">
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Find the right resources{" "}
                 </span>
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           <div className="mt-24 w-full h-fit p-4">
             <div className="w-8/12 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-lalezar uppercase">
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Share resources you find{" "}
                 </span>
@@ -130,7 +130,7 @@ export default function Home() {
           </div>
           <div className="mt-24 w-full h-fit p-4">
             <div className="w-8/12 ml-auto mr-auto">
-              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
+              <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-lalezar uppercase">
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   What are you waiting for?{" "}
                 </span>
@@ -163,7 +163,7 @@ export default function Home() {
           </div>
         </div>
         <div className="md:mt-24 mt-20 w-full h-fit p-4">
-          <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-vollkorn uppercase">
+          <h1 className="p-2 text-black dark:text-white font-black md:text-5xl text-4xl tracking-wider font-lalezar uppercase">
             Latest Resources
           </h1>
           {resourcesLoading ? (

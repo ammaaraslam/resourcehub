@@ -16,7 +16,7 @@ export default function About() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="md:py-40 pt-40 pb-20 flex">
           <div className="ml-auto mr-auto max-w-5xl text-center">
-            <h2 className="font-vollkorn font-normal tracking-wider text-green-400 md:text-3xl text-2xl underline">
+            <h2 className="font-lalezar font-normal tracking-wider text-green-400 md:text-3xl text-xl underline">
               About ResourceHub
             </h2>
             <p className="md:text-5xl text-4xl font-montserrat font-semibold mt-3 max-w-5xl tracking-wide leading-[1.15]">
@@ -43,7 +43,7 @@ export default function About() {
           </div>
         </div>
         <div className="px-10 pb-5">
-          <h1 className="font-vollkorn font-semibold text-3xl underline tracking-wider capitalize">
+          <h1 className="font-lalezar font-semibold text-3xl underline tracking-wider capitalize">
             proudly built with 🌟
           </h1>
           <div className="md:flex grid grid-cols-2 justify-center items-center md:p-5">
@@ -129,7 +129,7 @@ export default function About() {
 
         <div className="px-10 py-5">
           <div className="ml-auto mr-auto">
-            <h1 className="font-vollkorn font-semibold text-3xl underline tracking-wider capitalize">
+            <h1 className="font-lalezar font-semibold text-3xl underline tracking-wider capitalize">
               Thanks for visiting 💚
             </h1>
             <ul className="text-xl font-montserrat font-medium ml-6 p-3 pb-16">
