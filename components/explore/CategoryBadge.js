@@ -110,7 +110,7 @@ const CategoryBadge = ({ category }) => {
           e.preventDefault();
           router.push("/explore?category=online_platforms");
         }}
-        className="py-1 px-3 rounded-md bg-purple-600 text-white dark:text-black font-montserrat font-semibold inline-flex md:text-lg text-base"
+        className="py-1 px-1 rounded-md bg-purple-600 text-white dark:text-black font-montserrat font-semibold inline-flex md:text-lg text-base"
       >
         <TbWorld className="mt-auto mb-auto mr-1" /> Online Platform
       </button>
