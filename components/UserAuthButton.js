@@ -37,11 +37,10 @@ const UserAuthButton = () => {
     <>
       {session && (
         <button className="w-10 h-10 rounded-full" onClick={togglingDropdown}>
-          <Image
+          <img
             src={session.user.image}
             alt={`${session.user.name}'s avatar`}
-            layout="fill"
-            style={{ borderRadius: "100%" }}
+            className="w-full h-full rounded-full"
           />
         </button>
       )}
