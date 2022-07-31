@@ -38,79 +38,57 @@ const Sidebar = ({ props }) => {
   const [opensource, setOpensource] = useState(true);
 
   const [totalResources, setTotalResources] = useState(0);
-
+  const togglingCloseSidebar = () => {
+    props.openSidebar && props.setOpenSidebar(false);
+  };
   const togglingArticles = () => {
     setArticles(!articles);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingExplore = () => {
     SetExplore(!explore);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
 
   const togglingCourses = () => {
     setCourses(!courses);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingHackathons = () => {
     setHackathons(!hackathons);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingDevTools = () => {
     setDevTools(!devTools);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingBooks = () => {
     setBooks(!books);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingCheatsheets = () => {
     setCheatsheets(!cheatsheets);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingRoadmaps = () => {
     setRoadmaps(!roadmaps);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingOnlinePlatforms = () => {
     setOnlinePlatforms(!onlinePlatforms);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingBlogs = () => {
     setBlogs(!blogs);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingApis = () => {
     setApis(!apis);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
   const togglingOpensource = () => {
     setOpensource(!opensource);
-    {
-      props.openSidebar ? props.setOpenSidebar(false) : null;
-    }
+    togglingCloseSidebar();
   };
 
   const mobileSidebar = props.openSidebar ? "block" : "hidden";
@@ -452,7 +430,7 @@ const Sidebar = ({ props }) => {
               Contribute
             </a>
             <a
-              href="http://github.com/ammaaraslam/resourcehub"
+              href="https://github.com/ammaaraslam/resourcehub"
               target="_blank"
               rel="noreferrer"
               className="text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white hover:underline"

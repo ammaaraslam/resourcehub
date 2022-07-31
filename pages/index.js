@@ -47,7 +47,7 @@ export default function Home() {
         }
       })
       .catch((error) => {
-        res.json(error).end();
+        console.log(error);
       });
   }, []);
 
