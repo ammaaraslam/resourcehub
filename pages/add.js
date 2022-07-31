@@ -41,17 +41,15 @@ export default function AddResource() {
         body: JSON.stringify(body),
       });
       if (response.status !== 200) {
-        console.log("something went wrong");
         //set an error banner here
       } else {
         resetForm();
         router.push("/explore");
-        console.log("form submitted successfully !!!");
         //set a success banner here
       }
       //check response, if success is false, dont take them to success page
     } catch (error) {
-      console.log("there was an error submitting", error);
+      return error;
     }
   };
 

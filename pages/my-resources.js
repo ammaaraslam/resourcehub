@@ -19,14 +19,13 @@ export default function MyResources() {
       .get(`/api/myResources`)
       .then(async (response) => {
         if (response.request.status === 400) {
-          console.log("false");
         } else {
           await setResources(response.data);
           setResourcesLoading(false);
         }
       })
       .catch((error) => {
-        res.json(error).end();
+        return error;
       });
   }, []);
 

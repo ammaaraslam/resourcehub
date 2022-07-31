@@ -54,7 +54,6 @@ const Feed = ({ resources }) => {
   const router = useRouter();
   const category = router.query.category;
   const route = router.asPath;
-  console.log(route);
 
   if (category == "articles") {
     return <FeedComponent category="Articles" resources={resources} />;

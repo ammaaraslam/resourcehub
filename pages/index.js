@@ -38,14 +38,13 @@ export default function Home() {
       .get(`/api/resources`)
       .then(async (response) => {
         if (response.request.status === 400) {
-          console.log("false");
         } else {
           await setResources(response.data);
           setResourcesLoading(false);
         }
       })
       .catch((error) => {
-        console.log(error);
+        return error;
       });
   }, []);
 

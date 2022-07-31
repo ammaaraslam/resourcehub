@@ -23,8 +23,6 @@ export default async (req, res) => {
     } catch (error) {
       console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
-      console.log(body);
-      console.log(typeof body.resourceID);
     }
   } else if (req.method === "DELETE") {
     const body = req.body;
@@ -47,8 +45,6 @@ export default async (req, res) => {
     } catch (error) {
       console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
-      console.log(body);
-      console.log(typeof body.resourceID);
     }
   } else {
     return res

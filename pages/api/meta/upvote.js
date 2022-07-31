@@ -4,8 +4,6 @@ import { getSession } from "next-auth/react";
 export default async (req, res) => {
   if (req.method === "PUT") {
     const body = req.body;
-    console.log(body);
-    console.log(typeof body.resourceID);
     const session = await getSession({ req });
 
     const user = await prisma.user.findUnique({
@@ -13,8 +11,6 @@ export default async (req, res) => {
     });
 
     try {
-      console.log(body);
-      console.log(typeof body.resourceID);
       const upvote = await prisma.resource.update({
         where: {
           id: body[0],
@@ -38,8 +34,6 @@ export default async (req, res) => {
     } catch (error) {
       console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
-      console.log(body);
-      console.log(typeof body.resourceID);
     }
   } else {
     return res

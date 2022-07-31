@@ -96,7 +96,6 @@ const Sidebar = ({ props }) => {
       .get(`/api/meta/totalResources`)
       .then(async (response) => {
         if (response.request.status === 400) {
-          console.log("false");
         } else {
           await setTotalResources(response.data);
         }
