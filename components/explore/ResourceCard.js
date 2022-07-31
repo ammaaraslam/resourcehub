@@ -3,7 +3,6 @@ import CategoryBadge from "./CategoryBadge";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Image from "next/image";
 
 export const ResourceCardSkeleton = () => {
   return (
@@ -96,7 +95,7 @@ export const ResourceCard = ({
 
       <div className="flex items-center">
         <div className="rounded-full h-10 w-10 bg-black dark:bg-white">
-          <Image
+          <img
             src={uploaderImage}
             className="rounded-full h-full w-full"
             alt={`${uploaderName}'s Avatar`}
@@ -130,7 +129,7 @@ export const ResourceCard = ({
 
       {!imageLoading && (
         <a href={resourceLink}>
-          <Image
+          <img
             src={image()}
             alt={resourceLink}
             className="rounded-xl pb-4 w-full md:h-44 mt-3 h-40"
