@@ -1,5 +1,4 @@
 import axios from "axios";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { MdExplore } from "react-icons/md";
@@ -27,7 +26,7 @@ export default function Home() {
   const router = useRouter();
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn();
+    router.push("/signin");
   };
   const [resources, setResources] = useState([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);
@@ -83,7 +82,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:py-14 py-11 md:mt-56 mt-40 px-3  w-11/12 ml-auto mr-auto rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
+        <div className="md:py-14 py-11 md:mt-52 mt-40 px-3  w-11/12 ml-auto mr-auto rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
           <div className=" w-full h-fit p-4">
             <div className="w-3/4 ml-auto mr-auto">
               <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl font-lalezar uppercase">

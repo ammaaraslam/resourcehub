@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { OutlinedButton } from "./Buttons";
 import ThemeToggle from "./ThemeToggle";
 import { useEffect, useRef, useState } from "react";
@@ -13,7 +13,7 @@ const UserAuthButton = () => {
 
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn();
+    router.push("/signin");
   };
 
   const handleSignout = (e) => {
