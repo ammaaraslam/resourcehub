@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { SiNextdotjs, SiTailwindcss, SiPrisma, SiVercel } from "react-icons/si";
@@ -8,7 +7,7 @@ import { useTheme } from "next-themes";
 import { Meta } from "../components/Meta";
 
 export default function About() {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { systemTheme, theme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   return (
     <div>

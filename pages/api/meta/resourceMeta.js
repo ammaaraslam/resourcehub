@@ -1,11 +1,9 @@
-var Meta = require("html-metadata-parser");
-
 export default async function handler(req, res) {
   const websiteURL = req.query.url;
   const ogs = require("open-graph-scraper");
   const options = { url: websiteURL };
   ogs(options).then((data) => {
-    const { error, result, response } = data;
+    const { error, result } = data;
     if (error) {
       return res.status(400).json({
         message: "URL NOT FOUND",

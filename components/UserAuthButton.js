@@ -3,7 +3,6 @@ import { OutlinedButton } from "./Buttons";
 import ThemeToggle from "./ThemeToggle";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 const UserAuthButton = () => {
   const { data: session } = useSession();
