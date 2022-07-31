@@ -58,8 +58,8 @@ export default function Home() {
 
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="pt-56 flex">
-          <div className="ml-auto mr-auto md:max-w-5xl max-w-4xl text-center">
-            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-7xl text-5xl tracking-wider font-vollkorn uppercase">
+          <div className="ml-auto mr-auto md:max-w-6xl max-w-4xl text-center">
+            <h1 className="p-2 text-black dark:text-white font-extrabold md:text-8xl text-5xl tracking-wider font-vollkorn uppercase">
               A place for all{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-indigo-300 to-purple-600">
                 developer resources
@@ -90,7 +90,7 @@ export default function Home() {
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Find the right resources{" "}
                 </span>
-                for yourself
+                <br></br>for yourself
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between w-11/12 ml-auto mr-auto mt-5">
@@ -113,7 +113,7 @@ export default function Home() {
                 <span className="font-extrabold opacity-80 dark:opacity-80">
                   Share resources you find{" "}
                 </span>
-                interesting
+                <br></br>interesting
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between md:w-4/5 w-11/12 ml-auto mr-auto mt-5">
@@ -131,7 +131,10 @@ export default function Home() {
           <div className="mt-24 w-full h-fit p-4">
             <div className="w-8/12 ml-auto mr-auto">
               <h1 className="p-2 text-center text-black dark:text-white font-black md:text-5xl text-3xl tracking-wider font-vollkorn uppercase">
-                Get Started
+                <span className="font-extrabold opacity-80 dark:opacity-80">
+                  What are you waiting for?{" "}
+                </span>
+                <br></br>Get Started
               </h1>
             </div>
             <div className="md:p-8 p-5 bg-black dark:bg-white text-white dark:text-black rounded-xl md:flex block justify-between md:w-4/5 w-11/12 ml-auto mr-auto mt-5">
@@ -152,6 +155,11 @@ export default function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center items-center ml-auto mr-auto mt-11 ">
+            <PrimaryButton handleOnClick={handleSignin}>
+              Get Started
+            </PrimaryButton>
           </div>
         </div>
         <div className="md:mt-24 mt-20 w-full h-fit p-4">
