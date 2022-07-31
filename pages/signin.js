@@ -23,7 +23,12 @@ export default function SignIn({ providers }) {
               {Object.values(providers).map((provider) => (
                 <div key={provider.name} className="text-center">
                   <OutlinedButton
-                    handleOnClick={() => signIn(provider.id)}
+                    handleOnClick={() =>
+                      signIn(provider.id, {
+                        redirect: true,
+                        callbackUrl: `${window.location.href}/explore`,
+                      })
+                    }
                     type="submit"
                   >
                     Sign in with {provider.name}
@@ -46,7 +51,7 @@ export default function SignIn({ providers }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const providers = await getProviders();
   return {
     props: { providers },
