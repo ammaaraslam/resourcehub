@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 async function resources(req, res) {
   try {
     const allResources = await prisma.resource.findMany({
-      take: 3,
+      take: 4,
       orderBy: {
         createdAt: "desc",
       },
