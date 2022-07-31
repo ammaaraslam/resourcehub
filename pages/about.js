@@ -16,7 +16,7 @@ export default function About() {
       <main className="w-full h-full bg-white dark:bg-black">
         <div className="md:py-40 pt-40 pb-20 flex">
           <div className="ml-auto mr-auto max-w-5xl text-center">
-            <h2 className="font-vollkorn font-semibold tracking-wider text-green-400 md:text-2xl text-xl underline">
+            <h2 className="font-vollkorn font-normal tracking-wider text-green-400 md:text-3xl text-2xl underline">
               About ResourceHub
             </h2>
             <p className="md:text-5xl text-4xl font-montserrat font-semibold mt-3 max-w-5xl tracking-wide leading-[1.15]">
@@ -51,44 +51,67 @@ export default function About() {
               href="https://nextjs.org"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
             >
-              <SiNextdotjs size={70} />
+              <SiNextdotjs size={70} className="ml-auto mr-auto" />
+              <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                Next.js
+              </span>
             </a>
             <a
               href="https://tailwindcss.com"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
             >
-              <SiTailwindcss size={70} />
+              <SiTailwindcss size={70} className="ml-auto mr-auto" />
+              <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                TailwindCSS
+              </span>
             </a>
             <a
               href="https://prisma.io"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
             >
-              <SiPrisma size={70} />
+              <SiPrisma text size={70} className="ml-auto mr-auto" />
+              <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                Prisma
+              </span>
             </a>
             {currentTheme === "dark" ? (
               <a
                 href="https://planetscale.com"
                 className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
               >
-                <Image
-                  src={planetscale}
-                  width={70}
-                  height={70}
-                  alt="planetscale logo"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={planetscale}
+                    width={70}
+                    height={70}
+                    alt="planetscale logo"
+                    style={{
+                      filter: "brightness(0) invert(1)",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                    }}
+                  />
+                </div>
+                <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                  PlanetScale
+                </span>
               </a>
             ) : (
               <a
                 href="https://planetscale.com"
                 className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
               >
-                <Image
-                  src={planetscale}
-                  alt="planetscale logo"
-                  width={70}
-                  height={70}
-                />
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={planetscale}
+                    alt="planetscale logo"
+                    width={70}
+                    height={70}
+                  />
+                </div>
+                <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                  PlanetScale
+                </span>
               </a>
             )}
 
@@ -96,7 +119,10 @@ export default function About() {
               href="https://vercel.com"
               className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
             >
-              <SiVercel size={70} />
+              <SiVercel size={70} className="ml-auto mr-auto" />
+              <span className="text-center flex items-center justify-center font-montserrat text-xl mt-1 font-semibold">
+                Vercel
+              </span>
             </a>
           </div>
         </div>
