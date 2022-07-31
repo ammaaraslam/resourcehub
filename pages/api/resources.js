@@ -2,12 +2,6 @@ import prisma from "../../lib/prisma";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
-  // Check if user is authenticated
-  const session = await getSession({ req });
-  if (!session) {
-    return res.status(401).json({ message: "Unauthorized." });
-  }
-
   if (req.method === "POST") {
     return await addResource(req, res);
   } else if (req.method === "GET") {
