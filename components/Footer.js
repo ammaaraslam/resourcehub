@@ -84,7 +84,7 @@ const Footer = () => {
           href="https://townhall.hashnode.com/planetscale-hackathon"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-green-500 hover:underline ml-1"
+          className="hover:text-green-500 hover:underline md:ml-1"
         >
           PlanetScale X Hashnode Hackathon
         </a>

@@ -22,7 +22,6 @@ export default async (req, res) => {
 
       return res.status(200).json(myResources, { success: true });
     } catch (error) {
-      console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
     }
   } else {

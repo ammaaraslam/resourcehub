@@ -6,7 +6,6 @@ export default async (req, res) => {
       const totalResources = await prisma.resource.count();
       return res.status(200).json(totalResources, { success: true });
     } catch (error) {
-      console.error("Request error", error);
       res.status(500).json({ error: "Error adding resource", success: false });
     }
   } else {
