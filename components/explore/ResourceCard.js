@@ -124,13 +124,15 @@ export const ResourceCard = ({
       )}
 
       {!imageLoading && (
-        <a href={resourceLink}>
-          <img
-            src={image()}
-            alt={resourceLink}
-            className="rounded-xl pb-4 w-full md:h-44 mt-3 h-40"
-          />
-        </a>
+        <div className="mt-3 pb-4 w-full md:h-44 h-40 rounded-xl">
+          <a href={resourceLink}>
+            <img
+              src={image()}
+              alt={resourceLink}
+              className="rounded-xl pb-4 w-full h-full"
+            />
+          </a>
+        </div>
       )}
       {sourceTwitter && (
         <div className="mt-1 pb-2 mr-0 absolute right-3">
