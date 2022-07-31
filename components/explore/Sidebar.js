@@ -6,9 +6,7 @@ import {
   MdOndemandVideo,
 } from "react-icons/md";
 import { FaPencilAlt, FaTrophy, FaTools } from "react-icons/fa";
-import { AiTwotoneFire } from "react-icons/ai";
-import { TiArrowUpThick } from "react-icons/ti";
-import { TbBooks, TbWorld } from "react-icons/tb";
+import { TbWorld } from "react-icons/tb";
 import { RiRoadMapFill, RiOpenSourceFill } from "react-icons/ri";
 import { BsFillFileEarmarkSpreadsheetFill } from "react-icons/bs";
 import { IoLibrarySharp } from "react-icons/io5";
@@ -16,7 +14,6 @@ import { ImRss } from "react-icons/im";
 import { useEffect, useRef, useState } from "react";
 import { AiFillApi } from "react-icons/ai";
 import Link from "next/link";
-
 import { useRouter } from "next/router";
 import axios from "axios";
 

@@ -1,12 +1,9 @@
-import Head from "next/head";
+import { useEffect, useState } from "react";
 import Feed, { SkeletonFeed } from "../components/explore/Feed";
 import Header from "../components/explore/Header";
 import Sidebar from "../components/explore/Sidebar";
-import ThemeToggle from "../components/ThemeToggle";
-import { useState, useEffect } from "react";
-import prisma from "../lib/prisma";
-import { getSession } from "next-auth/react";
 import { Meta } from "../components/Meta";
+import prisma from "../lib/prisma";
 
 export default function Explore({ resources }) {
   const [resourceLoading, setResourceLoading] = useState(true);

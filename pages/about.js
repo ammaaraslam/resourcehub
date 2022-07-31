@@ -75,6 +75,7 @@ export default function About() {
                   src={planetscale}
                   width={70}
                   height={70}
+                  alt="planetscale logo"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />
               </a>
@@ -83,7 +84,12 @@ export default function About() {
                 href="https://planetscale.com"
                 className="opacity-70 hover:opacity-100 transition-all duration-200 my-7 mx-14"
               >
-                <Image src={planetscale} width={70} height={70} />
+                <Image
+                  src={planetscale}
+                  alt="planetscale logo"
+                  width={70}
+                  height={70}
+                />
               </a>
             )}
 

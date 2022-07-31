@@ -1,12 +1,10 @@
-import Head from "next/head";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { OutlinedButton } from "../components/Buttons";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import Header from "../components/add/Header";
+import { OutlinedButton } from "../components/Buttons";
 import { Meta } from "../components/Meta";
-
 export default function AddResource() {
   const [resourceTitle, setResourceTitle] = useState("");
   const [resourceCategory, setResourceCategory] = useState("Article");

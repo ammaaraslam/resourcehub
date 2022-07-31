@@ -1,10 +1,9 @@
-import { TiArrowUpThick } from "react-icons/ti";
-import { FiExternalLink, FiBookmark } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import CategoryBadge from "./CategoryBadge";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import axios from "axios";
+import Image from "next/image";
 
 export const ResourceCardSkeleton = () => {
   return (
@@ -50,25 +49,28 @@ export const ResourceCard = ({
   const [meta, setMeta] = useState([]);
   const [imageLoading, setImageLoading] = useState(true);
 
-  useEffect(() => {
-    // normal state
-    setMeta([]);
+  useEffect(
+    (resourceLink) => {
+      // normal state
+      setMeta([]);
 
-    // fetching state
-    axios
-      .get(`/api/meta/resourceMeta?url=${resourceLink}`)
-      .then(async (response) => {
-        if (response.request.status === 400) {
+      // fetching state
+      axios
+        .get(`/api/meta/resourceMeta?url=${resourceLink}`)
+        .then(async (response) => {
+          if (response.request.status === 400) {
+            setImageLoading(true);
+          } else {
+            setImageLoading(false);
+            await setMeta(response.data);
+          }
+        })
+        .catch((error) => {
           setImageLoading(true);
-        } else {
-          setImageLoading(false);
-          await setMeta(response.data);
-        }
-      })
-      .catch((error) => {
-        setImageLoading(true);
-      });
-  }, []);
+        });
+    },
+    [resourceLink]
+  );
   const image = () => {
     if (meta.ogImage) {
       return meta.ogImage.url;
@@ -94,10 +96,10 @@ export const ResourceCard = ({
 
       <div className="flex items-center">
         <div className="rounded-full h-10 w-10 bg-black dark:bg-white">
-          <img
+          <Image
             src={uploaderImage}
             className="rounded-full h-full w-full"
-            alt="alt-text"
+            alt={`${uploaderName}'s Avatar`}
           />
         </div>
         <div className="flex flex-col ml-2">
@@ -128,9 +130,9 @@ export const ResourceCard = ({
 
       {!imageLoading && (
         <a href={resourceLink}>
-          <img
+          <Image
             src={image()}
-            alt=""
+            alt={resourceLink}
             className="rounded-xl pb-4 w-full md:h-44 mt-3 h-40"
           />
         </a>

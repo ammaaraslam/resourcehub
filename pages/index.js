@@ -1,16 +1,13 @@
-import Head from "next/head";
-import { OutlinedButton, PrimaryButton } from "../components/Buttons";
-import Header from "../components/Header";
-import ThemeToggle from "../components/ThemeToggle";
-import { MdExplore } from "react-icons/md";
-import Footer from "../components/Footer";
-import CategoryBadge from "../components/explore/CategoryBadge";
-import prisma from "../lib/prisma";
-import Feed, { SkeletonFeed } from "../components/explore/Feed";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { signIn } from "next-auth/react";
 import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { MdExplore } from "react-icons/md";
+import { OutlinedButton, PrimaryButton } from "../components/Buttons";
+import CategoryBadge from "../components/explore/CategoryBadge";
+import Feed, { SkeletonFeed } from "../components/explore/Feed";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { Meta } from "../components/Meta";
 
 export default function Home() {

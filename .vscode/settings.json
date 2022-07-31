@@ -1,5 +1,8 @@
 {
     "cSpell.enableFiletypes": [
         "!javascript"
-    ]
+    ],
+    "javascript.validate.enable": true,
+    "editor.showUnused": true,
+
 }

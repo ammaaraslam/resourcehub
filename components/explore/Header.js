@@ -1,4 +1,3 @@
-import { OutlinedButton } from "../Buttons";
 import UserAuthButton from "../UserAuthButton";
 import { MdMenu } from "react-icons/md";
 

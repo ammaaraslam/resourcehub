@@ -1,14 +1,12 @@
-import Head from "next/head";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { OutlinedButton } from "../components/Buttons";
+import Feed, { SkeletonFeed } from "../components/explore/Feed";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Feed, { SkeletonFeed } from "../components/explore/Feed";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { OutlinedButton } from "../components/Buttons";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
 import { Meta } from "../components/Meta";
-
 export default function MyResources() {
   const [resources, setResources] = useState([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);

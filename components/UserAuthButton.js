@@ -3,6 +3,7 @@ import { OutlinedButton } from "./Buttons";
 import ThemeToggle from "./ThemeToggle";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const UserAuthButton = () => {
   const { data: session } = useSession();
@@ -36,7 +37,13 @@ const UserAuthButton = () => {
     <>
       {session && (
         <button className="w-10 h-10 rounded-full" onClick={togglingDropdown}>
-          <img src={session.user.image} className="rounded-full" />
+          <Image
+            src={session.user.image}
+            alt={`${session.user.name}'s avatar`}
+            height={10}
+            width={10}
+            style={{ borderRadius: "100%" }}
+          />
         </button>
       )}
       {session && dropdown && (

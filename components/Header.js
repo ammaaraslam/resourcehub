@@ -1,6 +1,5 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { OutlinedButton } from "./Buttons";
+import React, { useEffect, useState } from "react";
 import UserAuthButton from "./UserAuthButton";
 
 const Header = () => {

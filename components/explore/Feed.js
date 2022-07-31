@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
 import { ResourceCard, ResourceCardSkeleton } from "./ResourceCard";
 
 const FeedComponent = ({

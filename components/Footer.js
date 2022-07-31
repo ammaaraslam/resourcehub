@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { OutlinedButton } from "./Buttons";
 
 const Footer = () => {
   return (
