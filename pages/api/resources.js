@@ -33,7 +33,6 @@ async function resources(req, res) {
     });
     return res.status(200).json(allResources, { success: true });
   } catch (error) {
-    console.error("Request error", error);
     res
       .status(500)
       .json({ error: "Error reading from database", success: false });
@@ -59,7 +58,6 @@ async function addResource(req, res) {
     });
     return res.status(200).json(newEntry, { success: true });
   } catch (error) {
-    console.error("Request error", error);
     res.status(500).json({ error: "Error adding resource", success: false });
   }
 }
