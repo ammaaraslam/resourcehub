@@ -5,11 +5,13 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import Header from "../components/add/Header";
 import { OutlinedButton } from "../components/Buttons";
 import { Meta } from "../components/Meta";
+import { CgSpinner } from "react-icons/cg";
 export default function AddResource() {
   const [resourceTitle, setResourceTitle] = useState("");
   const [resourceCategory, setResourceCategory] = useState("Article");
   const [resourceLink, setResourceLink] = useState("");
   const [sourceTwitter, setSourceTwitter] = useState("");
+  const [addingResource, setAddingResource] = useState(false);
 
   const options = [
     "Article",
@@ -40,22 +42,26 @@ export default function AddResource() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+      setAddingResource(true);
       if (response.status !== 200) {
         //set an error banner here
       } else {
         resetForm();
         router.push("/explore");
+        setAddingResource(false);
         //set a success banner here
       }
       //check response, if success is false, dont take them to success page
     } catch (error) {
       return error;
+      setAddingResource(false);
+
     }
   };
 
   const resetForm = () => {
-    setResourceTitle("Article");
-    setResourceCategory("");
+    setResourceTitle("");
+    setResourceCategory("Article");
     setResourceLink("");
     setSourceTwitter("");
   };
@@ -143,7 +149,15 @@ export default function AddResource() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <OutlinedButton type="submit">Add Resource</OutlinedButton>
+                  {addingResource && (
+                    <OutlinedButton type="submit">
+                      Adding Resource{" "}
+                      <CgSpinner className="ml-2 mt-auto mb-auto animate-spin" />
+                    </OutlinedButton>
+                  )}
+                  {!addingResource && (
+                    <OutlinedButton type="submit">Add Resource</OutlinedButton>
+                  )}
                 </div>
               </form>
             </div>
