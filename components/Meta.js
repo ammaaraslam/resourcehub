@@ -10,7 +10,7 @@ export const Meta = ({ title, description }) => {
         content="Resources, Discover, Share, Articles, Developer Tools, APIs, Open Source, Roadmaps, Cheat Sheets, Online Platforms, Hackathons, Courses, Blogs, Books"
       />
       <meta name="author" content="Ammaar Aslam" />
-      <link rel="icon" href="/Logo.svg" />
+      <link rel="icon" href="/ResourceHubLogo.png" />
     </Head>
   );
 };

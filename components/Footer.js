@@ -1,12 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../public/ResourceHubLogo.png";
 
 const Footer = () => {
   return (
     <>
       <footer className="bottom-0 py-6 px-3 w-full h-fit bg-white md:flex block justify-between dark:bg-black  text-black dark:text-white border-t-2 border-black dark:border-white border-opacity-10 dark:border-opacity-10">
-        <div className="p-0 md:ml-8 md:mr-0 ml-auto mr-auto md:text-left text-center">
-          <span className="text-2xl font-bold">ResourceHub</span>
-          <p className="font-sf text-sm font-medium">
+        <div className="p-0 md:ml-3 md:mr-0 ml-auto mr-auto md:text-left text-center">
+          <Link href="/">
+            <div className="cursor-pointer text-center inline-flex items-center justify-center">
+              <Image src={logo} alt="ResourceHub Logo" width={45} height={45} />
+              <span className="text-2xl font-semibold ml-2 font-clash tracking-wider leading-loose">
+                ResourceHub
+              </span>
+            </div>
+          </Link>
+          <p className="font-sf ml-4 text-sm font-medium">
             Built with 💚 by{" "}
             <a
               href="https://twitter.com/itsammaar_7"
@@ -75,7 +84,7 @@ const Footer = () => {
           href="https://townhall.hashnode.com/planetscale-hackathon"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-green-500 hover:underline"
+          className="hover:text-green-500 hover:underline ml-1"
         >
           PlanetScale X Hashnode Hackathon
         </a>

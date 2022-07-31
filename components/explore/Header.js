@@ -1,5 +1,8 @@
 import UserAuthButton from "../UserAuthButton";
 import { MdMenu } from "react-icons/md";
+import Image from "next/image";
+import logo from "../../public/ResourceHubLogo.png";
+import Link from "next/link";
 
 const Header = ({ props }) => {
   const togglingOpenSidebar = () => props.setOpenSidebar(!props.openSidebar);
@@ -8,8 +11,15 @@ const Header = ({ props }) => {
       <button onClick={togglingOpenSidebar} className="ml-6 md:hidden block">
         <MdMenu className="mt-auto mb-auto" size={28} />
       </button>
-      <div className="ml-3 p-0 text-center inline-flex items-center justify-center">
-        <span className="text-2xl font-bold">ResourceHub</span>
+      <div className="md:ml-8 ml-0 p-0 text-center inline-flex items-center justify-center">
+        <Link href="/">
+          <div className=" cursor-pointer text-center inline-flex items-center justify-center">
+            <Image src={logo} alt="ResourceHub Logo" width={45} height={45} />
+            <span className="text-2xl font-semibold ml-2 font-clash tracking-wider leading-loose">
+              ResourceHub
+            </span>
+          </div>
+        </Link>
       </div>
 
       <div className="mr-8">
