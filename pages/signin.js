@@ -26,7 +26,7 @@ export default function SignIn({ providers }) {
                     handleOnClick={() =>
                       signIn(provider.id, {
                         redirect: true,
-                        callbackUrl: `${window.location.href}/explore`,
+                        callbackUrl: "/explore",
                       })
                     }
                     type="submit"
