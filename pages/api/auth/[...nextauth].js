@@ -7,7 +7,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 // pages/api/[...nextauth].js
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prisma from "lib/prisma";
+import prisma from "../../../lib/prisma";
 
 // Instantiate Prisma Client
 // pages/api/auth/[...nextauth].js

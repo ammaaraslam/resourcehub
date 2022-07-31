@@ -4,7 +4,7 @@ import Header from "../components/explore/Header";
 import Sidebar from "../components/explore/Sidebar";
 import ThemeToggle from "../components/ThemeToggle";
 import { useState, useEffect } from "react";
-import prisma from "lib/prisma";
+import prisma from "../lib/prisma";
 import { getSession } from "next-auth/react";
 
 export default function Explore({ resources }) {

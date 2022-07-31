@@ -5,7 +5,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import { MdExplore } from "react-icons/md";
 import Footer from "../components/Footer";
 import CategoryBadge from "../components/explore/CategoryBadge";
-import prisma from "lib/prisma";
+import prisma from "../lib/prisma";
 import Feed, { SkeletonFeed } from "../components/explore/Feed";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
