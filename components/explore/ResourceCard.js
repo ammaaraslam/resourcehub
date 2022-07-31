@@ -124,18 +124,18 @@ export const ResourceCard = ({
       )}
 
       {!imageLoading && (
-        <div className="mt-3 pb-4 w-full md:h-44 h-40 rounded-xl">
+        <div className="mt-3 w-full md:h-44 h-40 rounded-xl">
           <a href={resourceLink}>
             <img
               src={image()}
               alt={resourceLink}
-              className="rounded-xl pb-4 w-full h-full"
+              className="rounded-xl w-full h-full"
             />
           </a>
         </div>
       )}
       {sourceTwitter && (
-        <div className="mt-1 pb-2 mr-0 absolute right-3">
+        <div className="mt-4 pb-2 mr-0 absolute right-3">
           <span className="inline-flex font-semibold text-gray-600 text-sm">
             Author -{" "}
             <a
