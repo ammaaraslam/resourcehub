@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between md:mt-0 mt-3">
           <ul className="font-medium text-lg font-sf tracking-wider md:mr-16 mr-4 md:ml-0 ml-8">
-            <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl">
+            <li className="list-none text-darkBackground dark:text-background text-purple-600 my-1 transition-all duration-200 font-bold text-xl">
               Explore
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">
@@ -57,7 +57,7 @@ const Footer = () => {
             </li>
           </ul>
           <ul className="font-medium text-lg font-sf tracking-wider md:mr-16 mr-8">
-            <li className="list-none text-darkBackground dark:text-background text-purple-500 my-1 transition-all duration-200 font-bold text-xl ">
+            <li className="list-none text-darkBackground dark:text-background text-purple-600 my-1 transition-all duration-200 font-bold text-xl ">
               Community
             </li>
             <li className="list-none text-darkBackground dark:text-background opacity-80 hover:opacity-100 my-1 hover:underline transition-all duration-200">

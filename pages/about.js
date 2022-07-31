@@ -22,22 +22,22 @@ export default function About() {
             </h2>
             <p className="md:text-5xl text-4xl font-sf font-semibold mt-3 max-w-5xl tracking-wide leading-[1.15]">
               ResourceHub is platform for developers to{" "}
-              <span className="underline decoration-purple-400 italic">
+              <span className="underline decoration-purple-600 italic">
                 discover the best resources
               </span>{" "}
               and{" "}
-              <span className="underline decoration-purple-400 italic">
+              <span className="underline decoration-purple-600 italic">
                 share their favourite resources
               </span>
               .
             </p>
             <p className="md:text-3xl text-2xl font-sf font-semibold ml-auto mr-auto mt-8 max-w-3xl tracking-wide">
-              ✨<span className="text-purple-400 font-bold">Discover</span>{" "}
+              ✨<span className="text-purple-600 font-bold">Discover</span>{" "}
               resources without searching the entire internet and wasting your
               time.
             </p>
             <p className="md:text-3xl text-2xl font-sf font-semibold ml-auto mr-auto mt-3 max-w-3xl tracking-wide">
-              ✨<span className="text-purple-400 font-bold">Share</span>{" "}
+              ✨<span className="text-purple-600 font-bold">Share</span>{" "}
               resources that you find to be useful or share your own resources
               that you created.
             </p>

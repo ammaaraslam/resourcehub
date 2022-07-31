@@ -502,7 +502,7 @@ const SideBarButtonOutlined = ({ children, handleOnClick }) => {
       <button
         type="button"
         onClick={handleOnClick}
-        className="py-1 text-purple-500 text-base text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start border-2 border-purple-500 hover:bg-purple-500 hover:text-white dark:hover:text-black"
+        className="py-1 text-purple-600 text-base text-center transition-all ease-in-out duration-150 rounded-lg inline-flex items-center justify-start border-2 border-purple-600 hover:bg-purple-600 hover:text-white dark:hover:text-black"
       >
         {children}
       </button>
