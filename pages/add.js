@@ -30,6 +30,8 @@ export default function AddResource() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setAddingResource(true);
+
     const body = {
       resourceTitle,
       resourceCategory,
@@ -42,7 +44,6 @@ export default function AddResource() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      setAddingResource(true);
       if (response.status !== 200) {
         //set an error banner here
       } else {
@@ -54,7 +55,6 @@ export default function AddResource() {
       //check response, if success is false, dont take them to success page
     } catch (error) {
       return error;
-      setAddingResource(false);
     }
   };
 
