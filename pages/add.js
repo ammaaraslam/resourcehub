@@ -47,15 +47,14 @@ export default function AddResource() {
         //set an error banner here
       } else {
         resetForm();
-        router.push("/explore");
         setAddingResource(false);
+        router.push("/explore");
         //set a success banner here
       }
       //check response, if success is false, dont take them to success page
     } catch (error) {
       return error;
       setAddingResource(false);
-
     }
   };
 
