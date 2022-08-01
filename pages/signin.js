@@ -20,6 +20,9 @@ export default function SignIn({ providers }) {
           </h1>
           <div className="font-montserrat mt-5">
             <div className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10">
+              <h1 className="ml-auto mr-auto text-center text-montserrat md:text-3xl text-2xl font-bold ">
+                Sign In To ResourceHub With
+              </h1>
               {Object.values(providers).map((provider) => (
                 <div key={provider.name} className="text-center">
                   <OutlinedButton
@@ -31,7 +34,7 @@ export default function SignIn({ providers }) {
                     }
                     type="submit"
                   >
-                    Sign in with {provider.name}
+                    {provider.name}
                   </OutlinedButton>
                 </div>
               ))}
